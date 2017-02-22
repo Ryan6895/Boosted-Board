@@ -1,0 +1,59 @@
+.blogContainer {
+  display: flex;
+  width: 60%;
+  margin-left: 70px;
+  margin: auto;
+}
+.bloginfo {
+width: 100px;
+text-align: right;
+margin: 20px;
+font-family: 'Francois One', sans-serif;
+}
+.blogBody {
+width: 70%;
+}
+.blogfloat {
+  width: 300px;
+  position: absolute;
+  top: 20px;
+  right: 10vw;
+  font-size: 14px;
+}
+.parentContainer {
+  position: relative;
+  font-family: sans-serif;
+  padding-top: 30px;
+}
+.blogDay {
+  font-size: 60px;
+  margin: 0px;
+  line-height: 45px;
+}
+.blogMonth {
+  font-size: 16px;
+  margin: 0px;
+}
+.blogAuthor {
+  color: grey;
+  font-size: 14px;
+  margin: 0px;
+}
+.blogPosted {
+  color: grey;
+  font-size: 14px;
+  margin: 0px;
+}
+.blogTitle {
+  font-size: 35px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.blogDescription {
+  color: grey;
+}
+.blogRecent {
+  font-size: 20px;
+  color: grey;
+  font-family: 'Francois One', sans-serif;
+}

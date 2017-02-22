@@ -1,0 +1,36 @@
+#itemContainer {
+  display: flex;
+  margin: auto;
+  width: 80%;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+.itemInfoContainer {
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 80px;
+  width: 40%
+}
+.samesizePic {
+  background-color: white;
+  width: 460px;
+  border-radius: 6px;
+  transition: .25s;
+}
+.itemPic {
+  height: 345px;
+  border-radius: 6px;
+}
+.noMargin {
+  margin-left: 0px;
+}
+.itemTitle {
+font-size: 34px;
+font-family: 'Francois One', sans-serif;
+letter-spacing: 1.4px;
+line-height: 2px;
+}
+.itemPrice {
+  font-size: 20px;
+  font-family: 'Francois One', sans-serif;
+  letter-spacing: 1.4px;
+}

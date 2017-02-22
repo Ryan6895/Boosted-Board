@@ -1,0 +1,21 @@
+.helpContainer {
+background: url('../../img/theBoard/team.JPG') no-repeat center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+background-size: cover;
+height: 900px;
+}
+#blackButton {
+  background-color: black;
+  color: white;
+}
+#blackButton:hover {
+  background-color: grey;
+}
+.helpContent {
+  width: 400px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin: auto;
+  padding-top: 100px;
+}

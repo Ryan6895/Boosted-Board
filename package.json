@@ -1,0 +1,36 @@
+{
+  "name": "personalproject",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "angular-slick": "0.0.0",
+    "body-parser": "^1.16.1",
+    "cors": "^2.8.1",
+    "express": "^4.14.1",
+    "express-session": "^1.15.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.0.1",
+    "massive": "^2.6.0",
+    "passport": "^0.3.2",
+    "passport-auth0": "^0.6.0",
+    "stripe": "^4.15.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ryan6895/Personal-Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ryan6895/Personal-Project/issues"
+  },
+  "homepage": "https://github.com/Ryan6895/Personal-Project#readme",
+  "description": ""
+}

@@ -1,0 +1,1204 @@
+.footerContainer {
+  clear: both; }
+
+.footerTitle {
+  font-weight: bold;
+  color: #545454;
+  margin-bottom: 8px;
+  font-family: 'Montserrat', sans-serif; }
+
+.blackButton {
+  background-color: black;
+  color: white;
+  width: auto;
+  margin-left: 20px; }
+
+.newsletter {
+  background-color: #F6F6F6;
+  border-radius: 4px;
+  height: 42px;
+  width: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 18px; }
+
+.footerIcon {
+  width: 40px;
+  margin-right: 18px;
+  margin-left: 18px; }
+
+.spacingfooter {
+  margin-bottom: 8px;
+  margin-left: 20px; }
+
+.inputInfoFooter {
+  display: flex;
+  flex-direction: column;
+  height: 130px; }
+
+#subscribeButton {
+  padding: 0px;
+  margin: 0px;
+  margin-top: 14px;
+  width: auto;
+  margin-left: 20px;
+  margin-right: 20px; }
+
+.footerlinks {
+  color: grey;
+  font-weight: 100;
+  font-family: sans-serif;
+  font-size: 14px;
+  margin-top: 15px; }
+
+.footerSocial {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+
+@media (min-width: 1200px) {
+  .footerContainer {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-around; }
+  .footerSocial {
+    float: right;
+    margin-bottom: 30px;
+    margin-right: 100px; }
+  .inputInfoFooter {
+    width: 465px; } }
+
+.guaranteeContainer {
+  height: 540px;
+  background: url(../../img/homePage/blueMap.JPG) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover; }
+
+.guaranteeInfo {
+  padding-top: 200px;
+  text-align: center;
+  color: white;
+  font-family: sans-serif; }
+
+.guaranteeTitle {
+  font-size: 40px; }
+
+.guaranteeDesc {
+  max-width: 580px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 35px; }
+
+.threeGuarantee {
+  display: flex;
+  justify-content: space-around;
+  background-color: #F8F8F8;
+  font-family: 'Montserrat', sans-serif;
+  color: grey;
+  padding-left: 15%;
+  padding-right: 15%;
+  width: 70%;
+  padding-bottom: 20px;
+  padding-top: 20px; }
+
+.sectionGTitle {
+  font-weight: bold;
+  font-size: 20px;
+  color: black; }
+
+.guaranteeSection {
+  text-align: center;
+  width: 230px; }
+
+.hrlines {
+  border-left: solid grey 1px;
+  margin: 18px; }
+
+.helpContainer {
+  background: url("../../img/theBoard/team.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 900px; }
+
+#blackButton {
+  background-color: black;
+  color: white; }
+
+#blackButton:hover {
+  background-color: grey; }
+
+.helpContent {
+  width: 400px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin: auto;
+  padding-top: 100px; }
+
+body {
+  margin: 0px;
+  padding: 0px; }
+
+.navBar {
+  width: 1170px;
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: -1px -5px 13px #e5e5e5;
+  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Montserrat', sans-serif;
+  transition: .25s; }
+
+.navLogo {
+  width: 160px;
+  margin-left: 15px;
+  padding-right: 25px;
+  border-right: solid #DBE2E5 1px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  transition: .25s; }
+
+.navLogo:hover {
+  opacity: .5; }
+
+.photo {
+  width: 100%; }
+
+.navPages {
+  height: 65px;
+  display: flex;
+  font-weight: bold;
+  width: 660px;
+  margin-left: 20px; }
+
+.navLinks {
+  font-weight: bold;
+  font-size: 12px;
+  color: gray;
+  padding: 20px;
+  height: 18px;
+  margin-left: 18px;
+  border-bottom: white solid 2px;
+  margin-top: 5px;
+  transition: .15s; }
+
+.navLinks:hover {
+  border-color: black;
+  color: black; }
+
+.order {
+  display: flex;
+  font-weight: bold;
+  height: 65px;
+  align-items: center; }
+
+.cartPhoto {
+  width: 26px;
+  margin-top: 25px;
+  padding-left: 15px;
+  opacity: .5;
+  height: 37px;
+  margin-right: 65px;
+  border-bottom: solid white 2px;
+  padding-right: 15px;
+  transition: .25s; }
+
+.cartPhoto:hover {
+  border-color: black;
+  opacity: 1; }
+
+#reserveButton {
+  border-color: #FC6E4B;
+  color: #FC6E4B;
+  height: 44px;
+  margin-right: 65px;
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: #fff;
+  font-weight: bold;
+  border-style: solid;
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 135px;
+  transition: .25s; }
+
+#reserveButton:hover {
+  color: white;
+  background-color: #FC6E4B; }
+
+.navDrop {
+  display: none;
+  width: 30px;
+  margin-right: 30px; }
+
+.navDropDown {
+  width: 100%;
+  height: 0px;
+  background-color: white;
+  list-style-type: none;
+  position: absolute;
+  top: 65px;
+  overflow: hidden;
+  display: none;
+  transition: .5s;
+  z-index: 5; }
+
+.navDropHeight {
+  height: 212px; }
+
+.navDropDown li {
+  list-style-type: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  color: gray;
+  padding-bottom: 14px;
+  margin-bottom: 13px;
+  border-bottom: white solid 2px; }
+
+.navDropDown li:hover {
+  border-color: black; }
+
+@media only screen and (max-width: 1200px) {
+  .navBar {
+    width: 970px; }
+  .navPages {
+    width: 500px; }
+  #reserveButton {
+    margin-right: 40px; }
+  .cartPhoto {
+    margin-right: 15px;
+    padding-left: 15px; }
+  .navLength {
+    width: 80px; }
+  .navLinks {
+    margin-left: 12px; } }
+
+@media only screen and (max-width: 992px) {
+  .navBar {
+    width: 750px; }
+  #reserveButton {
+    display: none; }
+  .cartPhoto {
+    padding-left: 10px;
+    padding-left: 10px; }
+  .navLength {
+    width: 75px; }
+  .navLinks {
+    letter-spacing: -.75px; } }
+
+@media only screen and (max-width: 768px) {
+  .navBar {
+    width: 100%;
+    margin-top: 0px; }
+  .navPages {
+    display: none; }
+  .order {
+    display: none; }
+  .navLogo {
+    border-right: solid #fff 1px; }
+  .navDrop {
+    display: block; }
+  .navDropDown {
+    display: block; } }
+
+.photo {
+  width: 100%; }
+
+.boardCover {
+  background: url("../../img/theBoard/alleyRide.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 675px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif; }
+
+.coverContent {
+  color: white;
+  margin-right: 30%; }
+
+.boardTitle {
+  font-size: 40px;
+  text-align: left; }
+
+.boardDesc {
+  text-align: left;
+  width: 512px; }
+
+.boardButtonContainer {
+  margin-left: -10px;
+  width: 405px; }
+
+.orangeButton {
+  background-color: #FC6E4B;
+  color: white; }
+
+.videoPopup {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%); }
+
+.darkBackground {
+  background-color: black;
+  opacity: 0.75;
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0; }
+
+.rightBoardInfo {
+  width: 50%;
+  float: right;
+  height: 750px;
+  background-color: white; }
+
+.needsSpacing {
+  margin-left: 50px; }
+
+.photoHeightBoard {
+  height: 750px;
+  overflow: hidden; }
+
+.leftBoardPic {
+  width: 50%;
+  float: left;
+  height: 750px; }
+
+.milageChart {
+  width: 435px; }
+
+.black {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold; }
+
+.blackweightnorm {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  color: gray;
+  max-width: 500px;
+  font-size: 14px; }
+
+.boardspecs {
+  width: 40px;
+  margin-right: 20px; }
+
+.inline {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px; }
+
+.milageChart {
+  position: relative; }
+
+.orangeLine {
+  position: absolute;
+  border-radius: 4px;
+  top: 10px;
+  left: 5px;
+  padding-left: 5px;
+  height: 28px;
+  color: white;
+  width: 0;
+  overflow: hidden;
+  transition: 0.5s; }
+
+.blueLine {
+  position: absolute;
+  border-radius: 4px;
+  top: 45px;
+  color: white;
+  left: 5px;
+  width: 0;
+  overflow: hidden;
+  padding-left: 5px;
+  height: 28px;
+  transition: 0.5s; }
+
+.expandOrange {
+  width: 417px;
+  background: linear-gradient(to right, #feccb1 0%, #fb955e 0%, #f17432 53%, #f17432 53%, #ef4507 100%); }
+
+.expandBlue {
+  width: 206px;
+  background: linear-gradient(to right, #7db9e8 0%, #207cca 0%, #207cca 0%, #2989d8 0%, #2247ad 100%); }
+
+.mileageText {
+  display: none;
+  padding-top: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.75px; }
+
+.uphillBoard {
+  background: url("../../img/theBoard/uphillClimb.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 900px;
+  clear: both;
+  position: relative;
+  margin-bottom: 600px; }
+
+.breeze {
+  background-color: white;
+  position: absolute;
+  bottom: -270px;
+  width: 900px;
+  height: 460px;
+  padding-top: 60px; }
+
+.breezeTitle {
+  font-size: 34px;
+  margin-left: 190px;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.breezeDesc {
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 190px;
+  margin-right: 200px;
+  color: grey; }
+
+.inlineContainer {
+  margin-left: 190px;
+  margin-top: 30px; }
+
+.breezeBelt {
+  margin-left: 190px;
+  margin-top: 85px;
+  position: absolute;
+  bottom: -454px;
+  left: 0px;
+  width: 700px; }
+
+.beltTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 18px; }
+
+.beltDesc {
+  color: grey;
+  font-family: 'Montserrat', sans-serif;
+  margin-right: 40px;
+  z-index: 3; }
+
+.motorPhoto {
+  width: 763px;
+  position: absolute;
+  bottom: -510px;
+  right: 0px;
+  z-index: -1; }
+
+.remoteCover {
+  background: url("../../img/theBoard/remote.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 600px;
+  font-family: 'Montserrat', sans-serif; }
+
+.remoteContent {
+  margin-left: 650px;
+  margin-right: 275px;
+  padding-top: 75px;
+  color: white; }
+
+.titleSize {
+  font-size: 35px; }
+
+.bottomSpacing {
+  margin-bottom: 20px; }
+
+.slickTitle {
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif; }
+
+.slickHeadline {
+  font-family: 'Montserrat', sans-serif;
+  color: grey;
+  font-size: 16px; }
+
+.slickPhoto {
+  width: 500px;
+  margin: auto; }
+
+.boardCarousel {
+  margin-top: 100px;
+  margin-bottom: 100px; }
+
+.worryLessContainer {
+  background: url("../../img/theBoard/coolWall.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 900px;
+  position: relative;
+  margin-bottom: 300px; }
+
+
+.blogContainer {
+  display: flex;
+  width: 60%;
+  margin-left: 70px;
+  margin: auto; }
+
+.bloginfo {
+  width: 100px;
+  text-align: right;
+  margin: 20px;
+  font-family: 'Francois One', sans-serif; }
+
+.blogBody {
+  width: 70%; }
+
+.blogfloat {
+  width: 300px;
+  position: absolute;
+  top: 20px;
+  right: 10vw;
+  font-size: 14px; }
+
+.parentContainer {
+  position: relative;
+  font-family: sans-serif;
+  padding-top: 30px; }
+
+.blogDay {
+  font-size: 60px;
+  margin: 0px;
+  line-height: 45px; }
+
+.blogMonth {
+  font-size: 16px;
+  margin: 0px; }
+
+.blogAuthor {
+  color: grey;
+  font-size: 14px;
+  margin: 0px; }
+
+.blogPosted {
+  color: grey;
+  font-size: 14px;
+  margin: 0px; }
+
+.blogTitle {
+  font-size: 35px;
+  margin-bottom: 0px;
+  margin-top: 0px; }
+
+.blogDescription {
+  color: grey; }
+
+.blogRecent {
+  font-size: 20px;
+  color: grey;
+  font-family: 'Francois One', sans-serif; }
+
+.homeCover {
+  background: url("../../img/homePage/coverPhoto.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 940px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
+
+.homeCoverInfo {
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+  transform: scale(0.8); }
+
+.fadeIn {
+  opacity: 1;
+  transform: scale(1) translateY(-40px); }
+
+.fadeOut {
+  opacity: 0;
+  transform: scale(0.8) translateY(40px); }
+
+.homeCoverTitle {
+  color: white;
+  font-size: 85px;
+  font-family: 'Francois One', sans-serif;
+  line-height: 1;
+  margin: 60px; }
+
+.homeCoverDesc {
+  color: white;
+  font-family: 'Francois One', sans-serif;
+  font-size: 24px;
+  width: 490px;
+  margin: auto auto 30px;
+  letter-spacing: 1.35px; }
+
+.orangeButton {
+  border-color: #FC6E4B;
+  color: #fff;
+  height: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: #F0532D;
+  font-weight: bold;
+  border-style: solid;
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 180px;
+  transition: 0.25s; }
+
+.orangeButton:hover {
+  background-color: #FC6E4B; }
+
+.whiteButton {
+  border-color: #fff;
+  height: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-width: 1px;
+  border-radius: 4px;
+  font-weight: bold;
+  border-style: solid;
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 180px;
+  transition: 0.25s; }
+
+.whiteButtonColor {
+  background-color: white;
+  color: gray; }
+
+.whiteButton:hover {
+  background-color: #ececec;
+  border: #d6d7d8 solid 1px; }
+
+.reserveFooter {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  height: 35px;
+  width: 100%;
+  background-color: #F0532D;
+  color: white;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 20px;
+  font-size: 14px; }
+
+.homeOrangeMap {
+  height: 195px;
+  width: 100%;
+  background: url("../../img/homePage/orangeBar.PNG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  font-size: 20px; }
+
+.orangeMapInfo p {
+  margin: 5px; }
+
+.homeGrayMap {
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  height: 645px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  transition: 0.25s; }
+
+.homeGrayImg {
+  background: url("../../img/homePage/grayMap.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 645px; }
+
+.homeGrayContainer {
+  padding-top: 40px;
+  margin-left: 155px;
+  transition: all 0.25s ease-in-out; }
+
+.homeGrayTitle {
+  font-size: 40px;
+  margin-bottom: 10px; }
+
+.homeGrayInfo {
+  width: 566px; }
+
+#blueButton {
+  background-color: #57ACCD;
+  font-size: 15px;
+  color: #fff;
+  border-color: #57ACCD;
+  margin-left: 0; }
+
+#blueButton:hover {
+  background-color: #88CCE6; }
+
+.homeHillContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center; }
+
+.hillImg {
+  width: calc(100% / 2);
+  height: 600px; }
+
+.heightFix {
+  height: 600px;
+  width: 850px;
+  overflow-x: hidden; }
+
+.hillInfo {
+  width: calc(100% / 2);
+  font-family: 'Montserrat', sans-serif;
+  background-color: white; }
+
+.homeHillTitle {
+  font-size: 28px;
+  font-weight: bold;
+  padding-top: 45px;
+  padding-left: 80px; }
+
+.homeHillContent {
+  color: gray;
+  max-width: 500px;
+  padding-left: 80px; }
+
+.iconInfo {
+  width: 38px;
+  padding-right: 20px; }
+
+.tableInfo {
+  height: 50px; }
+
+.hillTableInfo {
+  text-align: left;
+  margin-left: 80px;
+  color: #383838; }
+
+.homeWeightSection {
+  background: url("../../img/homePage/streetStep.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 665px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-size: 33px;
+  font-family: 'Montserrat', sans-serif; }
+
+.photoHeight {
+  height: 100%; }
+
+.homeBoardSplitInfo {
+  display: flex;
+  height: 33vw; }
+
+.homeSplitContent {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  width: 84%; }
+
+.homeSplitTitle {
+  font-size: 33px;
+  line-height: 60px; }
+
+.homePalm {
+  width: calc(100% / 2);
+  position: relative; }
+
+.homeDurable {
+  width: calc(100% / 2);
+  position: relative; }
+
+.homeBoardInfo {
+  display: flex;
+  padding-top: 50px;
+  font-family: 'Montserrat', sans-serif;
+  justify-content: center;
+  background-color: #F8F8F8; }
+
+.leftHomeBoardInfo {
+  text-align: right; }
+  .leftHomeBoardInfo .infoIcon {
+    margin-left: auto; }
+
+.centerHomeBoardInfo {
+  position: relative; }
+
+.homeInfoPhoto {
+  width: 260px;
+  margin-left: 50%;
+  margin-right: 50%;
+  transform: translate(-48%, 0%);
+  transition: 0.25s; }
+
+.homeInfoContainer {
+  height: 270px;
+  max-width: 294px; }
+
+.boardInfoTitle {
+  font-weight: bold;
+  color: #656565; }
+
+.boardInfoDesc {
+  color: #A7A7A7;
+  font-size: 14px; }
+
+.buttonContainer {
+  display: flex;
+  padding-bottom: 100px; }
+
+.shortButton {
+  height: 50px; }
+
+.blueButton {
+  color: white;
+  background-color: #57ACCD; }
+
+.minihomeBoardInfo {
+  display: none; }
+
+.miniInfoRight {
+  display: none; }
+
+.infoIcon {
+  width: 40px; }
+
+.carouselphotos {
+  width: 200px; }
+
+.title {
+  font-size: 18px; }
+
+.Large {
+  display: flex; }
+
+.Small {
+  display: none; }
+
+table td {
+  border: solid 1px red; }
+
+li {
+  list-style-type: none; }
+
+@media (max-width: 992px) {
+  .reserveFooter {
+    display: initial; }
+  .homeCover {
+    position: absolute;
+    left: 0;
+    background-position-x: -285px;
+    justify-content: flex-start;
+    height: 800px; }
+  .homeCoverTitle {
+    text-align: left;
+    padding-left: 20px;
+    font-size: 60px;
+    margin: 0; }
+  .homeCoverDesc {
+    font-size: 20px;
+    width: 94%;
+    text-align: left; }
+  .orangeButton {
+    display: none; }
+  .homeOrangeMap {
+    position: absolute;
+    top: 865px; }
+  .homeGrayMap {
+    position: absolute;
+    top: 1060px; }
+  .homeHillContainer {
+    position: absolute;
+    top: 1705px;
+    display: block;
+    width: 100%; }
+  .hillImg {
+    width: 100%; }
+  .hillInfo {
+    width: 100%; }
+  .homeHillContent {
+    width: 80%;
+    max-width: none; }
+  .heightFix {
+    height: auto;
+    width: 100%;
+    overflow-y: hidden; }
+  .hillImg {
+    height: auto; }
+  .homeHillContent {
+    padding-left: 20px;
+    padding-right: 10px;
+    font-size: 14px; }
+  .homeHillTitle {
+    padding-left: 20px; }
+  .hillTableInfo {
+    margin-left: 20px;
+    font-size: 12px; }
+  .homeWeightSection {
+    position: absolute; }
+  .homeBoardSplitInfo {
+    display: block;
+    position: absolute;
+    top: 665px;
+    font-size: 16px; }
+  .homePalm {
+    width: 100%;
+    height: 60vw; }
+  .homeDurable {
+    width: 100%; }
+  .homeSplitContent {
+    transform: translate(50%, 0%);
+    font-size: 12px; }
+  .homeBoardInfo {
+    position: absolute;
+    top: 3728px;
+    width: 100%;
+    padding-bottom: 20px; }
+  .leftHomeBoardInfo {
+    display: none; }
+  .rightHomeBoardInfo {
+    display: none; }
+  .miniHomeBoardInfo {
+    display: inherit;
+    position: absolute;
+    top: 0px; }
+  .homeInfoPhoto {
+    margin-left: 20%;
+    width: 180px; }
+  .miniInfoRight {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    height: 500px;
+    display: inline; }
+  .miniIcon {
+    width: 38px; }
+  .Small {
+    display: flex; }
+  .SmallSplit {
+    display: block; }
+  .Large {
+    display: none; } }
+
+@media (max-width: 768px) {
+  .homeOrangeMap {
+    font-size: 17px; }
+  .homeGrayContainer {
+    margin-left: 20px; }
+  .homeGrayInfo {
+    width: 80%; }
+  .homeGrayImg {
+    background-position-x: -800px; }
+  .homeSplitTitle {
+    font-size: 18px;
+    line-height: 40px; }
+  .homePalm {
+    overflow: hidden;
+    min-width: 300px;
+    min-height: 300px; }
+  .homeDurable {
+    overflow-x: hidden; }
+  .photoHeight {
+    min-width: 300px;
+    min-height: 300px; } }
+
+#itemContainer {
+  display: flex;
+  margin: auto;
+  width: 80%;
+  padding-top: 200px;
+  padding-bottom: 200px; }
+
+.itemInfoContainer {
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 80px;
+  width: 40%; }
+
+.samesizePic {
+  background-color: white;
+  width: 460px;
+  border-radius: 6px;
+  transition: .25s; }
+
+.itemPic {
+  height: 345px;
+  border-radius: 6px; }
+
+.noMargin {
+  margin-left: 0px; }
+
+.itemTitle {
+  font-size: 34px;
+  font-family: 'Francois One', sans-serif;
+  letter-spacing: 1.4px;
+  line-height: 2px; }
+
+.itemPrice {
+  font-size: 20px;
+  font-family: 'Francois One', sans-serif;
+  letter-spacing: 1.4px; }
+
+
+
+#test {
+  background-color: #EFEFEF; }
+
+.storeCoverPhoto {
+  background: url("../../img/store/holdingBoard.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 400px; }
+
+.coverPhotoContainer {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 325px;
+  padding-top: 80px; }
+
+.storeTitle {
+  font-size: 34px; }
+
+.storeDesc {
+  letter-spacing: 1.4px;
+  width: 600px; }
+
+.genContain {
+  display: flex;
+  margin: auto;
+  margin-top: 40px;
+  justify-content: space-around;
+  width: 80%; }
+
+.darken {
+  position: relative;
+  color: white; }
+
+.genContainer2 {
+  width: 550px;
+  height: 300px;
+  background: url("../../img/store/boardandRemote.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  border-radius: 6px;
+  color: white;
+  transition: .25s;
+  margin-right: 5px; }
+
+.genContainer2:hover {
+  filter: brightness(40%); }
+
+.genContainer1 {
+  width: 550px;
+  height: 300px;
+  background: url("../../img/store/image.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  border-radius: 4px;
+  color: white;
+  transition: .25s;
+  margin-left: 5px; }
+
+.genContainer1:hover {
+  filter: brightness(40%); }
+
+.genContent {
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  transform: translate(50%, -50%);
+  top: 50%;
+  right: 50%;
+  text-align: center; }
+
+.storeminiTitle {
+  font-size: 22px; }
+
+.linespacing {
+  margin: 10px; }
+
+.shopSize {
+  font-size: 15px; }
+
+.GenStuff {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif; }
+
+.individualItems {
+  margin: 20px; }
+
+.samesizePhoto {
+  background-color: white;
+  width: 370px;
+  border-radius: 6px;
+  transition: .25s; }
+
+.samesizePhoto:hover {
+  filter: brightness(40%); }
+
+.itemPhotos {
+  height: 245px;
+  border-radius: 6px; }
+
+.GenCategories {
+  padding-top: 60px;
+  padding-left: 20px;
+  width: 80%;
+  margin: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px; }

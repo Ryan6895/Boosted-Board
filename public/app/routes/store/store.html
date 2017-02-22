@@ -1,0 +1,52 @@
+<div id='test'>
+    <div class="storeCoverPhoto">
+        <div class="coverPhotoContainer">
+            <p class="storeTitle">2nd Gen Boosted Board</p>
+            <p class="storeDesc">Increase your door-to-door speed with this powerful electric skateboard</p>
+            <button type="button" class='orangeButton' name="button">RESERVE NOW</button>
+        </div>
+    </div>
+    <div class="genContain">
+        <div class="darken">
+            <a ng-click='gotoAnchor("2ndGen")'><div class="genContainer2">
+            </div></a>
+            <div class="genContent">
+                <p class="storeminiTitle">2nd Gen Accessories</p>
+                <hr class="linespacing">
+                <p class="shopSize">Shop Now &#x227B;</p>
+            </div>
+        </div>
+        <div class="darken">
+            <a ng-click='gotoAnchor("1stGen")'><div class="genContainer2">
+            </div></a>
+            <div class="genContent">
+                <p class="storeminiTitle">1st Gen Accessories</p>
+                <hr class="linespacing">
+                <p class="shopSize">Shop Now &#x227B;</p>
+            </div>
+        </div>
+    </div>
+    <section>
+      <div class="GenCategories">
+        <a id='2ndGen'></a>2nd Gen Accessories
+      </div>
+        <div class="GenStuff">
+            <div class='individualItems' ng-repeat='item in Items2'>
+                <span ui-sref='item({id: item.itemid})'><div class="samesizePhoto"><img class='itemPhotos' ng-src="../../img/store/{{item.image}}"></div></span>
+                <p>{{item.itemname}}</p>
+                <p>{{item.price | currency}}</p>
+            </div>
+        </div>
+
+        <div class="GenCategories">
+          <a id='1stGen'></a>1st Gen Accessories
+        </div>
+        <div class="GenStuff">
+            <div class='individualItems' ng-repeat='item in Items1'>
+                <span ui-sref='item({id: item.itemid})'><div class="samesizePhoto"><img class='itemPhotos' ng-src="../../img/store/{{item.image}}"></div></span>
+                <p>{{item.itemname}}</p>
+                <p>{{item.price | currency}}</p>
+            </div>
+        </div>
+    </section>
+</div>

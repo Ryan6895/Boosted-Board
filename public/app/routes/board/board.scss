@@ -1,0 +1,280 @@
+$orange: #FC6E4B;
+
+.photo {
+    width: 100%;
+}
+
+.boardCover {
+    background: url('../../img/theBoard/alleyRide.JPG') no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    height: 675px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.coverContent {
+    color: white;
+    margin-right: 30%;
+}
+
+.boardTitle {
+    font-size: 40px;
+    text-align: left;
+}
+
+.boardDesc {
+    text-align: left;
+    width: 512px;
+}
+
+.boardButtonContainer {
+    margin-left: -10px;
+    width: 405px;
+}
+
+.orangeButton {
+    background-color: $orange;
+    color: white;
+}
+//video section
+
+.videoPopup {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
+.darkBackground {
+    background-color: black;
+    opacity: 0.75;
+    z-index: 5;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+}
+//mileage section
+
+.rightBoardInfo {
+    width: 50%;
+    float: right;
+    height: 750px;
+    background-color: white;
+}
+
+.needsSpacing {
+    margin-left: 50px;
+}
+
+.photoHeightBoard {
+    height: 750px;
+    overflow: hidden;
+}
+
+.leftBoardPic {
+    width: 50%;
+    float: left;
+    height: 750px;
+}
+
+.milageChart {
+    width: 435px;
+}
+
+.black {
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.blackweightnorm {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    color: gray;
+    max-width: 500px;
+    font-size: 14px;
+}
+
+.boardspecs {
+    width: 40px;
+    margin-right: 20px;
+}
+
+.inline {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.milageChart {
+    position: relative;
+}
+
+.orangeLine {
+    position: absolute;
+    border-radius: 4px;
+    top: 10px;
+    left: 5px;
+    padding-left: 5px;
+    height: 28px;
+    color: white;
+    width: 0;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.blueLine {
+    position: absolute;
+    border-radius: 4px;
+    top: 45px;
+    color: white;
+    left: 5px;
+    width: 0;
+    overflow: hidden;
+    padding-left: 5px;
+    height: 28px;
+    transition: 0.5s;
+}
+
+.expandOrange {
+    width: 417px;
+    background: linear-gradient(to right, #feccb1 0%,#fb955e 0%,#f17432 53%,#f17432 53%,#ef4507 100%);
+}
+
+.expandBlue {
+    width: 206px;
+    background: linear-gradient(to right, #7db9e8 0%,#207cca 0%,#207cca 0%,#2989d8 0%,#2247ad 100%);
+}
+
+.mileageText {
+    display: none;
+    padding-top: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.75px;
+}
+//uphill pic section
+
+.uphillBoard {
+    background: url('../../img/theBoard/uphillClimb.JPG') no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    height: 900px;
+    clear: both;
+    position: relative;
+    margin-bottom: 600px;
+}
+
+.breeze {
+    background-color: white;
+    position: absolute;
+    bottom: -270px;
+    width: 900px;
+    height: 460px;
+    padding-top: 60px;
+}
+
+.breezeTitle {
+    font-size: 34px;
+    margin-left: 190px;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.breezeDesc {
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 190px;
+    margin-right: 200px;
+    color: grey;
+}
+
+.inlineContainer {
+    margin-left: 190px;
+    margin-top: 30px;
+}
+.breezeBelt {
+    margin-left: 190px;
+    margin-top: 85px;
+    position: absolute;
+    bottom: -454px;
+    left: 0px;
+    width: 700px;
+}
+.beltTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+.beltDesc {
+  color: grey;
+  font-family: 'Montserrat', sans-serif;
+  margin-right: 40px;
+  z-index: 3;
+}
+.motorPhoto {
+  width: 763px;
+    position: absolute;
+    bottom: -510px;
+    right: 0px;
+    z-index: -1;
+}
+//remote section
+.remoteCover {
+  background: url('../../img/theBoard/remote.JPG') no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 600px;
+  font-family: 'Montserrat', sans-serif;
+}
+.remoteContent {
+  margin-left: 650px;
+margin-right: 275px;
+padding-top: 75px;
+color: white;
+}
+.titleSize {
+  font-size: 35px;
+}
+.bottomSpacing {
+  margin-bottom: 20px;
+}
+.slickTitle {
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+}
+.slickHeadline {
+  font-family: 'Montserrat', sans-serif;
+  color: grey;
+  font-size: 16px;
+}
+.slickPhoto {
+  width: 500px;
+  margin: auto;
+}
+.boardCarousel {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+//worry less
+.worryLessContainer {
+background: url('../../img/theBoard/coolWall.JPG') no-repeat center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+background-size: cover;
+height: 900px;
+position: relative;
+margin-bottom: 300px;
+}

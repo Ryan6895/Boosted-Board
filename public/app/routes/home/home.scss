@@ -1,0 +1,547 @@
+$orangeHover: #FC6E4B;
+$orange: #F0532D;
+$bluehover: #88CCE6;
+$blue: #57ACCD;
+
+.homeCover {
+    background: url('../../img/homePage/coverPhoto.JPG') no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    height: 940px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.homeCoverInfo {
+    opacity: 0;
+    transition: all 0.25s ease-in-out;
+    transform: scale(.8);
+}
+
+.fadeIn {
+    opacity: 1;
+    transform: scale(1) translateY(-40px);
+}
+.fadeOut {
+  opacity: 0;
+  transform: scale(.8) translateY(40px);
+}
+.homeCoverTitle {
+    color: white;
+    font-size: 85px;
+    font-family: 'Francois One', sans-serif;
+    line-height: 1;
+    margin: 60px;
+}
+
+.homeCoverDesc {
+    color: white;
+    font-family: 'Francois One', sans-serif;
+    font-size: 24px;
+    width: 490px;
+    margin: auto auto 30px;
+    letter-spacing: 1.35px;
+}
+
+.orangeButton {
+    border-color: #FC6E4B;
+    color: #fff;
+    height: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-width: 1px;
+    border-radius: 4px;
+    background-color: $orange;
+    font-weight: bold;
+    border-style: solid;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 180px;
+    transition: 0.25s;
+}
+
+.orangeButton:hover {
+    background-color: $orangeHover;
+}
+
+.whiteButton {
+    border-color: #fff;
+    height: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-width: 1px;
+    border-radius: 4px;
+    font-weight: bold;
+    border-style: solid;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 180px;
+    transition: 0.25s;
+}
+.whiteButtonColor {
+  background-color: white;
+  color: gray;
+}
+.whiteButton:hover {
+    background-color: #ececec;
+    border: #d6d7d8 solid 1px;
+}
+
+.reserveFooter {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    height: 35px;
+    width: 100%;
+    background-color: $orange;
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+.homeOrangeMap {
+    height: 195px;
+    width: 100%;
+    background: url('../../img/homePage/orangeBar.PNG') no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 20px;
+}
+
+.orangeMapInfo p {
+    margin: 5px;
+}
+
+.homeGrayMap {
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    height: 645px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    transition: 0.25s;
+}
+
+.homeGrayImg {
+    background: url('../../img/homePage/grayMap.JPG') no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 645px;
+}
+
+.homeGrayContainer {
+    padding-top: 40px;
+    margin-left: 155px;
+    transition: all 0.25s ease-in-out;
+}
+
+.homeGrayTitle {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.homeGrayInfo {
+    width: 566px;
+}
+
+#blueButton {
+    background-color: $blue;
+    font-size: 15px;
+    color: #fff;
+    border-color: $blue;
+    margin-left: 0;
+}
+
+#blueButton:hover {
+    background-color: $bluehover;
+}
+//uphill Styling
+
+.homeHillContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.hillImg {
+    width: calc(100% / 2);
+    height: 600px;
+}
+
+.heightFix {
+    height: 600px;
+    width: 850px;
+    overflow-x: hidden;
+}
+
+.hillInfo {
+    width: calc(100% / 2);
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+}
+
+.homeHillTitle {
+    font-size: 28px;
+    font-weight: bold;
+    padding-top: 45px;
+    padding-left: 80px;
+}
+
+.homeHillContent {
+    color: gray;
+    max-width: 500px;
+    padding-left: 80px;
+}
+
+.iconInfo {
+    width: 38px;
+    padding-right: 20px;
+}
+
+.tableInfo {
+    height: 50px;
+}
+
+.hillTableInfo {
+    text-align: left;
+    margin-left: 80px;
+    color: #383838;
+}
+
+.homeWeightSection {
+    background: url('../../img/homePage/streetStep.JPG') no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 665px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 33px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.photoHeight {
+    height: 100%;
+}
+
+.homeBoardSplitInfo {
+    display: flex;
+    height: 33vw;
+}
+
+.homeSplitContent {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    width: 84%;
+}
+
+.homeSplitTitle {
+    font-size: 33px;
+    line-height: 60px;
+}
+
+.homePalm {
+    width: calc(100% / 2);
+    position: relative;
+}
+
+.homeDurable {
+    width: calc(100% / 2);
+    position: relative;
+}
+.homeBoardInfo {
+  display: flex;
+  padding-top: 50px;
+  font-family: 'Montserrat', sans-serif;
+  justify-content: center;
+  background-color: #F8F8F8;
+}
+.leftHomeBoardInfo {
+  text-align: right;
+  .infoIcon {
+    margin-left: auto;
+  }
+}
+.centerHomeBoardInfo {
+  position: relative;
+}
+.homeInfoPhoto {
+  width: 260px;
+  margin-left: 50%;
+  margin-right: 50%;
+  transform: translate(-48%, 0%);
+  transition: 0.25s;
+}
+.rightHomeBoardInfo {
+
+}
+.homeInfoContainer {
+  height: 270px;
+  max-width: 294px;
+}
+.boardInfoTitle {
+font-weight: bold;
+color: #656565;
+}
+.boardInfoDesc {
+color: #A7A7A7;
+font-size: 14px;
+}
+.buttonContainer {
+  display: flex;
+  padding-bottom: 100px;
+}
+.shortButton {
+  height: 50px;
+}
+.blueButton {
+  color: white;
+  background-color: $blue;
+}
+.minihomeBoardInfo {
+  display: none;
+}
+.miniInfoRight {
+  display: none;
+}
+.infoIcon {
+  width: 40px;
+}
+.carouselphotos {
+  width: 200px;
+}
+.title {
+  font-size: 18px;
+}
+
+.Large {
+    display: flex;
+}
+
+.Small {
+    display: none;
+}
+table td{
+border: solid 1px red;
+}
+li {
+    list-style-type: none;
+}
+@media (max-width: 992px) {
+    .reserveFooter {
+        display: initial;
+    }
+
+    .homeCover {
+        position: absolute;
+        left: 0;
+        background-position-x: -285px;
+        justify-content: flex-start;
+        height: 800px;
+    }
+
+    .homeCoverTitle {
+        text-align: left;
+        padding-left: 20px;
+        font-size: 60px;
+        margin: 0;
+    }
+
+    .homeCoverDesc {
+        font-size: 20px;
+        width: 94%;
+        text-align: left;
+    }
+
+    .orangeButton {
+        display: none;
+    }
+
+    .homeOrangeMap {
+        position: absolute;
+        top: 865px;
+    }
+
+    .homeGrayMap {
+        position: absolute;
+        top: 1060px;
+    }
+
+    .homeHillContainer {
+        position: absolute;
+        top: 1705px;
+        display: block;
+        width: 100%;
+    }
+
+    .hillImg {
+        width: 100%;
+    }
+
+    .hillInfo {
+        width: 100%;
+    }
+
+    .homeHillContent {
+        width: 80%;
+        max-width: none;
+    }
+
+    .heightFix {
+        height: auto;
+        width: 100%;
+        overflow-y: hidden;
+    }
+
+    .hillImg {
+        height: auto;
+    }
+
+    .homeHillContent {
+        padding-left: 20px;
+        padding-right: 10px;
+        font-size: 14px;
+    }
+
+    .homeHillTitle {
+        padding-left: 20px;
+    }
+
+    .hillTableInfo {
+        margin-left: 20px;
+        font-size: 12px;
+    }
+
+    .homeWeightSection {
+        position: absolute;
+    }
+
+    .homeBoardSplitInfo {
+        display: block;
+        position: absolute;
+        top: 665px;
+        font-size: 16px;
+    }
+
+    .homePalm {
+        width: 100%;
+        height: 60vw;
+    }
+
+    .homeDurable {
+        width: 100%;
+    }
+
+    .homeSplitContent {
+        transform: translate(50%,0%);
+        font-size: 12px;
+    }
+    .homeBoardInfo {
+      position: absolute;
+      top: 3728px;
+      width: 100%;
+      padding-bottom: 20px;
+    }
+    .leftHomeBoardInfo {
+      display: none;
+    }
+    .rightHomeBoardInfo {
+      display: none;
+    }
+    .miniHomeBoardInfo {
+      display:inherit;
+      position: absolute;
+      top: 0px;
+    }
+    .homeInfoPhoto {
+      margin-left: 20%;
+      width: 180px;
+    }
+    .miniInfoRight {
+      position: absolute;
+      top: 0px;
+      left: 50%;
+      height: 500px;
+      display: inline;
+    }
+    .miniIcon {
+      width: 38px;
+    }
+    .Small {
+        display: flex;
+    }
+
+    .SmallSplit {
+        display: block;
+    }
+
+    .Large {
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    .homeOrangeMap {
+        font-size: 17px;
+    }
+
+    .homeGrayMap {}
+
+    .homeGrayContainer {
+        margin-left: 20px;
+    }
+
+    .homeGrayInfo {
+        width: 80%;
+    }
+
+    .homeGrayImg {
+        background-position-x: -800px;
+    }
+    .homeSplitTitle {
+        font-size: 18px;
+        line-height: 40px;
+    }
+    .homePalm {
+        overflow: hidden;
+        min-width: 300px;
+        min-height: 300px;
+    }
+
+    .homeDurable {
+      overflow-x: hidden;
+    }
+    .photoHeight {
+      min-width: 300px;
+      min-height: 300px;
+    }
+}

@@ -1,0 +1,22 @@
+<div class="parentContainer">
+<div class='blogContainer' ng-repeat='blog in blogs'>
+  <div class="bloginfo">
+    <p class="blogDay">{{blog.day}}</p>
+    <p class="blogMonth">{{blog.month}} {{blog.year}}</p>
+    <hr>
+    <p class="blogAuthor">BY {{blog.author}}</p>
+    <p class="blogPosted"> POSTED IN {{blog.postedin}}</p>
+  </div>
+    <div class="blogBody">
+      <span ui-sref='blogitem({blogid: blog.blogid})'><p class="blogTitle">{{blog.title}}</p></span>
+      <p class="blogDescription">{{blog.description}}</p>
+    </div>
+</div>
+<div class="blogfloat">
+  <div class="blogRecent">Recent Posts</div>
+<div ng-repeat='blog in blogs'>
+    <span ui-sref='blogitem({blogid: blog.blogid})'><p class="">{{blog.title}}</p></span>
+    <hr>
+</div>
+</div>
+</div>

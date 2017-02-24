@@ -51,4 +51,14 @@ angular.module('boosted', ['ui.router', 'angular-stripe'])
     controller: 'payments',
     templateUrl: 'public/app/routes/payments/payments.html'
   })
+  .state('cart', {
+    url: '/cart',
+    controller: 'cartCtrl',
+    templateUrl: 'public/app/routes/cart/cart.html'
+  })
+  .state('checkout', {
+    url: '/checkout',
+    controller: 'checkout',
+    templateUrl: 'public/app/routes/checkout/checkout.html'
+  })
 })

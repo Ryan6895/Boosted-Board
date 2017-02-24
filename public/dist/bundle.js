@@ -40,6 +40,14 @@ angular.module('boosted', ['ui.router', 'angular-stripe']).config(function ($sta
     url: '/payments',
     controller: 'payments',
     templateUrl: 'public/app/routes/payments/payments.html'
+  }).state('cart', {
+    url: '/cart',
+    controller: 'cartCtrl',
+    templateUrl: 'public/app/routes/cart/cart.html'
+  }).state('checkout', {
+    url: '/checkout',
+    controller: 'checkout',
+    templateUrl: 'public/app/routes/checkout/checkout.html'
   });
 });
 $(document).ready(function () {
@@ -108,10 +116,49 @@ angular.module('boosted').service('service', function ($http, stripe) {
   this.getUser = function () {
     return $http({
       method: 'GET',
-      url: '/getUser'
+      url: '/auth/me'
     }).then(function (response) {
-      this.sessionUser = response.data.passport.user;
+      this.sessionUser = response.data;
       return this.sessionUser;
+    });
+  };
+  this.addemail = function (email) {
+    return $http({
+      method: 'POST',
+      url: '/addEmail',
+      data: { email: email }
+    });
+  };
+  this.addtoCart = function (item) {
+    return $http({
+      method: 'POST',
+      url: '/addtoCart',
+      data: { product: item }
+    });
+  };
+  this.getallcartItems = function () {
+    return $http({
+      method: 'GET',
+      url: '/cart'
+    });
+  };
+  this.removeItems = function (itemid) {
+    console.log(itemid);
+    return $http({
+      method: 'DELETE',
+      url: '/cart?id=' + itemid
+    });
+  };
+  this.changeQuantity = function (id) {
+    return $http({
+      method: 'PUT',
+      url: '/item?id=' + id
+    });
+  };
+  this.getcartItems = function (id) {
+    return $http({
+      method: 'GET',
+      url: '/cartItems?id=' + id
     });
   };
 });
@@ -163,10 +210,22 @@ angular.module('boosted').directive('carousel', function () {
         }
     };
 });
+angular.module('boosted').directive('help', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/help/help.html',
+        link: function (scope, elem, attrs) {}
+    };
+});
 angular.module('boosted').directive('footerView', function () {
     return {
         restrict: 'E',
         templateUrl: 'public/app/directives/footer/footer.html',
+        controller: function ($scope, service) {
+            $scope.addEmail = function (email) {
+                service.addemail(email);
+            };
+        },
         link: function (scope, elem, attrs) {}
     };
 });
@@ -177,13 +236,6 @@ angular.module('boosted').directive('guarantee', function () {
         link: function (scope, elem, attrs) {
             console.log('hello');
         }
-    };
-});
-angular.module('boosted').directive('help', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/help/help.html',
-        link: function (scope, elem, attrs) {}
     };
 });
 angular.module('boosted').directive('navBar', function () {
@@ -204,7 +256,21 @@ angular.module('boosted').controller('blogitem', function ($scope, service, $sta
   });
 });
 angular.module('boosted').controller('boardCtrl', function ($scope, service, $state) {});
+angular.module('boosted').controller('checkout', function ($scope, service, $state) {});
+angular.module('boosted').controller('cartCtrl', function ($scope, service, $state) {
+  $scope.reloadRoute = function () {
+    $state.reload();
+  };
+  service.getallcartItems().then(function (response) {
 
+    $scope.items = response.data;
+  });
+  $scope.removeItem = function (id) {
+    //console.log(id);
+    service.removeItems(id);
+    $state.reload();
+  };
+});
 angular.module('boosted').controller('communityCtrl', function ($scope, service, $state, $http) {
   service.getblogs().then(function (response) {
     $scope.blogs = response.data;
@@ -222,6 +288,15 @@ angular.module('boosted').controller('itemCtrl', function ($scope, service, $sta
     $scope.item = item.data;
     console.log(item);
   });
+  $scope.addItem = function () {
+    service.getcartItems($stateParams.id).then(function (response) {
+      if (!response.data[0]) {
+        service.addtoCart($stateParams.id);
+      } else {
+        service.changeQuantity($stateParams.id);
+      }
+    });
+  };
 });
 angular.module('boosted').controller('payments', function ($scope, service, $state, $timeout, stripe, $http) {
   function getUser() {

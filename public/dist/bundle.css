@@ -1,3 +1,50 @@
+.guaranteeContainer {
+  height: 540px;
+  background: url(../../img/homePage/blueMap.JPG) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover; }
+
+.guaranteeInfo {
+  padding-top: 200px;
+  text-align: center;
+  color: white;
+  font-family: sans-serif; }
+
+.guaranteeTitle {
+  font-size: 40px; }
+
+.guaranteeDesc {
+  max-width: 580px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 35px; }
+
+.threeGuarantee {
+  display: flex;
+  justify-content: space-around;
+  background-color: #F8F8F8;
+  font-family: 'Montserrat', sans-serif;
+  color: grey;
+  padding-left: 15%;
+  padding-right: 15%;
+  width: 70%;
+  padding-bottom: 20px;
+  padding-top: 20px; }
+
+.sectionGTitle {
+  font-weight: bold;
+  font-size: 20px;
+  color: black; }
+
+.guaranteeSection {
+  text-align: center;
+  width: 230px; }
+
+.hrlines {
+  border-left: solid grey 1px;
+  margin: 18px; }
+
 .footerContainer {
   clear: both; }
 
@@ -51,6 +98,12 @@
   font-size: 14px;
   margin-top: 15px; }
 
+a {
+  text-decoration: none; }
+
+.footerlinks:hover {
+  color: black; }
+
 .footerSocial {
   display: flex;
   flex-direction: row;
@@ -68,53 +121,6 @@
     margin-right: 100px; }
   .inputInfoFooter {
     width: 465px; } }
-
-.guaranteeContainer {
-  height: 540px;
-  background: url(../../img/homePage/blueMap.JPG) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover; }
-
-.guaranteeInfo {
-  padding-top: 200px;
-  text-align: center;
-  color: white;
-  font-family: sans-serif; }
-
-.guaranteeTitle {
-  font-size: 40px; }
-
-.guaranteeDesc {
-  max-width: 580px;
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 35px; }
-
-.threeGuarantee {
-  display: flex;
-  justify-content: space-around;
-  background-color: #F8F8F8;
-  font-family: 'Montserrat', sans-serif;
-  color: grey;
-  padding-left: 15%;
-  padding-right: 15%;
-  width: 70%;
-  padding-bottom: 20px;
-  padding-top: 20px; }
-
-.sectionGTitle {
-  font-weight: bold;
-  font-size: 20px;
-  color: black; }
-
-.guaranteeSection {
-  text-align: center;
-  width: 230px; }
-
-.hrlines {
-  border-left: solid grey 1px;
-  margin: 18px; }
 
 .helpContainer {
   background: url("../../img/theBoard/team.JPG") no-repeat center;
@@ -554,6 +560,12 @@ body {
   height: 900px;
   position: relative;
   margin-bottom: 300px; }
+
+.cartTitles {
+  display: flex; }
+
+.itemsinCart {
+  display: flex; }
 
 
 .blogContainer {

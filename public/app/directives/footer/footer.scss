@@ -51,6 +51,12 @@
       font-size: 14px;
       margin-top: 15px;
 }
+a {
+  text-decoration: none;
+}
+.footerlinks:hover {
+  color: black;
+}
 .footerSocial {
   display: flex;
   flex-direction: row;

@@ -1,10 +1,10 @@
 <div class="cartContainer">
 <h1>Shopping Cart</h1>
-<div class="emptyCart">
+<div class="emptyCart" ng-show='emptyCart'>
 <p>You cart is currently empty.</p>
 <p>Continue Browsing <a ui-sref='store'>here</a></p>
 </div>
-<div class="cartWithItems">
+<div class="cartWithItems" ng-show='fullCart'>
   <hr>
   <div class="cartTitles">
     <p>Product</p>

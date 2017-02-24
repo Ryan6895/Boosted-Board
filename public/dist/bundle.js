@@ -46,8 +46,16 @@ angular.module('boosted', ['ui.router', 'angular-stripe']).config(function ($sta
     templateUrl: 'public/app/routes/cart/cart.html'
   }).state('checkout', {
     url: '/checkout',
-    controller: 'checkout',
-    templateUrl: 'public/app/routes/checkout/checkout.html'
+    controller: 'infomethod',
+    templateUrl: 'public/app/routes/infoMethod/infomethod.html'
+  }).state('payment', {
+    url: '/payment',
+    controller: 'payment',
+    templateUrl: 'public/app/routes/paymentmethod/paymentmethod.html'
+  }).state('confirmation', {
+    url: '/confirmation',
+    controller: 'confirmation',
+    templateUrl: 'public/app/routes/confirmation/confirmation.html'
   });
 });
 $(document).ready(function () {
@@ -238,6 +246,13 @@ angular.module('boosted').directive('footerView', function () {
         link: function (scope, elem, attrs) {}
     };
 });
+angular.module('boosted').directive('help', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/help/help.html',
+        link: function (scope, elem, attrs) {}
+    };
+});
 angular.module('boosted').directive('guarantee', function () {
     return {
         restrict: 'E',
@@ -245,13 +260,6 @@ angular.module('boosted').directive('guarantee', function () {
         link: function (scope, elem, attrs) {
             console.log('hello');
         }
-    };
-});
-angular.module('boosted').directive('help', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/help/help.html',
-        link: function (scope, elem, attrs) {}
     };
 });
 angular.module('boosted').directive('navBar', function () {
@@ -288,6 +296,14 @@ angular.module('boosted').controller('cartCtrl', function ($scope, service, $sta
   };
   service.getallcartItems().then(function (response) {
     $scope.items = response.data;
+    console.log('$scope.items', $scope.items);
+    if (!$scope.items.length) {
+      $scope.emptyCart = true;
+      $scope.fullCart = false;
+    } else {
+      $scope.emptyCart = false;
+      $scope.fullCart = true;
+    }
     $scope.getTotal();
   });
   service.gettotalPayments().then(function (response) {
@@ -311,19 +327,20 @@ angular.module('boosted').controller('cartCtrl', function ($scope, service, $sta
     });
   };
 });
-angular.module('boosted').controller('checkout', function ($scope, service, $state) {});
 angular.module('boosted').controller('communityCtrl', function ($scope, service, $state, $http) {
   service.getblogs().then(function (response) {
     $scope.blogs = response.data;
     console.log($scope.blogs[0].blogid);
   });
 });
+angular.module('boosted').controller('confirmation', function ($scope, service, $state, $http) {});
 angular.module('boosted').controller('homeCtrl', function ($scope, service, $state, $timeout) {
   $scope.fadeIn = false;
   $timeout(function () {
     $scope.fadeIn = true;
   }, 200);
 });
+angular.module('boosted').controller('infomethod', function ($scope, service, $state, $http) {});
 angular.module('boosted').controller('itemCtrl', function ($scope, service, $stateParams) {
   service.getOneItem($stateParams.id).then(function (item) {
     $scope.item = item.data;
@@ -339,6 +356,7 @@ angular.module('boosted').controller('itemCtrl', function ($scope, service, $sta
     });
   };
 });
+angular.module('boosted').controller('paymentmethod', function ($scope, service, $state) {});
 angular.module('boosted').controller('payments', function ($scope, service, $state, $timeout, stripe, $http) {
   function getUser() {
     service.getUser().then(function (response) {
@@ -401,4 +419,3 @@ angular.module('boosted').controller('storeCtrl', function ($scope, service, $st
     $anchorScroll();
   };
 });
-angular.module('boosted').controller('supportCtrl', function ($scope, service, $state) {});

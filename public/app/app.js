@@ -58,7 +58,17 @@ angular.module('boosted', ['ui.router', 'angular-stripe'])
   })
   .state('checkout', {
     url: '/checkout',
-    controller: 'checkout',
-    templateUrl: 'public/app/routes/checkout/checkout.html'
+    controller: 'infomethod',
+    templateUrl: 'public/app/routes/infoMethod/infomethod.html'
+  })
+  .state('payment', {
+    url: '/payment',
+    controller: 'payment',
+    templateUrl: 'public/app/routes/paymentmethod/paymentmethod.html'
+  })
+  .state('confirmation', {
+    url: '/confirmation',
+    controller: 'confirmation',
+    templateUrl: 'public/app/routes/confirmation/confirmation.html'
   })
 })

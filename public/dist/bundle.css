@@ -75,6 +75,27 @@ a {
   .inputInfoFooter {
     width: 465px; } }
 
+.helpContainer {
+  background: url("../../img/theBoard/team.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 900px; }
+
+#blackButton {
+  background-color: black;
+  color: white; }
+
+#blackButton:hover {
+  background-color: grey; }
+
+.helpContent {
+  width: 400px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin: auto;
+  padding-top: 100px; }
+
 .guaranteeContainer {
   height: 540px;
   background: url(../../img/homePage/blueMap.JPG) no-repeat center center fixed;
@@ -121,27 +142,6 @@ a {
 .hrlines {
   border-left: solid grey 1px;
   margin: 18px; }
-
-.helpContainer {
-  background: url("../../img/theBoard/team.JPG") no-repeat center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  height: 900px; }
-
-#blackButton {
-  background-color: black;
-  color: white; }
-
-#blackButton:hover {
-  background-color: grey; }
-
-.helpContent {
-  width: 400px;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  margin: auto;
-  padding-top: 100px; }
 
 body {
   margin: 0px;
@@ -570,7 +570,6 @@ body {
 .itemsinCart {
   display: flex; }
 
-
 .blogContainer {
   display: flex;
   width: 60%;
@@ -629,6 +628,7 @@ body {
   font-size: 20px;
   color: grey;
   font-family: 'Francois One', sans-serif; }
+
 
 .homeCover {
   background: url("../../img/homePage/coverPhoto.JPG") no-repeat center;
@@ -1066,6 +1066,7 @@ li {
     min-width: 300px;
     min-height: 300px; } }
 
+
 #itemContainer {
   display: flex;
   margin: auto;
@@ -1101,6 +1102,7 @@ li {
   font-size: 20px;
   font-family: 'Francois One', sans-serif;
   letter-spacing: 1.4px; }
+
 
 
 

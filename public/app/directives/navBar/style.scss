@@ -99,6 +99,9 @@ body {
   color: white;
   background-color: $orange;
 }
+.fixheight {
+  display: flex;
+}
 .navDrop {
   display: none;
   width: 30px;

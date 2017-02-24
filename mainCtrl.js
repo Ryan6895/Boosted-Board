@@ -102,5 +102,23 @@ module.exports = {
      }
      res.send(results);
    })
- }
+ },
+ gettotalPayments: function(req, res){
+ db.get_totalpayments([req.user.userid], function(err, results){
+   if (err){
+     console.error(err);
+     return res.send(err);
+   }
+   res.send(results);
+ })
+},
+updateQty: function(req, res) {
+  db.order.change_quantity([req.body.id, req.body.qty], function(err, results){
+      if (err){
+        console.error(err);
+        return res.send(err);
+      }
+      res.send(results);
+    })
+}
 }

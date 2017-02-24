@@ -4,12 +4,27 @@ angular.module('boosted')
      $state.reload();
   }
   service.getallcartItems().then(function(response){
-
     $scope.items = response.data;
+    $scope.getTotal();
   })
+  service.gettotalPayments().then(function(response) {
+    $scope.paymentAmount = response.data[0].sum;
+  });
   $scope.removeItem = function(id) {
     //console.log(id);
       service.removeItems(id);
       $state.reload();
+  }
+  $scope.getTotal = function() {
+    var total = 0;
+    for (var i = 0; i < $scope.items.length; i++) {
+      total += $scope.items[i].price * $scope.items[i].qty
+    }
+    $scope.totalPrice = total;
+  }
+  $scope.updateItem = function(id,qty){
+    service.updateQty(id, qty).then(function(response) {
+      $scope.getTotal();
+    });
   }
 });

@@ -6,7 +6,8 @@
     <span class="navLinks navLength" ui-sref='board'>THE BOARD</span>
     <span class="navLinks" ui-sref='store'>STORE</span>
     <span class="navLinks" ui-sref='community'>COMMUNITY</span>
-    <span class="navLinks" ui-sref='payments'>ACCOUNT</span>
+    <span class="navLinks" ng-show='account' ui-sref='payments'>ACCOUNT</span>
+    <a class='fixheight' href="/auth"><span class="navLinks" ng-hide='account'>LOGIN</span></a>
   </div>
   <div class="order">
     <div ui-sref='cart' class="cartPhoto">

@@ -3,10 +3,16 @@ angular.module('boosted')
 function getUser(){
   service.getUser().then(function(response) {
     $scope.user = response;
-    console.log($scope.user);
-  });
+      service.gettotalPayments().then(function(response) {
+        $scope.totalPayments = response.data[0].sum;
+
+      })
+    })
 }
+
 getUser();
+$scope.date = new Date();
+
 //==========STRIPE==================
   $scope.payment = {};
 
@@ -23,7 +29,9 @@ getUser();
         url: '/api/payment',
         data: {
           amount: $scope.mockPrice,
-          payment: payment
+          payment: payment,
+          date: $scope.date,
+          user: $scope.user
         }
       })
     })

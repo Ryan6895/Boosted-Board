@@ -5,16 +5,22 @@
 <img src="{{user.profilepic}}" alt="">
 {{user.firstname}}
 {{user.lastname}}
-<p>Amount Paid:</p> total from payment table
-<p>Goal:</p> board choosen
-<form action="">
-  <input type="radio" name="board" value="Dual+"> Dual+<br>
-  <input type="radio" name="board" value="Dual"> Dual
-</form>
-<form action="">
-  <input type="radio" name="battery" value="extended"> Extended<br>
-  <input type="radio" name="battery" value="standard"> Standard
-</form>
+</br>
+<div ng-init='boardValue=1499'>
+<label for="redRadio">Dual+:</label>
+    <input id="redRadio" type="radio" ng-model="boardValue" value="1499" /><br />
+
+    <label for="greenRadio">Dual+ Extended:</label>
+    <input id="yellowRadio" type="radio" ng-model="boardValue" value="1599" /><br />
+
+    <label for="greenRadio">Dual:</label>
+    <input id="greenRadio" type="radio" ng-model="boardValue" value="1299" /><br />
+
+    <label for="blueRadio">Dual Extended:</label>
+    <input id="blueRadio" type="radio" ng-model="boardValue" value="1399" /><br />
+    <br />
+    <strong>Goal:</strong> {{boardValue | currency}}<br />
+    <strong>Amount Paid:</strong> {{totalPayments | currency}}
 </div>
 <div class="paymentInfo">
   <form ng-submit='charge(payment)' class='col-xs-4'>

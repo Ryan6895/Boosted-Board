@@ -73,4 +73,20 @@ this.getcartItems = function(id) {
     url: '/cartItems?id=' + id
 })
 }
+this.gettotalPayments = function() {
+  return $http({
+    method: 'GET',
+    url: '/payments'
+})
+}
+this.updateQty = function (id ,qty){
+  return $http({
+  method: 'PUT',
+  url: '/item/update',
+  data: {
+    id: id,
+    qty: qty
+  }
+  })
+}
 })

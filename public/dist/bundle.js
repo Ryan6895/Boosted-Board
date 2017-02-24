@@ -161,6 +161,22 @@ angular.module('boosted').service('service', function ($http, stripe) {
       url: '/cartItems?id=' + id
     });
   };
+  this.gettotalPayments = function () {
+    return $http({
+      method: 'GET',
+      url: '/payments'
+    });
+  };
+  this.updateQty = function (id, qty) {
+    return $http({
+      method: 'PUT',
+      url: '/item/update',
+      data: {
+        id: id,
+        qty: qty
+      }
+    });
+  };
 });
 angular.module('boosted').directive('boardCaro', function () {
     return {
@@ -210,13 +226,6 @@ angular.module('boosted').directive('carousel', function () {
         }
     };
 });
-angular.module('boosted').directive('help', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/help/help.html',
-        link: function (scope, elem, attrs) {}
-    };
-});
 angular.module('boosted').directive('footerView', function () {
     return {
         restrict: 'E',
@@ -238,10 +247,27 @@ angular.module('boosted').directive('guarantee', function () {
         }
     };
 });
+angular.module('boosted').directive('help', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/help/help.html',
+        link: function (scope, elem, attrs) {}
+    };
+});
 angular.module('boosted').directive('navBar', function () {
     return {
         restrict: 'E',
         templateUrl: 'public/app/directives/navBar/navBar.html',
+        controller: function ($scope, service) {
+            service.getUser().then(function (response) {
+                if (!response) {
+                    $scope.account = false;
+                } else {
+                    $scope.account = true;
+                }
+                //add button login and account depending if logged in
+            });
+        },
         link: function (scope, elem, attrs) {
 
             $('.navDrop').on('click', function () {
@@ -256,21 +282,36 @@ angular.module('boosted').controller('blogitem', function ($scope, service, $sta
   });
 });
 angular.module('boosted').controller('boardCtrl', function ($scope, service, $state) {});
-angular.module('boosted').controller('checkout', function ($scope, service, $state) {});
 angular.module('boosted').controller('cartCtrl', function ($scope, service, $state) {
   $scope.reloadRoute = function () {
     $state.reload();
   };
   service.getallcartItems().then(function (response) {
-
     $scope.items = response.data;
+    $scope.getTotal();
+  });
+  service.gettotalPayments().then(function (response) {
+    $scope.paymentAmount = response.data[0].sum;
   });
   $scope.removeItem = function (id) {
     //console.log(id);
     service.removeItems(id);
     $state.reload();
   };
+  $scope.getTotal = function () {
+    var total = 0;
+    for (var i = 0; i < $scope.items.length; i++) {
+      total += $scope.items[i].price * $scope.items[i].qty;
+    }
+    $scope.totalPrice = total;
+  };
+  $scope.updateItem = function (id, qty) {
+    service.updateQty(id, qty).then(function (response) {
+      $scope.getTotal();
+    });
+  };
 });
+angular.module('boosted').controller('checkout', function ($scope, service, $state) {});
 angular.module('boosted').controller('communityCtrl', function ($scope, service, $state, $http) {
   service.getblogs().then(function (response) {
     $scope.blogs = response.data;
@@ -302,10 +343,15 @@ angular.module('boosted').controller('payments', function ($scope, service, $sta
   function getUser() {
     service.getUser().then(function (response) {
       $scope.user = response;
-      console.log($scope.user);
+      service.gettotalPayments().then(function (response) {
+        $scope.totalPayments = response.data[0].sum;
+      });
     });
   }
+
   getUser();
+  $scope.date = new Date();
+
   //==========STRIPE==================
   $scope.payment = {};
 
@@ -321,7 +367,9 @@ angular.module('boosted').controller('payments', function ($scope, service, $sta
         url: '/api/payment',
         data: {
           amount: $scope.mockPrice,
-          payment: payment
+          payment: payment,
+          date: $scope.date,
+          user: $scope.user
         }
       });
     }).then(function (payment) {

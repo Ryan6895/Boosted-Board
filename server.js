@@ -78,7 +78,7 @@ passport.deserializeUser(function(obj, done) {
 
 app.get('/auth/me', function(req, res, next) {
     if (!req.user)
-        return res.status(404).send('user not found');
+        return res.status(200).send(false);
 
     return res.status(200).send(req.user);
 })
@@ -117,16 +117,22 @@ app.post('/api/payment', function(req, res, next) {
         source: req.body.payment.token,
         description: 'Test charge from Boosted project'
     }, function(err, charge) {
-        res.sendStatus(200);
-        // if (err && err.type === 'StripeCardError') {
-        //   // The card has been declined
-        // }
+        //res.sendStatus(200);
+
     });
+      db.add_payment([req.body.amount, req.body.date, req.body.user.userid], function(err, results){
+        if (err){
+          console.error(err);
+          return res.send(err);
+        }
+        res.send(results);
+      })
 });
 
 app.get('/store/:item', mainCtrl.getItems)
 app.get('/item/:itemid', mainCtrl.getOneItem)
 app.put('/item', mainCtrl.changeQuantity)
+app.put('/item/update', mainCtrl.updateQty)
 app.get('/community', mainCtrl.getBlogs)
 app.get('/blog/:blogid', mainCtrl.getOneBlog)
 app.get('/getUser', function(req, res) {
@@ -137,6 +143,11 @@ app.post('/addtoCart', mainCtrl.addtoCart)
 app.get('/cart', mainCtrl.getallcartItems)
 app.delete('/cart', mainCtrl.removeItems)
 app.get('/cartItems', mainCtrl.getcartItems)
+app.get('/api/logout', function(req, res, next) {
+   req.logout();
+   return res.redirect('/');
+});
+app.get('/payments', mainCtrl.gettotalPayments)
 
 app.listen(3000, function() {
     console.log("Successfully listening on : 3000")

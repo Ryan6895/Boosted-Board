@@ -1,3 +1,7 @@
+.cartContainer {
+  width: 80%;
+  margin: auto;
+}
 .cartTitles {
   display: flex;
 }
@@ -8,5 +12,10 @@
 
 }
 .cartWithItems {
-  
+
+}
+.iteminCart {
+  border-bottom: solid #888888 1px;
+  display: flex;
+  width: 100%;
 }

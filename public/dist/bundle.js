@@ -234,6 +234,15 @@ angular.module('boosted').directive('carousel', function () {
         }
     };
 });
+angular.module('boosted').directive('guarantee', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/guarantee/guarantee.html',
+        link: function (scope, elem, attrs) {
+            console.log('hello');
+        }
+    };
+});
 angular.module('boosted').directive('footerView', function () {
     return {
         restrict: 'E',
@@ -251,15 +260,6 @@ angular.module('boosted').directive('help', function () {
         restrict: 'E',
         templateUrl: 'public/app/directives/help/help.html',
         link: function (scope, elem, attrs) {}
-    };
-});
-angular.module('boosted').directive('guarantee', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/guarantee/guarantee.html',
-        link: function (scope, elem, attrs) {
-            console.log('hello');
-        }
     };
 });
 angular.module('boosted').directive('navBar', function () {
@@ -348,7 +348,7 @@ angular.module('boosted').controller('itemCtrl', function ($scope, service, $sta
   });
   $scope.addItem = function () {
     service.getcartItems($stateParams.id).then(function (response) {
-      if (!response.data[0]) {
+      if (response.data[0].product_id != $stateParams.id) {
         service.addtoCart($stateParams.id);
       } else {
         service.changeQuantity($stateParams.id);
@@ -363,12 +363,25 @@ angular.module('boosted').controller('payments', function ($scope, service, $sta
       $scope.user = response;
       service.gettotalPayments().then(function (response) {
         $scope.totalPayments = response.data[0].sum;
+        $scope.progress = {
+          "width": 'calc(' + $scope.totalPayments / $scope.boardValue * 100 + '%' + ')',
+          "background-color": "green",
+          "height": "20px",
+          "transition": ".25s"
+        };
       });
     });
   }
 
+  $scope.correctBar = function () {
+    getUser();
+  };
+
+  $scope.addBoard = function () {};
+
   getUser();
   $scope.date = new Date();
+  $scope.active = 'True';
 
   //==========STRIPE==================
   $scope.payment = {};
@@ -387,10 +400,12 @@ angular.module('boosted').controller('payments', function ($scope, service, $sta
           amount: $scope.mockPrice,
           payment: payment,
           date: $scope.date,
-          user: $scope.user
+          user: $scope.user,
+          active: $scope.active
         }
       });
     }).then(function (payment) {
+      getUser();
       console.log('successfully submitted payment for $', payment);
     }).catch(function (err) {
       if (err.type && /^Stripe/.test(err.type)) {

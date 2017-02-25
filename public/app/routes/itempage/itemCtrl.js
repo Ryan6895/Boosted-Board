@@ -6,7 +6,7 @@ angular.module('boosted')
         })
         $scope.addItem = function() {
           service.getcartItems($stateParams.id).then(function(response) {
-            if(!response.data[0]){
+            if(response.data[0].product_id != $stateParams.id){
               service.addtoCart($stateParams.id);
             } else {
               service.changeQuantity($stateParams.id);

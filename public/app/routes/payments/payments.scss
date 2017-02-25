@@ -1,0 +1,41 @@
+.paymentTopHalf {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-family: sans-serif;
+}
+.profilePic {
+  width: 200px;
+  height: 200px;
+  border-radius: 6px;
+  box-shadow: 4px 4px 6px #888888;
+}
+.paymentInfo {
+border: solid 1px #888888;
+border-radius: 6px;
+}
+.paymentName {
+  font-size: 34px;
+  line-height: 0px;
+}
+.paymentGoal {
+  font-size: 20px;
+}
+.paymentPaid {
+  font-size: 20px;
+}
+.stripeInput {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.stripeTitle {
+  text-align: center;
+}
+.progressBar {
+  margin: auto;
+  width: 60%;
+  height: 20px;
+  background-color: orange;
+}

@@ -35,7 +35,7 @@ passport.use(new Auth0Strategy(
     function(accessToken, refreshToken, extraParams, profile, done) {
         db.Check_user([profile.identities[0].user_id], function(err, results) {
             if (!results[0]) {
-                db.create_user([profile.name.givenName, profile.name.familyName, profile.identities[0].user_id, profile.picture], function(err, resu) {
+                db.create_user([profile.name.givenName, profile.name.familyName, profile.identities[0].user_id, profile.picture_large], function(err, resu) {
                     console.log('User created Successfully');
                       console.log(resu);
                     db.order.insert([resu[0].userid], function(err, order) {
@@ -120,7 +120,7 @@ app.post('/api/payment', function(req, res, next) {
         //res.sendStatus(200);
 
     });
-      db.add_payment([req.body.amount, req.body.date, req.body.user.userid], function(err, results){
+      db.add_payment([req.body.amount, req.body.date, req.body.user.userid, req.body.active], function(err, results){
         if (err){
           console.error(err);
           return res.send(err);

@@ -104,6 +104,7 @@ module.exports = {
    })
  },
  gettotalPayments: function(req, res){
+   console.log(req.user.userid);
  db.get_totalpayments([req.user.userid], function(err, results){
    if (err){
      console.error(err);

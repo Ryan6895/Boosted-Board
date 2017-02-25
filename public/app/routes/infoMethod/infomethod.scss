@@ -1,0 +1,75 @@
+$borderColor: #cccccc;
+.leftCheckout {
+  width: 40%
+}
+.customerEmail {
+  border: solid $borderColor 1px;
+  border-radius: 4px;
+}
+.nameLine {
+  display: flex;
+  width: 100%
+}
+.customerFirstName {
+  border: solid $borderColor 1px;
+  border-radius: 4px;
+  width: 50%;
+  margin-right: 4px;
+}
+.customerLastName {
+  border: solid $borderColor 1px;
+  border-radius: 4px;
+  width: 50%;
+  margin-left:4px;
+}
+.customerCompany {
+  border: solid $borderColor 1px;
+  border-radius: 4px;
+}
+.customerAddress {
+  border: solid $borderColor 1px;
+  border-radius: 4px;
+  width: 65%;
+  margin-right: 4px;
+}
+.customerSuite {
+  border: solid $borderColor 1px;
+  border-radius: 4px;
+  width: 35%;
+  margin-left: 4px;
+}
+.addressLine {
+  display: flex;
+  width: 100%
+}
+.customerCity {
+  border: solid $borderColor 1px;
+  border-radius: 4px;
+}
+.locationLine {
+  display: flex;
+  width: 100%
+}
+.customerCountry {
+  border: solid $borderColor 1px;
+  border-radius: 4px;
+  width: 40%;
+  margin-right: 4px;
+}
+.customerState {
+  border: solid $borderColor 1px;
+  border-radius: 4px;
+  width: 40%;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+.customerZip {
+  border: solid $borderColor 1px;
+  border-radius: 4px;
+  width: 30%;
+  margin-left: 4px;
+}
+.customerPhone {
+  border: solid $borderColor 1px;
+  border-radius: 4px;
+}

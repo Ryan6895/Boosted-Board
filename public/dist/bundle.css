@@ -75,27 +75,6 @@ a {
   .inputInfoFooter {
     width: 465px; } }
 
-.helpContainer {
-  background: url("../../img/theBoard/team.JPG") no-repeat center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  height: 900px; }
-
-#blackButton {
-  background-color: black;
-  color: white; }
-
-#blackButton:hover {
-  background-color: grey; }
-
-.helpContent {
-  width: 400px;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  margin: auto;
-  padding-top: 100px; }
-
 .guaranteeContainer {
   height: 540px;
   background: url(../../img/homePage/blueMap.JPG) no-repeat center center fixed;
@@ -142,6 +121,27 @@ a {
 .hrlines {
   border-left: solid grey 1px;
   margin: 18px; }
+
+.helpContainer {
+  background: url("../../img/theBoard/team.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 900px; }
+
+#blackButton {
+  background-color: black;
+  color: white; }
+
+#blackButton:hover {
+  background-color: grey; }
+
+.helpContent {
+  width: 400px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin: auto;
+  padding-top: 100px; }
 
 body {
   margin: 0px;
@@ -564,11 +564,20 @@ body {
   position: relative;
   margin-bottom: 300px; }
 
+.cartContainer {
+  width: 80%;
+  margin: auto; }
+
 .cartTitles {
   display: flex; }
 
 .itemsinCart {
   display: flex; }
+
+.iteminCart {
+  border-bottom: solid #888888 1px;
+  display: flex;
+  width: 100%; }
 
 .blogContainer {
   display: flex;
@@ -1066,6 +1075,79 @@ li {
     min-width: 300px;
     min-height: 300px; } }
 
+.leftCheckout {
+  width: 40%; }
+
+.customerEmail {
+  border: solid #cccccc 1px;
+  border-radius: 4px; }
+
+.nameLine {
+  display: flex;
+  width: 100%; }
+
+.customerFirstName {
+  border: solid #cccccc 1px;
+  border-radius: 4px;
+  width: 50%;
+  margin-right: 4px; }
+
+.customerLastName {
+  border: solid #cccccc 1px;
+  border-radius: 4px;
+  width: 50%;
+  margin-left: 4px; }
+
+.customerCompany {
+  border: solid #cccccc 1px;
+  border-radius: 4px; }
+
+.customerAddress {
+  border: solid #cccccc 1px;
+  border-radius: 4px;
+  width: 65%;
+  margin-right: 4px; }
+
+.customerSuite {
+  border: solid #cccccc 1px;
+  border-radius: 4px;
+  width: 35%;
+  margin-left: 4px; }
+
+.addressLine {
+  display: flex;
+  width: 100%; }
+
+.customerCity {
+  border: solid #cccccc 1px;
+  border-radius: 4px; }
+
+.locationLine {
+  display: flex;
+  width: 100%; }
+
+.customerCountry {
+  border: solid #cccccc 1px;
+  border-radius: 4px;
+  width: 40%;
+  margin-right: 4px; }
+
+.customerState {
+  border: solid #cccccc 1px;
+  border-radius: 4px;
+  width: 40%;
+  margin-right: 4px;
+  margin-left: 4px; }
+
+.customerZip {
+  border: solid #cccccc 1px;
+  border-radius: 4px;
+  width: 30%;
+  margin-left: 4px; }
+
+.customerPhone {
+  border: solid #cccccc 1px;
+  border-radius: 4px; }
 
 #itemContainer {
   display: flex;
@@ -1104,6 +1186,46 @@ li {
   letter-spacing: 1.4px; }
 
 
+.paymentTopHalf {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-family: sans-serif; }
+
+.profilePic {
+  width: 200px;
+  height: 200px;
+  border-radius: 6px;
+  box-shadow: 4px 4px 6px #888888; }
+
+.paymentInfo {
+  border: solid 1px #888888;
+  border-radius: 6px; }
+
+.paymentName {
+  font-size: 34px;
+  line-height: 0px; }
+
+.paymentGoal {
+  font-size: 20px; }
+
+.paymentPaid {
+  font-size: 20px; }
+
+.stripeInput {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px; }
+
+.stripeTitle {
+  text-align: center; }
+
+.progressBar {
+  margin: auto;
+  width: 60%;
+  height: 20px;
+  background-color: orange; }
 
 
 #test {

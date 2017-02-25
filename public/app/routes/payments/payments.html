@@ -1,68 +1,79 @@
 <div class="paymentTopHalf">
-
-
 <div class="userInfo">
-<img src="{{user.profilepic}}" alt="">
-{{user.firstname}}
-{{user.lastname}}
+<img class="profilePic"src="{{user.profilepic}}" alt=""></br>
+<p class="paymentName">{{user.firstname}} {{user.lastname}}</p>
 </br>
 <div ng-init='boardValue=1499'>
-<label for="redRadio">Dual+:</label>
-    <input id="redRadio" type="radio" ng-model="boardValue" value="1499" /><br />
+    <label for="redRadio">Dual+:</label>
+    <input id="redRadio" type="radio" ng-change='correctBar()' ng-model="boardValue" value="1499" /><br />
 
     <label for="greenRadio">Dual+ Extended:</label>
-    <input id="yellowRadio" type="radio" ng-model="boardValue" value="1599" /><br />
+    <input id="yellowRadio" type="radio" ng-change='correctBar()' ng-model="boardValue" value="1599" /><br />
 
     <label for="greenRadio">Dual:</label>
-    <input id="greenRadio" type="radio" ng-model="boardValue" value="1299" /><br />
+    <input id="greenRadio" type="radio" ng-change='correctBar()' ng-model="boardValue" value="1299" /><br />
 
     <label for="blueRadio">Dual Extended:</label>
-    <input id="blueRadio" type="radio" ng-model="boardValue" value="1399" /><br />
-    <br />
-    <strong>Goal:</strong> {{boardValue | currency}}<br />
-    <strong>Amount Paid:</strong> {{totalPayments | currency}}
+    <input id="blueRadio" type="radio" ng-change='correctBar()' ng-model="boardValue" value="1399" /><br />
+    <br/>
+    <div class="paymentGoal">
+      <strong>Goal:</strong> {{boardValue | currency}}<br />
+    </div>
+    <div class="paymentPaid">
+      <strong>Amount Paid:</strong> {{totalPayments | currency}}
+    </div>
+</div>
 </div>
 <div class="paymentInfo">
   <form ng-submit='charge(payment)' class='col-xs-4'>
-      <h1>Angular-Stripe w/ Custom Form</h1><br><br>
+      <h2 class="stripeTitle">Make a payment</h2><br>
       <section class='form-group'>
-        <label>Price to charge:</label>
-        <input
-        class='form-control'
-        type="text"
-        name=""
-        ng-model='mockPrice'
-        placeholder="type in '5.95'"
-        required>
+        <div class="stripeInput">
+          <label>Payment Amount:</label>
+          <input
+          class='form-control'
+          type="text"
+          name=""
+          ng-model='mockPrice'
+          placeholder="amount"
+          required>
+        </div>
       </section>
       <section class='form-group'>
+        <div class="stripeInput">
           <label>Name on card:</label>
           <input
           type="text"
           name="name"
           class='form-control'
-          placeholder='any random name'
+          placeholder='name'
           required>
+        </div>
       </section>
       <section class='form-group'>
+        <div class="stripeInput">
           <label>Card number:</label>
           <input
           class='form-control'
           ng-model="payment.card.number"
           type="text"
-          placeholder="use one of Stripe's test card numbers"
+          placeholder="card"
           required>
+        </div>
       </section>
       <section class='form-group'>
+        <div class="stripeInput">
           <label>CVC:</label>
           <input
           class='form-control'
           ng-model="payment.card.cvc"
-          placeholder='random CVC number'
+          placeholder='CVC number'
           type="text"
           required>
+        </div>
       </section>
       <section class='form-group'>
+        <div class="stripeInput">
           <label>Exp. Mo</label>
           <input
           class='form-control'
@@ -70,8 +81,10 @@
           type="text"
           name="name"
           placeholder="MM">
+        </div>
       </section>
       <section class='form-group'>
+        <div class="stripeInput">
           <label>Exp. Yr</label>
           <input
           class='form-control'
@@ -79,14 +92,18 @@
           type="text"
           name="name"
           placeholder="YY">
+        </div>
       </section>
-      <button class='btn btn-primary' type='sumbit'>Confirm</button>
+      <button class='btn btn-primary whiteButton' type='sumbit'>Confirm</button>
   </form>
 </div>
+
 </div>
 <div class="progressInfo">
   <div class="progressBar">
+    <div ng-style='progress'>
 
+    </div>
   </div>
-  <button type="button" name="button">Checkout</button>
+  <button type="button" class='orangeButton' ng-click='addBoard()' name="button">Checkout</button>
 </div>

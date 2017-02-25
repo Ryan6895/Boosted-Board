@@ -1,2 +1,2 @@
-INSERT INTO payments (amount, date, userid)
-VALUES ($1, $2, $3);
+INSERT INTO payments (amount, date, userid, active)
+VALUES ($1, $2, $3, $4);

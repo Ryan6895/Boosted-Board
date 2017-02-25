@@ -5,13 +5,28 @@ function getUser(){
     $scope.user = response;
       service.gettotalPayments().then(function(response) {
         $scope.totalPayments = response.data[0].sum;
-
+        $scope.progress = {
+          "width": 'calc('+(($scope.totalPayments / $scope.boardValue) * 100)+'%'+')',
+          "background-color" : "green",
+          "height" : "20px",
+          "transition": ".25s"
+        }
       })
     })
 }
 
+$scope.correctBar = function() {
+  getUser();
+}
+
+$scope.addBoard = function() {
+  
+}
+
 getUser();
 $scope.date = new Date();
+$scope.active = 'True';
+
 
 //==========STRIPE==================
   $scope.payment = {};
@@ -31,11 +46,13 @@ $scope.date = new Date();
           amount: $scope.mockPrice,
           payment: payment,
           date: $scope.date,
-          user: $scope.user
+          user: $scope.user,
+          active: $scope.active
         }
       })
     })
     .then(function(payment) {
+      getUser();
       console.log('successfully submitted payment for $', payment);
     })
     .catch(function (err) {

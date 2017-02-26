@@ -1,6 +1,10 @@
 $borderColor: #cccccc;
+.parentCheckout {
+  display: flex;
+}
 .leftCheckout {
-  width: 40%
+  width: 50vw;
+  border-right: solid 1px #d0cfcf;
 }
 .customerEmail {
   border: solid $borderColor 1px;
@@ -72,4 +76,15 @@ $borderColor: #cccccc;
 .customerPhone {
   border: solid $borderColor 1px;
   border-radius: 4px;
+}
+.leftContentCheckout {
+  width: 575px;
+  height: auto;
+  margin: 50px;
+  float: right;
+}
+.extraLinks {
+  border-top: solid 1px grey;
+  display: flex;
+  width: 100%;
 }

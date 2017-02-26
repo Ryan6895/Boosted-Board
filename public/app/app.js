@@ -63,7 +63,7 @@ angular.module('boosted', ['ui.router', 'angular-stripe'])
   })
   .state('payment', {
     url: '/payment',
-    controller: 'payment',
+    controller: 'paymentmethod',
     templateUrl: 'public/app/routes/paymentmethod/paymentmethod.html'
   })
   .state('confirmation', {

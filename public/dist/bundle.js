@@ -50,7 +50,7 @@ angular.module('boosted', ['ui.router', 'angular-stripe']).config(function ($sta
     templateUrl: 'public/app/routes/infoMethod/infomethod.html'
   }).state('payment', {
     url: '/payment',
-    controller: 'payment',
+    controller: 'paymentmethod',
     templateUrl: 'public/app/routes/paymentmethod/paymentmethod.html'
   }).state('confirmation', {
     url: '/confirmation',
@@ -95,6 +95,22 @@ $(document).ready(function () {
     }
   });
 });
+angular.module('boosted').service('geoService', function ($http, $q) {
+  this.searchMap = function (address) {
+    console.log('service', address);
+    var deferred = $q.defer();
+    $http({
+      method: 'GET',
+      url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address.number + address.street + address.city + address.state + '&key=AIzaSyAmGhz4T4vrSA6vMV3p7OPh3iqAmUdv9rk'
+    }).then(function (response) {
+      var response = response.data;
+      deferred.resolve(response);
+    });
+    return deferred.promise;
+  };
+});
+//https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyAmGhz4T4vrSA6vMV3p7OPh3iqAmUdv9rk
+//' + address.number + address.street + address.city + address.state + '
 angular.module('boosted').service('service', function ($http, stripe) {
   this.getItems = function (num) {
     return $http({
@@ -234,14 +250,36 @@ angular.module('boosted').directive('carousel', function () {
         }
     };
 });
-angular.module('boosted').directive('guarantee', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/guarantee/guarantee.html',
-        link: function (scope, elem, attrs) {
-            console.log('hello');
+angular.module('boosted').directive('checkoutCart', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'public/app/directives/checkoutCart/checkoutCart.html',
+    controller: function ($scope, service) {
+      service.getallcartItems().then(function (response) {
+        $scope.items = response.data;
+        console.log('$scope.items', $scope.items);
+        if (!$scope.items.length) {
+          $scope.emptyCart = true;
+          $scope.fullCart = false;
+        } else {
+          $scope.emptyCart = false;
+          $scope.fullCart = true;
         }
-    };
+        $scope.getTotal();
+      });
+      service.gettotalPayments().then(function (response) {
+        $scope.paymentAmount = response.data[0].sum;
+      });
+      $scope.getTotal = function () {
+        var total = 0;
+        for (var i = 0; i < $scope.items.length; i++) {
+          total += $scope.items[i].price * $scope.items[i].qty;
+        }
+        $scope.totalPrice = total;
+      };
+    },
+    link: function (scope, elem, attrs) {}
+  };
 });
 angular.module('boosted').directive('footerView', function () {
     return {
@@ -253,6 +291,15 @@ angular.module('boosted').directive('footerView', function () {
             };
         },
         link: function (scope, elem, attrs) {}
+    };
+});
+angular.module('boosted').directive('guarantee', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/guarantee/guarantee.html',
+        link: function (scope, elem, attrs) {
+            console.log('hello');
+        }
     };
 });
 angular.module('boosted').directive('help', function () {
@@ -333,7 +380,34 @@ angular.module('boosted').controller('communityCtrl', function ($scope, service,
     console.log($scope.blogs[0].blogid);
   });
 });
-angular.module('boosted').controller('confirmation', function ($scope, service, $state, $http) {});
+angular.module('boosted').controller('confirmation', function ($scope, geoService, service, $state, $http) {
+
+  $scope.getMap = function initMap(lat, lng) {
+    var uluru = { lat: lat, lng: lng };
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: uluru
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+  };
+
+  $scope.address = {
+    'number': '7725',
+    'street': 'Deer Crossing Dr',
+    'city': 'Mason',
+    'state': 'Ohio'
+  };
+  geoService.searchMap($scope.address).then(function (coord) {
+    $scope.location = coord;
+    console.log($scope.location);
+    $scope.lat = $scope.location.results[0].geometry.location.lat;
+    $scope.lng = $scope.location.results[0].geometry.location.lng;
+    $scope.getMap($scope.lat, $scope.lng);
+  });
+});
 angular.module('boosted').controller('homeCtrl', function ($scope, service, $state, $timeout) {
   $scope.fadeIn = false;
   $timeout(function () {
@@ -356,7 +430,42 @@ angular.module('boosted').controller('itemCtrl', function ($scope, service, $sta
     });
   };
 });
-angular.module('boosted').controller('paymentmethod', function ($scope, service, $state) {});
+angular.module('boosted').controller('paymentmethod', function ($scope, service, $state) {
+  $scope.payment = {};
+
+  $scope.charge = function () {
+    return stripe.card.createToken($scope.payment.card).then(function (response) {
+      console.log('token created for card ending in ', response.card.last4);
+      var payment = angular.copy($scope.payment);
+      payment.card = void 0;
+      payment.token = response.id;
+
+      return $http({
+        method: 'POST',
+        url: '/api/payment',
+        data: {
+          amount: $scope.mockPrice,
+          payment: payment,
+          date: $scope.date,
+          user: $scope.user,
+          active: $scope.active
+        }
+      });
+    }).then(function (payment) {
+      getUser();
+      console.log('successfully submitted payment for $', payment);
+    }).catch(function (err) {
+      if (err.type && /^Stripe/.test(err.type)) {
+        console.log('Stripe error: ', err.message);
+        alert(err.message);
+      } else {
+        console.log('Other error occurred, possibly with your API', err.message);
+        alert(err.message);
+      }
+    });
+  };
+  //===END CTRL=======
+});
 angular.module('boosted').controller('payments', function ($scope, service, $state, $timeout, stripe, $http) {
   function getUser() {
     service.getUser().then(function (response) {

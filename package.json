@@ -9,6 +9,7 @@
     "cors": "^2.8.1",
     "express": "^4.14.1",
     "express-session": "^1.15.1",
+    "geocodio": "^2.0.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.1",

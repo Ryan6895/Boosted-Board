@@ -4,6 +4,7 @@ var config = require("./config.js")
 var massiveInstance = massive.connectSync({
     connectionString: connectionString.connectionString
 })
+var Geocodio = require('geocodio');
 var express = require('express');
 var session = require('express-session');
 var passport = require('passport');

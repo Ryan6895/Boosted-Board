@@ -1,12 +1,16 @@
 .cartContainer {
-  width: 80%;
+  width: 69%;
   margin: auto;
+  font-family: 'Montserrat', sans-serif;
 }
 .cartTitles {
   display: flex;
+  justify-content: space-around;
+  color: #5B5B5B;
 }
 .itemsinCart {
   display: flex;
+
 }
 .emptyCart {
 
@@ -17,5 +21,30 @@
 .iteminCart {
   border-bottom: solid #888888 1px;
   display: flex;
+  justify-content: space-around;
   width: 100%;
+}
+.itemname {
+  width: 200px;
+  color: #5B5B5B;
+}
+.itemcartPrice {
+  margin-left: 40px;
+  font-size: 20px;
+  color: #565353;
+}
+.cartTotals {
+  text-align: right;
+  margin-right: 7%;
+}
+#noButtonMargin {
+  margin-right: 0px !important;
+}
+.removeLink {
+  font-size: 13px;
+  color: #2e72b1;
+}
+.shoppingTitle {
+  color: #5B5B5B;
+  margin-top: 25px;
 }

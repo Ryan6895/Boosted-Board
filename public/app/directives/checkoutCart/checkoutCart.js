@@ -25,9 +25,11 @@ angular.module('boosted')
                   total += $scope.items[i].price * $scope.items[i].qty
                 }
                 $scope.totalPrice = total;
+                $scope.total=total;
               }
             },
-            link: function(scope, elem, attrs) {
+            scope:{
+              total: '='
             }
         }
     });

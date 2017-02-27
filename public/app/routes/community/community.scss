@@ -20,6 +20,12 @@ width: 70%;
   right: 10vw;
   font-size: 14px;
 }
+@media (max-width: 1600px) {
+    .blogfloat {
+      display: none;
+    }
+}
+
 .parentContainer {
   position: relative;
   font-family: sans-serif;

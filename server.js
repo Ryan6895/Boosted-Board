@@ -36,7 +36,8 @@ passport.use(new Auth0Strategy(
     function(accessToken, refreshToken, extraParams, profile, done) {
         db.Check_user([profile.identities[0].user_id], function(err, results) {
             if (!results[0]) {
-                db.create_user([profile.name.givenName, profile.name.familyName, profile.identities[0].user_id, profile.picture_large], function(err, resu) {
+              console.log(profile._json.picture_large);
+                db.create_user([profile.name.givenName, profile.name.familyName, profile.identities[0].user_id, profile._json.picture_large], function(err, resu) {
                     console.log('User created Successfully');
                       console.log(resu);
                     db.order.insert([resu[0].userid], function(err, order) {
@@ -55,6 +56,7 @@ passport.use(new Auth0Strategy(
                     if (err) {
                         return console.log("Find User Auth, Order not found");
                     }
+                    console.log(order);
                     results[0].order_id = order[0].id
                     return done(null, results[0]);
                 })
@@ -121,7 +123,7 @@ app.post('/api/payment', function(req, res, next) {
         //res.sendStatus(200);
 
     });
-      db.add_payment([req.body.amount, req.body.date, req.body.user.userid, req.body.active], function(err, results){
+      db.add_payment([req.body.amount, req.body.date, req.user.userid, req.body.active], function(err, results){
         if (err){
           console.error(err);
           return res.send(err);
@@ -143,10 +145,13 @@ app.post('/addemail', mainCtrl.addEmail)
 app.post('/addtoCart', mainCtrl.addtoCart)
 app.get('/cart', mainCtrl.getallcartItems)
 app.delete('/cart', mainCtrl.removeItems)
+app.put('/address/update', mainCtrl.addAddress)
 app.get('/cartItems', mainCtrl.getcartItems)
-app.get('/api/logout', function(req, res, next) {
+app.get('/checkItems', mainCtrl.checkCartItems)
+app.get('/completeOrder', mainCtrl.completeOrder, mainCtrl.completePayments)
+app.post('/api/logout', function(req, res, next) {
    req.logout();
-   return res.redirect('/');
+   return res.send('successfully Logged out');
 });
 app.get('/payments', mainCtrl.gettotalPayments)
 

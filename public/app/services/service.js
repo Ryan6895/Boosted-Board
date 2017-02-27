@@ -89,4 +89,33 @@ this.updateQty = function (id ,qty){
   }
   })
 }
+this.addAddress = function (address, email, id){
+  return $http({
+  method: 'PUT',
+  url: '/address/update',
+  data: {
+    address: address,
+    email: email,
+    id: id
+  }
+  })
+}
+this.completeOrder = function() {
+  return $http({
+    method: 'GET',
+    url: '/completeOrder'
+})
+}
+this.checkItems = function(id) {
+  return $http({
+    method: 'GET',
+    url: '/checkItems?id=' + id
+})
+}
+this.logout = function() {
+  return $http({
+    method: 'POST',
+    url: '/api/logout'
+  })
+}
 })

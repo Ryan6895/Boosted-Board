@@ -8,18 +8,18 @@
             <p>Customer information</p>
             <div class="customerEmail">
                 <span>Email</span><br>
-                <input type="text" name="" value="">
+                <input ng-model='email' type="text" name="" value="">
             </div>
             <p>Shipping address</p>
             <div class="">
                 <div class="nameLine">
                     <div class="customerFirstName">
                         <span>First name</span><br>
-                        <input type="text" name="" value="">
+                        <input type="text" ng-model='firstname' name="" value="">
                     </div>
                     <div class="customerLastName">
                         <span>Last name</span><br>
-                        <input type="text" name="" value="">
+                        <input type="text" ng-model='lastname' name="" value="">
                     </div>
                 </div>
                 <div class="customerCompany">
@@ -28,7 +28,7 @@
                 <div class="addressLine">
                     <div class="customerAddress">
                         <span>Address</span><br>
-                        <input type="text" name="" value="">
+                        <input type="text" ng-model='street' name="" value="">
                     </div>
                     <div class="customerSuite">
                         <input type="text" placeholder='Apt, suite, etc. (optional)' name="" value="">
@@ -36,21 +36,21 @@
                 </div>
                 <div class="customerCity">
                     <span>City</span><br>
-                    <input type="text" name="" value="">
+                    <input type="text" ng-model='city' name="" value="">
                 </div>
                 <div class="locationLine">
                     <div class="customerCountry">
                         <span>Country</span><br>
-                        <select>
+                        <select ng-model='country'>
 	<option value="USA">United States</option>
 	<option value="CAN">Canada</option>
 	<option value="UK">United Kingdom</option>
 	<option value="AUS">Australia</option>
-</select>
+                        </select>
                     </div>
                     <div class="customerState">
                         <span>State</span><br>
-                        <select>
+                        <select ng-model='state'>
 	<option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
 	<option value="AZ">Arizona</option>
@@ -106,7 +106,7 @@
                     </div>
                     <div class="customerZip">
                         <span>Zip</span><br>
-                        <input type="text" name="" value="">
+                        <input ng-model='zip' type="text" name="" value="">
                     </div>
                 </div>
 
@@ -117,7 +117,7 @@
                 <a ui-sref="cart">
                     <p>Return to cart</p>
                 </a>
-                <button type="button" ui-sref='payment' name="button">Continue to payment method</button>
+                <button type="button" ng-click='addAddress(email, firstname, lastname, street, city, country, state, zip, order_id)' name="button">Continue to payment method</button>
                 <div class="extraLinks">
                     <p>Privacy policy</p>
                     <p>Refund policy</p>
@@ -130,3 +130,4 @@
         <checkout-cart></checkout-cart>
     </div>
 </div>
+<button type="button" ui-sref='confirmation' name="button">test</button>

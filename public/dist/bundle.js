@@ -96,17 +96,22 @@ $(document).ready(function () {
   });
 });
 angular.module('boosted').service('geoService', function ($http, $q) {
+  var self = this;
   this.searchMap = function (address) {
     console.log('service', address);
     var deferred = $q.defer();
     $http({
       method: 'GET',
-      url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address.number + address.street + address.city + address.state + '&key=AIzaSyAmGhz4T4vrSA6vMV3p7OPh3iqAmUdv9rk'
+      url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address.street + address.city + address.state + address.country + '&key=AIzaSyAmGhz4T4vrSA6vMV3p7OPh3iqAmUdv9rk'
     }).then(function (response) {
       var response = response.data;
       deferred.resolve(response);
     });
     return deferred.promise;
+  };
+  this.newAddress;
+  this.passAddress = function (objAddress) {
+    self.newAddress = objAddress;
   };
 });
 //https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyAmGhz4T4vrSA6vMV3p7OPh3iqAmUdv9rk
@@ -201,135 +206,35 @@ angular.module('boosted').service('service', function ($http, stripe) {
       }
     });
   };
-});
-angular.module('boosted').directive('checkoutCart', function () {
-  return {
-    restrict: 'E',
-    templateUrl: 'public/app/directives/checkoutCart/checkoutCart.html',
-    controller: function ($scope, service) {
-      service.getallcartItems().then(function (response) {
-        $scope.items = response.data;
-        console.log('$scope.items', $scope.items);
-        if (!$scope.items.length) {
-          $scope.emptyCart = true;
-          $scope.fullCart = false;
-        } else {
-          $scope.emptyCart = false;
-          $scope.fullCart = true;
-        }
-        $scope.getTotal();
-      });
-      service.gettotalPayments().then(function (response) {
-        $scope.paymentAmount = response.data[0].sum;
-      });
-      $scope.getTotal = function () {
-        var total = 0;
-        for (var i = 0; i < $scope.items.length; i++) {
-          total += $scope.items[i].price * $scope.items[i].qty;
-        }
-        $scope.totalPrice = total;
-      };
-    },
-    link: function (scope, elem, attrs) {}
+  this.addAddress = function (address, email, id) {
+    return $http({
+      method: 'PUT',
+      url: '/address/update',
+      data: {
+        address: address,
+        email: email,
+        id: id
+      }
+    });
   };
-});
-angular.module('boosted').directive('boardCaro', function () {
-    return {
-        restrict: 'E',
-        link: function (scope, elem, attrs) {
-            $('.slider-for').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: true,
-                fade: true,
-                asNavFor: '.slider-nav'
-
-            });
-            $('.slider-nav').slick({
-                slidesToShow: 1.667,
-                slidesToScroll: 1,
-                asNavFor: '.slider-for',
-                dots: true,
-                centerMode: true,
-                focusOnSelect: true
-
-            });
-        }
-    };
-});
-angular.module('boosted').directive('carousel', function () {
-    return {
-        restrict: 'E',
-        link: function (scope, elem, attrs) {
-            $('.slider-for').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: false,
-                fade: true,
-                asNavFor: '.slider-nav'
-            });
-            $('.slider-nav').slick({
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                asNavFor: '.slider-for',
-                dots: false,
-                centerMode: true,
-                focusOnSelect: true,
-                autoplay: true,
-                autoplaySpeed: 3000
-            });
-        }
-    };
-});
-angular.module('boosted').directive('footerView', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/footer/footer.html',
-        controller: function ($scope, service) {
-            $scope.addEmail = function (email) {
-                service.addemail(email);
-            };
-        },
-        link: function (scope, elem, attrs) {}
-    };
-});
-angular.module('boosted').directive('guarantee', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/guarantee/guarantee.html',
-        link: function (scope, elem, attrs) {
-            console.log('hello');
-        }
-    };
-});
-angular.module('boosted').directive('help', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/help/help.html',
-        link: function (scope, elem, attrs) {}
-    };
-});
-angular.module('boosted').directive('navBar', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/navBar/navBar.html',
-        controller: function ($scope, service) {
-            service.getUser().then(function (response) {
-                if (!response) {
-                    $scope.account = false;
-                } else {
-                    $scope.account = true;
-                }
-                //add button login and account depending if logged in
-            });
-        },
-        link: function (scope, elem, attrs) {
-
-            $('.navDrop').on('click', function () {
-                $('.navDropDown').toggleClass("navDropHeight");
-            });
-        }
-    };
+  this.completeOrder = function () {
+    return $http({
+      method: 'GET',
+      url: '/completeOrder'
+    });
+  };
+  this.checkItems = function (id) {
+    return $http({
+      method: 'GET',
+      url: '/checkItems?id=' + id
+    });
+  };
+  this.logout = function () {
+    return $http({
+      method: 'POST',
+      url: '/api/logout'
+    });
+  };
 });
 angular.module('boosted').controller('blogitem', function ($scope, service, $stateParams) {
   service.getOneBlog(parseInt($stateParams.blogid)).then(function (blog) {
@@ -343,7 +248,6 @@ angular.module('boosted').controller('cartCtrl', function ($scope, service, $sta
   };
   service.getallcartItems().then(function (response) {
     $scope.items = response.data;
-    console.log('$scope.items', $scope.items);
     if (!$scope.items.length) {
       $scope.emptyCart = true;
       $scope.fullCart = false;
@@ -394,12 +298,8 @@ angular.module('boosted').controller('confirmation', function ($scope, geoServic
     });
   };
 
-  $scope.address = {
-    'number': '7725',
-    'street': 'Deer Crossing Dr',
-    'city': 'Mason',
-    'state': 'Ohio'
-  };
+  $scope.address = geoService.newAddress;
+
   geoService.searchMap($scope.address).then(function (coord) {
     $scope.location = coord;
     console.log($scope.location);
@@ -414,23 +314,59 @@ angular.module('boosted').controller('homeCtrl', function ($scope, service, $sta
     $scope.fadeIn = true;
   }, 200);
 });
-angular.module('boosted').controller('infomethod', function ($scope, service, $state, $http) {});
-angular.module('boosted').controller('itemCtrl', function ($scope, service, $stateParams) {
+angular.module('boosted').controller('itemCtrl', function ($scope, service, $stateParams, $state) {
   service.getOneItem($stateParams.id).then(function (item) {
     $scope.item = item.data;
-    console.log(item);
   });
   $scope.addItem = function () {
-    service.getcartItems($stateParams.id).then(function (response) {
-      if (response.data[0].product_id != $stateParams.id) {
+    service.checkItems($stateParams.id).then(function (response) {
+      console.log('getcartItems', response);
+      if (!response.data.length) {
         service.addtoCart($stateParams.id);
+        $state.go('cart');
       } else {
         service.changeQuantity($stateParams.id);
+        $state.go('cart');
       }
     });
   };
 });
-angular.module('boosted').controller('paymentmethod', function ($scope, service, $state) {
+angular.module('boosted').controller('infomethod', function ($scope, service, $state, geoService, $http) {
+
+  service.getallcartItems().then(function (response) {
+    $scope.order_id = response.data[0].order_id;
+    console.log('order.id', $scope.order_id);
+  });
+
+  $scope.addAddress = function (email, firstname, lastname, street, city, country, state, zip, order_id) {
+    var strAddress = street + " " + city + " " + state + " " + zip;
+
+    service.addAddress(strAddress, email, order_id).then(function (response) {
+      console.log('successfully added');
+    });
+
+    var objAddress = {
+      'street': street,
+      'city': city,
+      'state': state,
+      'email': email,
+      'firstname': firstname,
+      'lastname': lastname,
+      'zip': zip,
+      'country': country
+    };
+    geoService.passAddress(objAddress);
+    $state.go('payment');
+  };
+});
+angular.module('boosted').controller('paymentmethod', function ($scope, service, $http, $state, stripe) {
+
+  $scope.total = 0;
+
+  service.gettotalPayments().then(function (response) {
+    $scope.paymentAmount = response.data[0].sum;
+  });
+
   $scope.payment = {};
 
   $scope.charge = function () {
@@ -439,21 +375,26 @@ angular.module('boosted').controller('paymentmethod', function ($scope, service,
       var payment = angular.copy($scope.payment);
       payment.card = void 0;
       payment.token = response.id;
-
+      $scope.totalDue = $scope.total - $scope.paymentAmount;
+      console.log($scope.totalDue);
       return $http({
         method: 'POST',
         url: '/api/payment',
         data: {
-          amount: $scope.mockPrice,
+          amount: $scope.totalDue,
           payment: payment,
           date: $scope.date,
-          user: $scope.user,
           active: $scope.active
         }
       });
     }).then(function (payment) {
-      getUser();
       console.log('successfully submitted payment for $', payment);
+      //all here
+      service.completeOrder().then(function (response) {
+        console.log(response);
+      }).then(function () {
+        state.go('confirmation');
+      });
     }).catch(function (err) {
       if (err.type && /^Stripe/.test(err.type)) {
         console.log('Stripe error: ', err.message);
@@ -474,9 +415,11 @@ angular.module('boosted').controller('payments', function ($scope, service, $sta
         $scope.totalPayments = response.data[0].sum;
         $scope.progress = {
           "width": 'calc(' + $scope.totalPayments / $scope.boardValue * 100 + '%' + ')',
-          "background-color": "green",
-          "height": "20px",
-          "transition": ".25s"
+          "background": "linear-gradient(to right, #f7dfb3 0%,#ef7b15 100%)",
+          "height": "40px",
+          "transition": ".25s",
+          "border-radius": "8px"
+
         };
       });
     });
@@ -491,6 +434,12 @@ angular.module('boosted').controller('payments', function ($scope, service, $sta
   getUser();
   $scope.date = new Date();
   $scope.active = 'True';
+  $scope.logout = function () {
+    service.logout().then(function (response) {
+      console.log('successfully Logged Out');
+      $state.go('home');
+    });
+  };
 
   //==========STRIPE==================
   $scope.payment = {};
@@ -514,6 +463,12 @@ angular.module('boosted').controller('payments', function ($scope, service, $sta
         }
       });
     }).then(function (payment) {
+      $scope.mockPrice = '';
+      $scope.name = '';
+      $scope.payment.card.number = '';
+      $scope.payment.card.exp_month = '';
+      $scope.payment.card.exp_year = '';
+      $scope.payment.card.cvc = '';
       getUser();
       console.log('successfully submitted payment for $', payment);
     }).catch(function (err) {
@@ -542,4 +497,136 @@ angular.module('boosted').controller('storeCtrl', function ($scope, service, $st
     $location.hash(param);
     $anchorScroll();
   };
+});
+angular.module('boosted').directive('boardCaro', function () {
+    return {
+        restrict: 'E',
+        link: function (scope, elem, attrs) {
+            $('.slider-for').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                fade: true,
+                asNavFor: '.slider-nav'
+
+            });
+            $('.slider-nav').slick({
+                slidesToShow: 1.667,
+                slidesToScroll: 1,
+                asNavFor: '.slider-for',
+                dots: true,
+                centerMode: true,
+                focusOnSelect: true
+
+            });
+        }
+    };
+});
+angular.module('boosted').directive('carousel', function () {
+    return {
+        restrict: 'E',
+        link: function (scope, elem, attrs) {
+            $('.slider-for').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: '.slider-nav'
+            });
+            $('.slider-nav').slick({
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                asNavFor: '.slider-for',
+                dots: false,
+                centerMode: true,
+                focusOnSelect: true,
+                autoplay: true,
+                autoplaySpeed: 3000
+            });
+        }
+    };
+});
+angular.module('boosted').directive('checkoutCart', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'public/app/directives/checkoutCart/checkoutCart.html',
+    controller: function ($scope, service) {
+      service.getallcartItems().then(function (response) {
+        $scope.items = response.data;
+        console.log('$scope.items', $scope.items);
+        if (!$scope.items.length) {
+          $scope.emptyCart = true;
+          $scope.fullCart = false;
+        } else {
+          $scope.emptyCart = false;
+          $scope.fullCart = true;
+        }
+        $scope.getTotal();
+      });
+      service.gettotalPayments().then(function (response) {
+        $scope.paymentAmount = response.data[0].sum;
+      });
+      $scope.getTotal = function () {
+        var total = 0;
+        for (var i = 0; i < $scope.items.length; i++) {
+          total += $scope.items[i].price * $scope.items[i].qty;
+        }
+        $scope.totalPrice = total;
+        $scope.total = total;
+      };
+    },
+    scope: {
+      total: '='
+    }
+  };
+});
+angular.module('boosted').directive('footerView', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/footer/footer.html',
+        controller: function ($scope, service) {
+            $scope.addEmail = function (email) {
+                service.addemail(email);
+            };
+        },
+        link: function (scope, elem, attrs) {}
+    };
+});
+angular.module('boosted').directive('guarantee', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/guarantee/guarantee.html',
+        link: function (scope, elem, attrs) {
+            console.log('hello');
+        }
+    };
+});
+angular.module('boosted').directive('help', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/help/help.html',
+        link: function (scope, elem, attrs) {}
+    };
+});
+angular.module('boosted').directive('navBar', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/navBar/navBar.html',
+        controller: function ($scope, service) {
+            service.getUser().then(function (response) {
+                if (!response) {
+                    $scope.account = false;
+                } else {
+                    $scope.account = true;
+                }
+                //add button login and account depending if logged in
+            });
+        },
+        link: function (scope, elem, attrs) {
+
+            $('.navDrop').on('click', function () {
+                $('.navDropDown').toggleClass("navDropHeight");
+            });
+        }
+    };
 });

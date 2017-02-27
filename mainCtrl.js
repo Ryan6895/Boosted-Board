@@ -58,7 +58,6 @@ module.exports = {
     })
   },
   getcartItems: function(req, res){
-    console.log('req.body:', req.query);
     db.order.get_cartItems([req.query.id],function(err, results){
       if (err){
         console.error(err);
@@ -68,7 +67,7 @@ module.exports = {
     })
   },
   getallcartItems: function(req, res){
-    db.order.get_allcartitems([req.user.userid],function(err, results){
+    db.order.get_allcartitems([req.user.userid, req.user.order_id],function(err, results){
       if (err){
         console.error(err);
         return res.send(err);
@@ -113,6 +112,16 @@ module.exports = {
    res.send(results);
  })
 },
+addAddress: function(req, res) {
+  console.log(req.body);
+  db.order.Add_address([req.body.address, req.body.email, req.body.id], function(err, results){
+      if (err){
+        console.error(err);
+        return res.send(err);
+      }
+      res.send(results);
+    })
+},
 updateQty: function(req, res) {
   db.order.change_quantity([req.body.id, req.body.qty], function(err, results){
       if (err){
@@ -121,5 +130,40 @@ updateQty: function(req, res) {
       }
       res.send(results);
     })
+},
+completeOrder: function (req, res, next) {
+  db.order.update([req.user.order_id, new Date(), undefined], function(err, oldOrder) {
+    if (err) {
+      console.log('complete order err: ', err);
+      return res.status(500).send(err);
+    }
+
+    db.order.insertNew([req.user.userid], function(err, order) {
+      if (err) {
+        console.log('complete order create err: ', err);
+        return res.status(500).send(err);
+      }
+      req.user.order_id = order[0].id;
+      next()
+  })
+})
+},
+completePayments: function (req, res, next) {
+  db.order.clear_payments([req.user.userid], function(err, payments) {
+    if (err) {
+      console.log('complete order create err: ', err);
+      return res.status(500).send(err);
+    }
+    return res.status(200).send('Order completed successfully');
+  })
+},
+checkCartItems: function(req, res){
+db.check_cartItems([req.query.id, req.user.order_id], function(err, results){
+  if (err){
+    console.error(err);
+    return res.send(err);
+  }
+  res.send(results);
+})
 }
 }

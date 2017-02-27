@@ -3,109 +3,132 @@
 <div class="userInfo">
 <img class="profilePic"src="{{user.profilepic}}" alt=""></br>
 <p class="paymentName">{{user.firstname}} {{user.lastname}}</p>
-</br>
-<div ng-init='boardValue=1499'>
-    <label for="redRadio">Dual+:</label>
-    <input id="redRadio" type="radio" ng-change='correctBar()' ng-model="boardValue" value="1499" /><br />
 
-    <label for="greenRadio">Dual+ Extended:</label>
-    <input id="yellowRadio" type="radio" ng-change='correctBar()' ng-model="boardValue" value="1599" /><br />
+<div class="codePen" ng-init='boardValue=1499'>
 
-    <label for="greenRadio">Dual:</label>
-    <input id="greenRadio" type="radio" ng-change='correctBar()' ng-model="boardValue" value="1299" /><br />
+  <ul>
+  <li>
+    <input type="radio" id="f-option" ng-change='correctBar()' name="selector" ng-model="boardValue" value="1499">
+    <label for="f-option">Dual+</label>
 
-    <label for="blueRadio">Dual Extended:</label>
-    <input id="blueRadio" type="radio" ng-change='correctBar()' ng-model="boardValue" value="1399" /><br />
-    <br/>
-    <div class="paymentGoal">
-      <strong>Goal:</strong> {{boardValue | currency}}<br />
-    </div>
-    <div class="paymentPaid">
-      <strong>Amount Paid:</strong> {{totalPayments | currency}}
-    </div>
+    <div class="check"></div>
+  </li>
+
+  <li>
+    <input type="radio" id="s-option" ng-change='correctBar()' name="selector" ng-model="boardValue" value="1599">
+    <label for="s-option">Dual+ Extended</label>
+
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+  <li>
+    <input type="radio" id="t-option" ng-change='correctBar()' name="selector" ng-model="boardValue" value="1299">
+    <label for="t-option">Dual</label>
+
+    <div class="check"><div class="inside"></div></div>
+  </li>
+  <li>
+    <input type="radio" id="r-option" ng-change='correctBar()' name="selector" ng-model="boardValue" value="1399">
+    <label for="r-option">Dual Extended</label>
+
+    <div class="check"><div class="inside"></div></div>
+  </li>
+</ul>
 </div>
+    <button type="button" class='orangeButton removeMargin' ng-click='addBoard()' name="button">Checkout</button>
+    <button type="button" class='whiteButton removeMargin' name="button" ng-click='logout()'>Log Out</button>
+    <br/>
+
 </div>
 <div class="paymentInfo">
   <form ng-submit='charge(payment)' class='col-xs-4'>
-      <h2 class="stripeTitle">Make a payment</h2><br>
+      <div class="stripeCover">
+        <h2 class="stripeTitle">Make a payment</h2>
+      </div>
       <section class='form-group'>
         <div class="stripeInput">
-          <label>Payment Amount:</label>
+          <label>Amount:</label>
           <input
-          class='form-control'
+          class='form-control textboxStyle '
           type="text"
           name=""
           ng-model='mockPrice'
-          placeholder="amount"
+          placeholder="  amount"
           required>
         </div>
       </section>
       <section class='form-group'>
         <div class="stripeInput">
-          <label>Name on card:</label>
+          <label>Name:</label>
           <input
+          autocomplete="off"
           type="text"
-          name="name"
-          class='form-control'
-          placeholder='name'
+          name=""
+          ng-model='name'
+          class='form-control textboxStyle '
+          placeholder='  name'
           required>
         </div>
       </section>
       <section class='form-group'>
         <div class="stripeInput">
-          <label>Card number:</label>
+          <label>CC:</label>
           <input
-          class='form-control'
+          class='form-control textboxStyle '
           ng-model="payment.card.number"
           type="text"
-          placeholder="card"
+          placeholder="  card"
           required>
         </div>
       </section>
-      <section class='form-group'>
-        <div class="stripeInput">
-          <label>CVC:</label>
+      <div class="sameLine">
+
+      <label>Expiration:</label>
+      <div class="singleLine">
+
           <input
-          class='form-control'
-          ng-model="payment.card.cvc"
-          placeholder='CVC number'
-          type="text"
-          required>
-        </div>
-      </section>
-      <section class='form-group'>
-        <div class="stripeInput">
-          <label>Exp. Mo</label>
-          <input
-          class='form-control'
+          class='form-control textboxStyle expBoxStyle'
           ng-model="payment.card.exp_month"
           type="text"
           name="name"
-          placeholder="MM">
-        </div>
-      </section>
-      <section class='form-group'>
-        <div class="stripeInput">
-          <label>Exp. Yr</label>
+          placeholder="  MM">
+
           <input
-          class='form-control'
+          class='form-control textboxStyle expBoxStyle centerBoxStyle'
           ng-model="payment.card.exp_year"
           type="text"
           name="name"
-          placeholder="YY">
-        </div>
-      </section>
-      <button class='btn btn-primary whiteButton' type='sumbit'>Confirm</button>
+          placeholder="  YY">
+
+          <input
+          class='form-control textboxStyle expBoxStyle'
+          ng-model="payment.card.cvc"
+          placeholder='  CCV'
+          type="text"
+          required>
+
+      </div>
+      </div>
+      <div class="stripeButtonFooter">
+        <button class='btn btn-primary btnGreenColor whiteButton' type='sumbit'>Confirm</button>
+      </div>
+
   </form>
+
 </div>
 
 </div>
 <div class="progressInfo">
+  <div class="paymentGoal">
+    <strong>Goal:</strong> <span class="textColor">{{boardValue | currency}}</span><br />
+  </div>
+  <div class="paymentPaid">
+    <strong>Amount Paid:</strong> <span class="textColor">{{totalPayments | currency}}</span>
+  </div>
   <div class="progressBar">
     <div ng-style='progress'>
 
     </div>
   </div>
-  <button type="button" class='orangeButton' ng-click='addBoard()' name="button">Checkout</button>
 </div>
 <footer-view></footer-view>

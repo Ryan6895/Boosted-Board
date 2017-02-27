@@ -7,9 +7,11 @@ function getUser(){
         $scope.totalPayments = response.data[0].sum;
         $scope.progress = {
           "width": 'calc('+(($scope.totalPayments / $scope.boardValue) * 100)+'%'+')',
-          "background-color" : "green",
-          "height" : "20px",
-          "transition": ".25s"
+          "background": "linear-gradient(to right, #f7dfb3 0%,#ef7b15 100%)",
+          "height" : "40px",
+          "transition": ".25s",
+          "border-radius": "8px"
+
         }
       })
     })
@@ -20,13 +22,18 @@ $scope.correctBar = function() {
 }
 
 $scope.addBoard = function() {
-  
+
 }
 
 getUser();
 $scope.date = new Date();
 $scope.active = 'True';
-
+$scope.logout = function () {
+  service.logout().then(function(response){
+    console.log('successfully Logged Out');
+    $state.go('home');
+  })
+}
 
 //==========STRIPE==================
   $scope.payment = {};
@@ -52,6 +59,12 @@ $scope.active = 'True';
       })
     })
     .then(function(payment) {
+      $scope.mockPrice = '';
+      $scope.name = '';
+      $scope.payment.card.number = '';
+      $scope.payment.card.exp_month = '';
+      $scope.payment.card.exp_year = '';
+      $scope.payment.card.cvc = '';
       getUser();
       console.log('successfully submitted payment for $', payment);
     })

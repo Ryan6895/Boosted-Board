@@ -13,13 +13,8 @@ angular.module('boosted')
     });
   }
 
+$scope.address = geoService.newAddress;
 
-$scope.address = {
-  'number': '7725',
-  'street': 'Deer Crossing Dr',
-  'city': 'Mason',
-  'state': 'Ohio'
-}
   geoService.searchMap($scope.address).then(function(coord) {
       $scope.location = coord;
       console.log($scope.location);

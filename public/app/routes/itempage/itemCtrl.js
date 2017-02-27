@@ -1,15 +1,18 @@
 angular.module('boosted')
-    .controller('itemCtrl', function($scope, service, $stateParams) {
+    .controller('itemCtrl', function($scope, service, $stateParams, $state) {
         service.getOneItem($stateParams.id).then(function(item) {
             $scope.item = item.data;
-            console.log(item);
+
         })
         $scope.addItem = function() {
-          service.getcartItems($stateParams.id).then(function(response) {
-            if(response.data[0].product_id != $stateParams.id){
+          service.checkItems($stateParams.id).then(function(response) {
+            console.log('getcartItems',response);
+            if(!response.data.length){
               service.addtoCart($stateParams.id);
+              $state.go('cart');
             } else {
               service.changeQuantity($stateParams.id);
+              $state.go('cart');
             }
           });
 

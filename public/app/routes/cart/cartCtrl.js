@@ -5,11 +5,10 @@ angular.module('boosted')
   }
   service.getallcartItems().then(function(response){
     $scope.items = response.data;
-    console.log('$scope.items', $scope.items);
     if (!$scope.items.length) {
       $scope.emptyCart = true;
       $scope.fullCart = false;
-    }else {
+    } else {
       $scope.emptyCart = false;
       $scope.fullCart = true;
     }

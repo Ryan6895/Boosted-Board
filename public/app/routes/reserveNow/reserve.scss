@@ -1,0 +1,87 @@
+.reserveCover {
+  display: flex;
+  background-color: #EFEFEF;
+  justify-content: center;
+}
+.boardStanding {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-right: 40px;
+}
+.rightReserveOptions {
+  padding-top: 100px;
+  padding-left: 40px;
+}
+.reserveCoverTitle {
+  font-size: 38px;
+  font-family: sans-serif;
+  line-height: 10px;
+}
+.borderTopSection {
+  border-top: solid 1px #d2d2d2;
+  height: 135px;
+}
+.buttonSectionTitle {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.sameLine {
+  display: flex;
+}
+#heightFix {
+  height: 100px !important;
+}
+//secondSection Compare Specs
+.compareCover {
+  background-color: #F8F8F8;
+  padding-top: 20px;
+}
+.compareTitle {
+  font-size: 41px;
+  font-family: 'Francois One', sans-serif;
+}
+.compareCoverPosition {
+  margin: auto;
+  width: 920px
+}
+.compareCoverContent {
+  display: flex;
+  justify-content: space-between;
+}
+.DualPlusContainer {
+  width: 450px;
+  margin-right: 20px;
+  border-top: solid 3px #F0532D;
+  background-color: white;
+  margin-bottom: 95px;
+}
+.DualContainer {
+  width: 450px;
+  margin-left: 20px;
+  border-top: solid 3px #52CCE1;
+  background-color: white;
+  margin-bottom: 95px;
+}
+.boardPhotoSize {
+  width: 330px;
+  margin: 50px;
+  margin-bottom: 20px;
+}
+.infoSectionReserve {
+  color: #8A8A8A;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  line-height: 25px;
+}
+.compareSectionTitles {
+  text-align: center;
+  .title {
+    font-size: 28px;
+    font-weight: bolder;
+  }
+}
+.compareSectionDesc {
+  margin-top: 30px;
+  margin-left: 110px;
+  margin-bottom: 20px;
+}

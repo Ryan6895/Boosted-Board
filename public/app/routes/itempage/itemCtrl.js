@@ -4,6 +4,15 @@ angular.module('boosted')
             $scope.item = item.data;
 
         })
+
+        service.getUser().then(function(response) {
+          if (!response){
+            $scope.loggedin = false;
+          } else {
+            $scope.loggedin = true;
+          }
+        })
+
         $scope.addItem = function() {
           service.checkItems($stateParams.id).then(function(response) {
             console.log('getcartItems',response);

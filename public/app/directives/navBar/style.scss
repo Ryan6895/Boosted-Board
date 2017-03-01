@@ -73,7 +73,23 @@ body {
   border-bottom: solid white 2px;
   padding-right: 15px;
   transition: .25s;
+  position: relative;
 }
+  .totalQty {
+    position: absolute;
+    top: -8px;
+    right: 8px;
+    background-color: #FC6E4B;
+    border-radius: 10px;
+    font-size: 12px;
+    width: 17px;
+    height: 17px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 .cartPhoto:hover {
   border-color: black;
   opacity: 1;

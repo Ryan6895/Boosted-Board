@@ -1,8 +1,6 @@
 angular.module('boosted')
 .controller('cartCtrl', function($scope,service, $state) {
-  $scope.reloadRoute = function() {
-     $state.reload();
-  }
+  $scope.updateCart = function(){
   service.getallcartItems().then(function(response){
     $scope.items = response.data;
     if (!$scope.items.length) {
@@ -17,10 +15,16 @@ angular.module('boosted')
   service.gettotalPayments().then(function(response) {
     $scope.paymentAmount = response.data[0].sum;
   });
+}
+$scope.updateCart();
   $scope.removeItem = function(id) {
     //console.log(id);
-      service.removeItems(id);
-      $state.reload();
+      service.removeItems(id).then(function(response) {
+        $scope.updateCart();
+        $scope.getTotal();
+        $scope.$emit('myCustomEvent', 'success');
+      });
+      // $state.reload();
   }
   $scope.getTotal = function() {
     var total = 0;
@@ -28,10 +32,13 @@ angular.module('boosted')
       total += $scope.items[i].price * $scope.items[i].qty
     }
     $scope.totalPrice = total;
+
   }
   $scope.updateItem = function(id,qty){
     service.updateQty(id, qty).then(function(response) {
+      $scope.updateCart();
       $scope.getTotal();
+      $scope.$emit('myCustomEvent', 'success');
     });
   }
 });

@@ -12,6 +12,7 @@
   <div class="order">
     <div ng-show='account' ui-sref='cart' class="cartPhoto">
       <img class= 'photo' src="img/homePage/cart.PNG" alt="">
+      <div ng-show='cartQty' class="totalQty">{{totalQty}}</div>
     </div>
     <div ng-hide='account' class="cartPhoto">
       <a href="/auth"><img class= 'photo' src="img/homePage/cart.PNG" alt=""></a>

@@ -10,8 +10,23 @@ angular.module('boosted')
                 } else {
                   $scope.account = true;
                 }
-                //add button login and account depending if logged in
+              $scope.getTotalQty = function (){
+              service.getTotalQty().then(function(response) {
+                $scope.totalQty = response.data[0].sum;
+                if ($scope.totalQty == 0){
+                  $scope.cartQty = false;
+                }else {
+                  $scope.cartQty = true;
+                }
+              })
+            }
+            $scope.getTotalQty();
+              $scope.$on('myCustomEvent', function (event, data) {
+                $scope.getTotalQty();
+                console.log(data);
               });
+              });
+
             },
             link: function(scope, elem, attrs) {
 

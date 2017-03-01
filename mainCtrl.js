@@ -165,5 +165,14 @@ db.check_cartItems([req.query.id, req.user.order_id], function(err, results){
   }
   res.send(results);
 })
+},
+totalQty: function(req, res){
+db.get_totalQty([req.user.order_id], function(err, results){
+  if (err){
+    console.error(err);
+    return res.send(err);
+  }
+  res.send(results);
+})
 }
 }

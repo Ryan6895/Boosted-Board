@@ -3,6 +3,9 @@
   background-color: #EFEFEF;
   justify-content: center;
 }
+.buttonSelectedonReserve {
+  border: solid 2px #61C1E6 !important;
+}
 .boardStanding {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -14,22 +17,63 @@
 }
 .reserveCoverTitle {
   font-size: 38px;
-  font-family: sans-serif;
+  font-family: 'Francois One', sans-serif;
   line-height: 10px;
+  letter-spacing: 1.2px;
 }
 .borderTopSection {
   border-top: solid 1px #d2d2d2;
   height: 135px;
 }
 .buttonSectionTitle {
+  font-family: 'Montserrat', sans-serif;
   margin-top: 20px;
   margin-bottom: 20px;
+  margin-right: 10px;
 }
-.sameLine {
+.buttonSectionLink {
+  color: #61C1E6;
+  font-family: 'Raleway', sans-serif;
+  margin-top: 23px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+.sameLine1 {
   display: flex;
+}
+.threerReserveIcons {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  .innerContainer {
+    text-align: center;
+  }
+  .innerPicture {
+    margin: auto;
+  }
 }
 #heightFix {
   height: 100px !important;
+  padding-top: 20px;
+}
+.blackBtn {
+  background-color: black !important;
+  border-color: black !important;
+}
+.blackBtn:hover {
+  background-color: #383838 !important;
+  border-color: black !important;
+}
+.selectionButton {
+  background-color: white;
+  color: grey;
+  border-color: #d8d8d8;
+}
+.selectionButton:hover {
+  background-color: white;
+  color: grey;
+  border-color: #d8d8d8;
 }
 //secondSection Compare Specs
 .compareCover {
@@ -71,7 +115,7 @@
   color: #8A8A8A;
   font-family: 'Raleway', sans-serif;
   font-size: 15px;
-  line-height: 25px;
+  line-height: 23px;
 }
 .compareSectionTitles {
   text-align: center;
@@ -84,4 +128,176 @@
   margin-top: 30px;
   margin-left: 110px;
   margin-bottom: 20px;
+}
+.compareBatteries {
+  position: relative;
+  min-height: 870px;
+  .contentSize {
+    .content {
+      position: relative;
+      z-index: 5;
+      margin-left: 20%;
+      .title {
+        font-family: 'Francois One', sans-serif;
+        font-size: 42px;
+        margin-bottom: 0px;
+        margin-top: 80px;
+      }
+      .miniTitle {
+        font-family: 'Montserrat', sans-serif;
+        color: #4A4A4A;
+        font-size: 17px;
+      }
+      .pTitle {
+        font-family: 'Montserrat', sans-serif;
+        color: #4A4A4A;
+        font-size: 17px;
+      }
+      .desc {
+        color: #8A8A8A;
+        font-family: 'Raleway', sans-serif;
+        color: #4D4D4D;
+        font-size: 15px;
+        width: 300px;
+      }
+    }
+  }
+}
+.removeBatteryImg {
+  width: 100vw;
+  z-index: 0;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+.rangeWeightSameLine {
+  display: flex;
+}
+.flexedDesc {
+  width: 175px !important;
+}
+//Shop Now Features
+.features {
+  background-color: #F8F8F8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .content {
+    padding-bottom: 90px;
+    .featuresTitle{
+      font-family: 'Francois One', sans-serif;
+      font-size: 35px;
+      margin-bottom: 0px;
+      margin-top: 80px;
+      margin-left: 40px;
+    }
+    .TopRow {
+      display: flex;
+      .imgSize {
+        height: 30px;
+      }
+      .pTitle {
+        font-family: 'Montserrat', sans-serif;
+        color: #4A4A4A;
+        font-size: 17px;
+      }
+      .desc {
+        color: #8A8A8A;
+        font-family: 'Raleway', sans-serif;
+        color: #B3B3B3;
+        font-size: 15px;
+
+      }
+    }
+    .bottomRow {
+      display: flex;
+      .imgSize {
+        height: 30px;
+      }
+      .pTitle {
+        font-family: 'Montserrat', sans-serif;
+        color: #4A4A4A;
+        font-size: 17px;
+      }
+      .desc {
+        color: #8A8A8A;
+        font-family: 'Raleway', sans-serif;
+        color: #B3B3B3;
+        font-size: 15px;
+
+      }
+    }
+  }
+}
+.featureContainer {
+  margin: 40px;
+}
+//in the box section
+.intheBox {
+  .content {
+    width: 100%;
+    max-width: 1470px;
+    margin: auto;
+    margin-bottom: -4px;
+    padding-bottom: 0px;
+    .title {
+      font-family: 'Francois One', sans-serif;
+      font-size: 35px;
+      width: 70%;
+      margin: auto;
+      padding-top: 70px;
+      padding-bottom: 20px;
+    }
+  }
+}
+.intheboxPhoto {
+  width: 100%;
+  max-width: 1470px;
+  margin: 0px;
+  padding: 0px;
+}
+//SHIPPING AND INFO SECTION
+.shippingandInfo {
+  background-color: #F8F8F8;
+  border-bottom: solid 1px #E0E0E0;
+  padding-bottom: 80px;
+  .content {
+    width: 950px;
+    margin: auto;
+    padding-top: 50px;
+    .thirdSection {
+      .mainTitle {
+        font-family: 'Francois One', sans-serif;
+        font-size: 33px;
+        margin-bottom: 5px;
+        letter-spacing: 1.2px;
+      }
+      .flexSection {
+        display: flex;
+        .left {
+          margin-right: 15px;
+        }
+        .right {
+          margin-left: 15px;
+        }
+        .contentContainer {
+          width: 475px;
+          margin-bottom: 35px;
+          .miniTitle {
+            font-family: 'Montserrat', sans-serif;
+            color: #4A4A4A;
+            font-size: 18px;
+            font-weight: bold;
+          }
+          .desc {
+            color: #4D4D4D;
+            font-family: 'Raleway', sans-serif;
+            color: #4D4D4D;
+            font-size: 16px;
+            letter-spacing: 1.15px;
+          }
+        }
+      }
+    }
+  }
 }

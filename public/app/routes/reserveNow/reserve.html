@@ -6,27 +6,43 @@
 <div class="rightReserveOptions">
 <p class='reserveCoverTitle'>2nd Gen Boosted Board</p>
 <div class="borderTopSection">
-  <div class="sameLine">
-    <div class="buttonSectionTitle">Power</div> <div class="buttonSectionTitle">+Compare Specs</div>
+  <div class="sameLine1">
+    <div class="buttonSectionTitle">Power</div> <div class="buttonSectionLink">+Compare Specs</div>
   </div>
-  <button type="button" class='whiteButton' name="button">Dual+ $1499</button>
-  <button type="button" class='whiteButton' name="button">Dual $1299</button>
+  <button type="button" class='whiteButton selectionButton' ng-class='{buttonSelectedonReserve: specs === 5}' ng-click="specs = 5; changeBoard()" name="button">Dual+ $1499</button>
+  <button type="button" class='whiteButton selectionButton' ng-class='{buttonSelectedonReserve: specs === 10}' ng-click="specs = 10; changeBoard()" name="button">Dual $1299</button>
 </div>
 <div class="borderTopSection">
-  <div class="sameLine">
-    <div class="buttonSectionTitle">Battery</div><div class="buttonSectionTitle">+Compare Batteries</div><br>
+  <div class="sameLine1">
+    <div class="buttonSectionTitle">Battery</div><div class="buttonSectionLink">+Compare Batteries</div><br>
   </div>
-  <button type="button" class='whiteButton' name="button">Extended +$100</button>
-  <button type="button" class='whiteButton' name="button">Standard</button>
+  <button type="button" class='whiteButton selectionButton' ng-class='{buttonSelectedonReserve: batteries === 1}' ng-click="batteries = 1; changeBoard()" name="button">Extended +$100</button>
+  <button type="button" class='whiteButton selectionButton' ng-class='{buttonSelectedonReserve: batteries === 2}' ng-click="batteries = 2; changeBoard()" name="button">Standard</button>
 </div>
 <div class="borderTopSection" id='heightFix'>
-  <a href="/auth"><button type="button" class='whiteButton' name="button">Make a Payment</button></a>
-  <button type="button" class='whiteButton' name="button">Add to Cart</button>
+  <a href="/auth"><button type="button" class='orangeButton blackBtn' ng-show='!account' name="button">Log In</button></a>
+  <button type="button" class='orangeButton blackBtn' ui-sref='payments'ng-show='account' name="button">Make a Payment</button></a>
+  <button type="button" class='orangeButton' ng-click='addBoard()' name="button">Add to Cart</button>
 </div>
-<div class="3reserveIcons">
-  <img src="../../img/reserveNow/icon-shipping.png" alt="">
-  <img src="../../img/reserveNow/icon-calendar.png" alt="">
-  <img src="../../img/reserveNow/icon-warranty.png" alt="">
+<div class="threerReserveIcons">
+  <div class="innerContainer">
+    <div class="innerPicture">
+      <img src="../../img/reserveNow/icon-shipping.png" alt="">
+    </div>
+    <p>Free Shipping</p>
+  </div>
+  <div class="innerContainer">
+    <div class="innerPicture">
+      <img src="../../img/reserveNow/icon-calendar.png" alt="">
+    </div>
+    <p>30-Day Test Ride</p>
+  </div>
+  <div class="innerContainer">
+    <div class="innerPicture">
+      <img src="../../img/reserveNow/icon-warranty.png" alt="">
+    </div>
+    <p>6 mo. Warranty</p>
+  </div>
 </div>
 </div>
 </div>
@@ -78,22 +94,152 @@
 <div class="compareBatteries">
 <div class="contentSize">
   <div class="content">
-    <div class="leftContent">
-      
+    <p class="title">Compare Batteries</p>
+    <p class="pTitle">STANDARD RANGE BATTERY</p>
+    <p class="desc">With 6-7 miles of range, Boosted’s standard battery is great for short city commutes and is fully certified for airline travel.</p>
+    <div class="rangeWeightSameLine">
+      <div class="">
+        <p class="miniTitle">Range</p>
+        <p class="desc flexedDesc">7 miles</p>
+      </div>
+      <div class="">
+        <p class="miniTitle">Weight</p>
+        <p class="desc flexedDesc">4 lb</p>
+      </div>
     </div>
-    <div class="rightContent">
-
+    <p class="miniTitle">Dimensions</p>
+    <p class="desc">width: 7.5 in.</p>
+    <p class="desc">Length: 10.8 in.</p>
+    <p class="desc">Height: 1.8 in.</p>
+    <br>
+    <p class="pTitle">EXTENDED RANGE BATTERY</p>
+    <p class="desc">The extended battery, providing 12-14 miles of range, is perfect for longer commutes and epic rides.</p>
+    <div class="rangeWeightSameLine">
+      <div class="">
+        <p class="miniTitle">Range</p>
+        <p class="desc flexedDesc">12 miles</p>
+      </div>
+      <div class="">
+        <p class="miniTitle">Weight</p>
+        <p class="desc flexedDesc">5 lb</p>
+      </div>
+    </div>
+    <p class="miniTitle">Dimensions</p>
+    <p class="desc">width: 7.5 in.</p>
+    <p class="desc">Length: 11.3 in.</p>
+    <p class="desc">Height: 2.1 in.</p>
+  </div>
+</div>
+<img class='removeBatteryImg' src="../../img/reserveNow/image.JPG" alt="">
+</div>
+<div class="features">
+<div class="content">
+  <p class="featuresTitle">Features</p>
+  <div class="TopRow">
+    <div class="featureContainer">
+      <div class="imgSize">
+        <img src="../../img/reserveNow/speedIcon.PNG" alt="">
+      </div>
+      <p class="pTitle">SPEED</p>
+      <p class="desc">Reach exhilarating top speeds</p>
+      <p class="desc">that get you there faster</p>
+    </div>
+    <div class="featureContainer">
+      <div class="imgSize">
+        <img src="../../img/reserveNow/uphillIcon.PNG" alt="">
+      </div>
+      <p class="pTitle">HILL-CLIMBING</p>
+      <p class="desc">Climg steep hills without breaking</p>
+      <p class="desc">a sweat</p>
+    </div>
+    <div class="featureContainer">
+      <div class="imgSize">
+        <img src="../../img/reserveNow/remoteIcon.PNG" alt="">
+      </div>
+      <p class="pTitle">REMOTE CONTROL</p>
+      <p class="desc">Control your ride with an</p>
+      <p class="desc">ergonomic, bluetooth-enabled</p>
+      <p class="desc">remote.</p>
+    </div>
+  </div>
+  <div class="bottomRow">
+    <div class="featureContainer">
+      <div class="imgSize">
+        <img src="../../img/reserveNow/mapIcon.PNG" alt="">
+      </div>
+      <p class="pTitle">RANGE</p>
+      <p class="desc">Go up to 14 miles on a single</p>
+      <p class="desc">charge.</p>
+    </div>
+    <div class="featureContainer">
+      <div class="imgSize">
+        <img src="../../img/reserveNow/hazardIcon.PNG" alt="">
+      </div>
+      <p class="pTitle">BRAKING</p>
+      <p class="desc">Come to a stop quickly and easily</p>
+      <p class="desc">with regenerative braking.</p>
+    </div>
+    <div class="featureContainer">
+      <div class="imgSize">
+        <img src="../../img/reserveNow/handIcon.PNG" alt="">
+      </div>
+      <p class="pTitle">AMAZING RIDE FEEL</p>
+      <p class="desc">The shock-absorbing bamboo</p>
+      <p class="desc">deck and grippy 80mm wheels</p>
+      <p class="desc">keep your ride smooth.</p>
     </div>
   </div>
 </div>
 </div>
-<div class="features">
-
-</div>
 <div class="intheBox">
-
+<div class="content">
+  <p class="title">What's in the box?</p>
+  <img class='intheboxPhoto'src="../../img/reserveNow/in-the-box.png" alt="">
+</div>
 </div>
 <div class="shippingandInfo">
-
+  <div class="content">
+    <div class="thirdSection">
+      <p class="mainTitle">Shipping</p>
+      <div class="flexSection">
+        <div class="contentContainer left">
+          <p class="miniTitle">USA AND CANADA</p>
+          <p class="desc">Free 7-10 day delivery with FedEx Ground shipping for continental US orders.There’s a $75 shipping fee for Hawaii and Alaska orders. We ship FedEx International Ground to Canada, which can take 1-3 weeks and costs a flat fee of $50.</p>
+          <p class="desc">All orders are shipped with delivery signature required.</p>
+        </div>
+        <div class="contentContainer right">
+          <p class="miniTitle">INTERNATIONAL (EXCLUDING CANADA)</p>
+          <p class="desc">We're currently accepting reservations in the following countries: Australia, Belgium, Denmark, France, Germany, Ireland, Italy, the Netherlands, New Zealand, Norway, Poland, Spain, Sweden, Switzerland, and the United Kingdom. As we continue to ramp production, we will keep you updated on shipping dates for international orders.</p>
+        </div>
+      </div>
+    </div>
+    <div class="thirdSection">
+      <p class="mainTitle">Guarantee and Returns</p>
+      <div class="flexSection">
+        <div class="contentContainer left">
+          <p class="miniTitle">NO-RISK 30-DAY MONEY BACK GUARANTEE</p>
+          <p class="desc">Orders are fully refundable at any time prior to shipping. If you're not thrilled with your board when you get it, send it back within 30 days for a full refund.</p>
+          <p class="desc">All orders may be subject to a restocking fee if the board has been ridden. You're responsible for return shipping costs. Board must not be abused or damaged. Return policy does not apply to engraved boards.</p>
+        </div>
+        <div class="contentContainer right">
+          <p class="miniTitle">6-MONTH EXTENDED WARRANTY</p>
+          <p class="desc">Every board comes with a 6-month warranty against manufacturing defects. We extended this to a 12-month warranty during our 2nd gen board reservation campaign. Damage caused by extreme impact or exposure to water is not covered. To arrange service for a board under warranty, please email us at service@boostedboards.com.</p>
+        </div>
+      </div>
+    </div>
+    <div class="thirdSection">
+      <p class="mainTitle">Purchasing</p>
+      <div class="flexSection">
+        <div class="contentContainer left">
+          <p class="miniTitle">AFFIRM FINANCING</p>
+          <p class="desc">Affirm is a financing alternative to credit cards and other credit payment products. Affirm offers instant financing for purchases online. With Affirm, you can buy and receive your purchase now, and pay for it in fixed monthly installments over the course of three, six, or twelve months. Not available on pre-order deposits.</p>
+        </div>
+        <div class="contentContainer right">
+          <p class="miniTitle">CREDIT OR DEBIT CARD</p>
+          <p class="desc">We currently only accept payment via credit or debit cards. You can use one card for the $100 reservation and another one when we collect final payment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <footer-view></footer-view>

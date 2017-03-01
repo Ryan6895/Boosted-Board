@@ -25,6 +25,8 @@ $scope.addBoard = function() {
 
 }
 
+$scope.boardValue = '1499';
+
 getUser();
 $scope.date = new Date();
 $scope.active = 'True';

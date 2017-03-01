@@ -6,7 +6,8 @@
 <p class="itemTitle">{{item[0].itemname}}</p>
 <hr>
 <p class="itemPrice">{{item[0].price | currency}}</p>
-<button type="button"class='orangeButton noMargin' ng-click='addItem()' name="button">ADD TO CART</button>
+<button type="button"class='orangeButton noMargin' ng-click='addItem()' ng-show='loggedin' name="button">ADD TO CART</button>
+<a href="/auth"><button type="button"class='orangeButton noMargin' ng-show='!loggedin' name="button">LOG IN</button></a>
 <p class="itemPrice">Description</p>
 <p>{{item[0].description}}</p>
 </div>

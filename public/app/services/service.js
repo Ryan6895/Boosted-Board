@@ -79,6 +79,12 @@ this.gettotalPayments = function() {
     url: '/payments'
 })
 }
+this.getTotalQty = function() {
+  return $http({
+    method: 'GET',
+    url: '/totalQty'
+})
+}
 this.updateQty = function (id ,qty){
   return $http({
   method: 'PUT',

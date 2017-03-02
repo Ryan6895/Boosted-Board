@@ -27,10 +27,26 @@
 font-size: 34px;
 font-family: 'Francois One', sans-serif;
 letter-spacing: 1.4px;
-line-height: 2px;
 }
 .itemPrice {
   font-size: 20px;
   font-family: 'Francois One', sans-serif;
   letter-spacing: 1.4px;
+}
+@media (max-width: 992px) {
+#itemContainer {
+  flex-direction: column;
+
+}
+.itemPic {
+  width: 90%;
+  height: auto;
+}
+.itemInfoContainer {
+  width: 90%;
+  margin-left: 0px;
+}
+.itemTitle {
+  line-height: normal;
+}
 }

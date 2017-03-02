@@ -20,12 +20,14 @@ $(document).ready(function(){
     $(".homeGrayContainer").removeClass("fadeIn")
     $(".homeGrayContainer").addClass("fadeOut")
   }
-  if (winScroll > 2970 && winScroll < 4400){
-    $(".homeInfoPhoto").addClass("fadeIn")
-    $(".homeInfoPhoto").removeClass("fadeOut")
-  }else {
-    $(".homeInfoPhoto").removeClass("fadeIn")
-    $(".homeInfoPhoto").addClass("fadeOut")
+  if ($(window).width() > 1000) {
+    if (winScroll > 2970 && winScroll < 4400){
+      $(".homeInfoPhoto").addClass("fadeIn")
+      $(".homeInfoPhoto").removeClass("fadeOut")
+    }else {
+      $(".homeInfoPhoto").removeClass("fadeIn")
+      $(".homeInfoPhoto").addClass("fadeOut")
+    }
   }
   if (winScroll > 310){
     $(".orangeLine").addClass("expandOrange")
@@ -33,6 +35,7 @@ $(document).ready(function(){
     $(".mileageText").fadeIn()
     $(".mileageText").fadeIn()
   }
+  if ($(window).width() > 1000) {
   if (winScroll > 2530){
     $(".breezeContent").addClass("fadeOut")
   }else {
@@ -45,6 +48,7 @@ $(document).ready(function(){
     $(".breezeContent").removeClass("fadeIn")
     $(".breezeContent").addClass("fadeOut")
   }
+}
   if (winScroll > 3395){
     $(".remoteContent").addClass("fadeOut")
   }else {

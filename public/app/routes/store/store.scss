@@ -113,3 +113,19 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 35px;
 }
+
+@media (max-width: 992px) {
+.genContain {
+  flex-direction: column;
+}
+.coverPhotoContainer {
+  margin-left: 20px;
+}
+.storeDesc {
+  width: 100%;
+}
+.genContainer2 {
+  margin-top: 25px;
+  width: auto;
+}
+}

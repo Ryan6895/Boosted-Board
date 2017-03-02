@@ -161,6 +161,6 @@ app.post('/api/logout', function(req, res, next) {
 });
 app.get('/payments', mainCtrl.gettotalPayments)
 
-app.listen(80, function() {
+app.listen(3000, function() {
     console.log("Successfully listening on : 80")
 })

@@ -236,3 +236,18 @@ input[type=radio]:checked ~ label{
   color: #FC6E4B;
 }
 }
+@media (max-width: 992px) {
+  .paymentTopHalf{
+    flex-direction: column;
+    align-items: center;
+  }
+  .userInfo {
+    height: 600px;
+  }
+  .progressInfo {
+    margin-top: 20px;
+  }
+  .paymentInfo {
+    zoom: .9;
+  }
+}

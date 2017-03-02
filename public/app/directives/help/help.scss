@@ -19,3 +19,9 @@ height: 900px;
   margin: auto;
   padding-top: 100px;
 }
+@media (max-width: 405px) {
+  .helpContent {
+    width: 100%;
+    margin: 0px;
+}
+}

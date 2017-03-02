@@ -43,7 +43,6 @@ $orange: #FC6E4B;
 
 .boardButtonContainer {
     margin-left: -10px;
-    width: 405px;
 }
 
 .orangeButton {
@@ -58,6 +57,14 @@ $orange: #FC6E4B;
     top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
+    width: 100vw;
+    max-width: 900px;
+    height: calc(100vw * .5);
+    max-height: 500px;
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
 }
 
 .darkBackground {
@@ -91,10 +98,6 @@ $orange: #FC6E4B;
     width: 50%;
     float: left;
     height: 750px;
-}
-
-.milageChart {
-    width: 435px;
 }
 
 .black {
@@ -231,12 +234,24 @@ $orange: #FC6E4B;
   margin-right: 40px;
   z-index: 3;
 }
+
 .motorPhoto {
-  width: 763px;
+    width: 50%;
+    min-width: 500px;
     position: absolute;
     bottom: -510px;
     right: 0px;
     z-index: -1;
+}
+@media (max-width: 1415px) {
+  .breezeBelt {
+  width: 500px;
+  }
+}
+@media (max-width: 1090px) {
+  .breezeBelt {
+  width: 400px;
+  }
 }
 //remote section
 .remoteCover {
@@ -249,7 +264,7 @@ $orange: #FC6E4B;
 }
 .remoteContent {
   margin-left: 50%;
-margin-right: 275px;
+margin-right: 200px;
 padding-top: 75px;
 color: white;
 transition: .25s;
@@ -290,4 +305,96 @@ background-size: cover;
 height: 900px;
 position: relative;
 margin-bottom: 300px;
+}
+.remoteSmallContent {
+  display: none;
+}
+@media (max-width: 992px) {
+  .remoteCover {
+    height: 300px;
+  }
+
+  .remoteSmallContent {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    margin: 20px;
+  }
+  .remoteContent {
+    display: none;
+  }
+  .boardCarousel {
+    display: none;
+  }
+  .motorPhoto {
+    bottom: -750px !important;
+  }
+  .leftBoardPic {
+      width: auto;
+      height: auto;
+    }
+    .coverContent {
+      margin-right: auto;
+      width: 100%;
+    }
+    .uphillBoard {
+      height: 500px !important;
+      margin-bottom: 800px !important;
+    }
+    .breezeDesc {
+      margin-left: 20px !important;
+      margin-right: 20px !important;
+    }
+    .breezeBelt {
+      margin-left: 20px !important;
+      width: 350px;
+    }
+    .inline {
+      margin-left: auto !important;
+      margin-right: auto;
+    }
+    .inlineContainer {
+      margin-left: 20px !important;
+    }
+    .breezeTitle {
+      margin-left: 20px !important;
+    }
+    .boardDesc {
+      text-align: center;
+      width: 100%;
+    }
+    .photoHeightBoard {
+      height: auto;
+    }
+    .rightBoardInfo {
+      width: 100%;
+      float: right;
+      height: auto;
+      background-color: white;
+  }
+  .blackweightnorm {
+    max-width: 900px !important;
+    margin-right: 20px;
+  }
+  .needsSpacing {
+    margin-bottom: 40px;
+  }
+  .breeze {
+    width: 100% !important;
+    bottom: -200px !important;
+    height: 360px !important;
+  }
+  .milageChart {
+    zoom: 0.7;
+  }
+}
+.milageChart {
+    width: 435px;
+}
+@media (max-width: 435px) {
+  .breezeDesc {
+    font-size: 12px;
+  }
+  .beltDesc {
+    font-size: 12px;
+  }
 }

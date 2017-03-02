@@ -1,4 +1,5 @@
 <nav-bar></nav-bar>
+
 <div class="homeCover">
     <div class="homeCoverInfo" ng-class='{fadeIn: fadeIn}'>
         <p class='homeCoverTitle'>Free your commute</p>
@@ -7,12 +8,14 @@
         <button type="button" ui-sref='board' class="whiteButton whiteButtonColor">LEARN MORE</button>
     </div>
 </div>
+
 <div class="homeOrangeMap">
     <div class="orangeMapInfo">
         <p>NO MORE TRAFFIC DELAYS</p>
         <p>NO MORE BORING COMMUTES</p>
     </div>
 </div>
+
 <div class="homeGrayMap">
     <div class="homeGrayImg">
         <div class="homeGrayContainer fadeOut">
@@ -23,6 +26,7 @@
         </div>
     </div>
 </div>
+
 <div class="homeHillContainer">
     <div class="hillImg">
         <img class='photo heightFix' src="../../img/homePage/uphill.PNG" alt="">
@@ -45,33 +49,6 @@
                 <th>REGENERATIVE BRAKING</th>
             </tr>
         </table>
-    </div>
-    <div class="homeWeightSection Small">
-        <span>Light enough to carry anywhere,</br> powerful enough to go everywhere</span>
-        <div class="homeBoardSplitInfo SmallSplit">
-            <div class="homePalm">
-                <div class="homeSplitContent">
-                    <span class='homeSplitTitle'>Power in your palm</span></br>
-                    <span>From fast acceleration to quick braking,
-                Boosted’s ergonomic remote puts all the control
-                 right in the palm of your hand. The high-performance,
-                  bluetooth-enabled remote acts as a safe, secure link
-                   between you and the board.</span>
-                </div>
-                <img class='photo photoHeight' src="../../img/homePage/remote.JPG" alt="">
-            </div>
-            <div class="homeDurable">
-                <div class="homeSplitContent">
-                    <span class='homeSplitTitle'>Downright durable</span></br>
-                    <span>Boosted boards are built to withstand daily riding
-                 over rough, urban terrain. Every inch of the board is
-                  designed with vehicle-grade durability, getting you
-                   where you need to be with peace of mind. Tear up the
-                    streets and ride hard–your board can take it.</span>
-                </div>
-                <img class='photo photoHeight overflowPic' src="../../img/homePage/boardPic.PNG" alt="">
-            </div>
-        </div>
     </div>
 </div>
 <div class="homeWeightSection Large">
@@ -127,7 +104,7 @@
     </div>
     <div class="centerHomeBoardInfo">
         <div class="homeInfoPhoto">
-            <img class='photo' src="../../img/homePage/boardBottom.PNG" alt="">
+            <img class='photo boardPhoto' src="../../img/homePage/boardBottom.PNG" alt="">
         </div>
         <div class="miniInfoRight">
             <div class="miniIcon"><img class='photo ' src="../../img/homePage/phoneIcon.PNG" alt=""></div><span>POWERFUL LITHIUM BATTERY</span>
@@ -137,10 +114,7 @@
             <div class="miniIcon"><img class='photo' src="../../img/homePage/treeIcon.PNG" alt=""></div><span>FLEXIBLE BAMBOO DECK</span>
             <div class="miniIcon"><img class='photo' src="../../img/homePage/phoneIcon.PNG" alt=""></div><span>IPHONE APP</span>
         </div>
-        <div class="buttonContainer">
-            <button class='whiteButton shortButton blueButton' ui-sref='reserve' type="button" name="button">RESERVE NOW</button></br>
-            <button type="button" ui-sref='board' class='whiteButton whiteButtonColor shortButton' name="button">LEARN MORE</button>
-        </div>
+
     </div>
     <div class="rightHomeBoardInfo">
         <div class="homeInfoContainer">
@@ -166,59 +140,66 @@
         </div>
     </div>
 </div>
-<carousel></carousel>
-<div class="slider-for">
-  <div class="block-text">
-      <div class="carousel-text slider-for">
-        <div>
-          <p class="headline">
-            "Riding the Boosted Board is laughably easy"
-          </p>
-          <span class="title">
-          JOSH PETRI | BLOOMBERG
-        </span>
-        </div>
-        <div>
-          <p class="headline">
-            "Whether you're late for class of just want to feel the wind in your hair, Boosted Board's electric ridable makes for a fun, comfortable ride."
-          </p>
-          <span class="title">
-          EDITORIAL STAFF | ENGADGET
-        </span>
-        </div>
-        <div>
-          <p class="headline">
-          "Whether you are cruising the beach or commuting a couple of miles to work, the board can get you where you need to go."
-          </p>
-          <span class="title">
-            BRIAN ELLIOTT | ENTREPENEUR        </span>
-        </div>
-        <div>
-          <p class="headline">
-          "The Boosted Board is the best electric skateboardon the market."
-          </p>
-          <span class="title">
-          JOSH CONSTINE | TECHCRUNCH
-        </span>
-        </div>
-        <div>
-          <p class="headline">
-            "And with a maximum range of 12 miles and a top speed of up to 22 mph, it sure beats walking."
-          </p>
-          <span class="title">
-          EDITORIAL STAFF | THE VERGE
-        </span>
-        </div>
-        <div>
-          <p class="headline">
-          "It turns 15-minute walks into three minute rides, which makes so many new places easily accessible. Most of all, it's just fun."</p>
-          <span class="title">
-          DAVID PIERCE | WIRED
-        </span>
+<div class="buttonContainer">
+    <button class='whiteButton shortButton blueButton' ui-sref='reserve' type="button" name="button">RESERVE NOW</button></br>
+    <button type="button" ui-sref='board' class='whiteButton whiteButtonColor shortButton' name="button">LEARN MORE</button>
+</div>
+
+<div class="carouselContainer">
+  <carousel></carousel>
+  <div class="slider-for">
+    <div class="block-text">
+        <div class="carousel-text slider-for">
+          <div>
+            <p class="headline">
+              "Riding the Boosted Board is laughably easy"
+            </p>
+            <span class="title">
+            JOSH PETRI | BLOOMBERG
+          </span>
+          </div>
+          <div>
+            <p class="headline">
+              "Whether you're late for class of just want to feel the wind in your hair, Boosted Board's electric ridable makes for a fun, comfortable ride."
+            </p>
+            <span class="title">
+            EDITORIAL STAFF | ENGADGET
+          </span>
+          </div>
+          <div>
+            <p class="headline">
+            "Whether you are cruising the beach or commuting a couple of miles to work, the board can get you where you need to go."
+            </p>
+            <span class="title">
+              BRIAN ELLIOTT | ENTREPENEUR        </span>
+          </div>
+          <div>
+            <p class="headline">
+            "The Boosted Board is the best electric skateboardon the market."
+            </p>
+            <span class="title">
+            JOSH CONSTINE | TECHCRUNCH
+          </span>
+          </div>
+          <div>
+            <p class="headline">
+              "And with a maximum range of 12 miles and a top speed of up to 22 mph, it sure beats walking."
+            </p>
+            <span class="title">
+            EDITORIAL STAFF | THE VERGE
+          </span>
+          </div>
+          <div>
+            <p class="headline">
+            "It turns 15-minute walks into three minute rides, which makes so many new places easily accessible. Most of all, it's just fun."</p>
+            <span class="title">
+            DAVID PIERCE | WIRED
+          </span>
+          </div>
         </div>
       </div>
-    </div>
-</div>
+  </div>
+
 <div class='slider-nav'>
       <div class='carouselphotos'>
         <img class='photo' src="../../img/homePage/bloomberg.PNG" alt="">
@@ -237,9 +218,11 @@
       <div class='carouselphotos'>
         <img class='photo' src="../../img/homePage/wired.PNG" alt=""></div>
       </div>
+      </div>
 <section>
+
     <div class="trafficPic">
-        <img class='photo photoHeight' src="../../img/homePage/traffic.JPG" alt="">
+        <img class='photo photoHeight miniTraffic' src="../../img/homePage/traffic.JPG" alt="">
     </div>
 </section>
 <guarantee></guarantee>

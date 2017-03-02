@@ -80,12 +80,14 @@ $(document).ready(function () {
       $(".homeGrayContainer").removeClass("fadeIn");
       $(".homeGrayContainer").addClass("fadeOut");
     }
-    if (winScroll > 2970 && winScroll < 4400) {
-      $(".homeInfoPhoto").addClass("fadeIn");
-      $(".homeInfoPhoto").removeClass("fadeOut");
-    } else {
-      $(".homeInfoPhoto").removeClass("fadeIn");
-      $(".homeInfoPhoto").addClass("fadeOut");
+    if ($(window).width() > 1000) {
+      if (winScroll > 2970 && winScroll < 4400) {
+        $(".homeInfoPhoto").addClass("fadeIn");
+        $(".homeInfoPhoto").removeClass("fadeOut");
+      } else {
+        $(".homeInfoPhoto").removeClass("fadeIn");
+        $(".homeInfoPhoto").addClass("fadeOut");
+      }
     }
     if (winScroll > 310) {
       $(".orangeLine").addClass("expandOrange");
@@ -93,17 +95,19 @@ $(document).ready(function () {
       $(".mileageText").fadeIn();
       $(".mileageText").fadeIn();
     }
-    if (winScroll > 2530) {
-      $(".breezeContent").addClass("fadeOut");
-    } else {
-      $(".breezeContent").addClass("fadeIn");
-      $(".breezeContent").removeClass("fadeOut");
-    }
-    if (winScroll > 1470) {
-      $(".breezeContent").addClass("fadeIn");
-    } else {
-      $(".breezeContent").removeClass("fadeIn");
-      $(".breezeContent").addClass("fadeOut");
+    if ($(window).width() > 1000) {
+      if (winScroll > 2530) {
+        $(".breezeContent").addClass("fadeOut");
+      } else {
+        $(".breezeContent").addClass("fadeIn");
+        $(".breezeContent").removeClass("fadeOut");
+      }
+      if (winScroll > 1470) {
+        $(".breezeContent").addClass("fadeIn");
+      } else {
+        $(".breezeContent").removeClass("fadeIn");
+        $(".breezeContent").addClass("fadeOut");
+      }
     }
     if (winScroll > 3395) {
       $(".remoteContent").addClass("fadeOut");
@@ -342,15 +346,6 @@ angular.module('boosted').directive('carousel', function () {
         }
     };
 });
-angular.module('boosted').directive('guarantee', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/guarantee/guarantee.html',
-        link: function (scope, elem, attrs) {
-            console.log('hello');
-        }
-    };
-});
 angular.module('boosted').directive('footerView', function () {
     return {
         restrict: 'E',
@@ -361,6 +356,51 @@ angular.module('boosted').directive('footerView', function () {
             };
         },
         link: function (scope, elem, attrs) {}
+    };
+});
+angular.module('boosted').directive('checkoutCart', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'public/app/directives/checkoutCart/checkoutCart.html',
+    controller: function ($scope, service) {
+      service.getallcartItems().then(function (response) {
+        $scope.items = response.data;
+        console.log('$scope.items', $scope.items);
+        if (!$scope.items.length) {
+          $scope.emptyCart = true;
+          $scope.fullCart = false;
+        } else {
+          $scope.emptyCart = false;
+          $scope.fullCart = true;
+        }
+        $scope.getTotal();
+      });
+
+      service.gettotalPayments().then(function (response) {
+        $scope.paymentAmount = response.data[0].sum;
+      });
+      $scope.getTotal = function () {
+        var total = 0;
+        for (var i = 0; i < $scope.items.length; i++) {
+          total += $scope.items[i].price * $scope.items[i].qty;
+        }
+        $scope.totalPrice = total;
+        $scope.total = total;
+      };
+    },
+    scope: {
+      total: '=',
+      paymentmethod: '='
+    }
+  };
+});
+angular.module('boosted').directive('guarantee', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/guarantee/guarantee.html',
+        link: function (scope, elem, attrs) {
+            console.log('hello');
+        }
     };
 });
 angular.module('boosted').directive('help', function () {
@@ -408,42 +448,6 @@ angular.module('boosted').directive('navBar', function () {
       $('.navDrop').on('click', function () {
         $('.navDropDown').toggleClass("navDropHeight");
       });
-    }
-  };
-});
-angular.module('boosted').directive('checkoutCart', function () {
-  return {
-    restrict: 'E',
-    templateUrl: 'public/app/directives/checkoutCart/checkoutCart.html',
-    controller: function ($scope, service) {
-      service.getallcartItems().then(function (response) {
-        $scope.items = response.data;
-        console.log('$scope.items', $scope.items);
-        if (!$scope.items.length) {
-          $scope.emptyCart = true;
-          $scope.fullCart = false;
-        } else {
-          $scope.emptyCart = false;
-          $scope.fullCart = true;
-        }
-        $scope.getTotal();
-      });
-
-      service.gettotalPayments().then(function (response) {
-        $scope.paymentAmount = response.data[0].sum;
-      });
-      $scope.getTotal = function () {
-        var total = 0;
-        for (var i = 0; i < $scope.items.length; i++) {
-          total += $scope.items[i].price * $scope.items[i].qty;
-        }
-        $scope.totalPrice = total;
-        $scope.total = total;
-      };
-    },
-    scope: {
-      total: '=',
-      paymentmethod: '='
     }
   };
 });

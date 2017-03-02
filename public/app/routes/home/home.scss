@@ -251,7 +251,6 @@ $blue: #57ACCD;
 
 .homeBoardSplitInfo {
     display: flex;
-    height: 33vw;
 }
 
 .homeSplitContent {
@@ -320,6 +319,8 @@ font-size: 14px;
 .buttonContainer {
   display: flex;
   padding-bottom: 100px;
+  background-color: #F8F8F8;
+  justify-content: center;
 }
 .shortButton {
   height: 50px;
@@ -329,10 +330,15 @@ font-size: 14px;
   background-color: $blue;
 }
 .minihomeBoardInfo {
-  display: none;
+  //display: none;
 }
 .trafficPic {
   margin-bottom: -4px;
+  height: 405px;
+  position: relative;
+  overflow-x:hidden;
+  display: flex;
+  justify-content: center;
 }
 .miniInfoRight {
   display: none;
@@ -365,8 +371,9 @@ li {
         display: initial;
     }
 
+
     .homeCover {
-        position: absolute;
+        //position: absolute;
         left: 0;
         background-position-x: -285px;
         justify-content: flex-start;
@@ -391,17 +398,14 @@ li {
     }
 
     .homeOrangeMap {
-        position: absolute;
         top: 865px;
     }
 
     .homeGrayMap {
-        position: absolute;
         top: 1060px;
     }
 
     .homeHillContainer {
-        position: absolute;
         top: 1705px;
         display: block;
         width: 100%;
@@ -445,14 +449,8 @@ li {
         font-size: 12px;
     }
 
-    .homeWeightSection {
-        position: absolute;
-    }
-
     .homeBoardSplitInfo {
         display: block;
-        position: absolute;
-        top: 665px;
         font-size: 16px;
     }
 
@@ -463,6 +461,7 @@ li {
 
     .homeDurable {
         width: 100%;
+        background-color: #F8F8F8;
     }
 
     .homeSplitContent {
@@ -470,10 +469,9 @@ li {
         font-size: 12px;
     }
     .homeBoardInfo {
-      position: absolute;
-      top: 3728px;
       width: 100%;
       padding-bottom: 20px;
+
     }
     .leftHomeBoardInfo {
       display: none;
@@ -483,15 +481,12 @@ li {
     }
     .miniHomeBoardInfo {
       display:inherit;
-      position: absolute;
-      top: 0px;
     }
     .homeInfoPhoto {
       margin-left: 20%;
       width: 180px;
     }
     .miniInfoRight {
-      position: absolute;
       top: 0px;
       left: 50%;
       height: 500px;
@@ -504,12 +499,26 @@ li {
         display: flex;
     }
 
+    .miniTraffic {
+      position: absolute;
+    width: 990px !important;
+
+    }
+
     .SmallSplit {
         display: block;
     }
-
-    .Large {
+    .carouselContainer {
         display: none;
+    }
+    .centerHomeBoardInfo {
+        display: flex;
+        .boardPhoto {
+          width: 160px;
+        }
+        .homeInfoPhoto {
+          margin-right: 0%;
+        }
     }
 }
 @media (max-width: 768px) {
@@ -517,8 +526,9 @@ li {
         font-size: 17px;
     }
 
-    .homeGrayMap {}
-
+    .homeBoardInfo {
+      font-size: 12px;
+    }
     .homeGrayContainer {
         margin-left: 20px;
     }
@@ -545,6 +555,6 @@ li {
     }
     .photoHeight {
       min-width: 300px;
-      min-height: 300px;
+      //min-height: 300px;
     }
 }

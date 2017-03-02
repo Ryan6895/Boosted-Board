@@ -18,9 +18,6 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(cors());
 
-var massiveServer = massive.connectSync({
-    connectionString: connectionString
-});
 app.set('db', massiveServer);
 var db = app.get('db');
 var mainCtrl = require('./mainCtrl')

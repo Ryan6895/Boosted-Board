@@ -110,7 +110,13 @@ this.addAddress = function (address, email, id){
 this.completeOrder = function() {
   return $http({
     method: 'GET',
-    url: '/completeOrder'
+    url: '/completeorder'
+})
+}
+this.completewithPayment = function() {
+  return $http({
+    method: 'GET',
+    url: '/completepayment'
 })
 }
 this.checkItems = function(id) {

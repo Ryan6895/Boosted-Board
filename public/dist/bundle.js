@@ -268,7 +268,13 @@ angular.module('boosted').service('service', function ($http, stripe) {
   this.completeOrder = function () {
     return $http({
       method: 'GET',
-      url: '/completeOrder'
+      url: '/completeorder'
+    });
+  };
+  this.completewithPayment = function () {
+    return $http({
+      method: 'GET',
+      url: '/completepayment'
     });
   };
   this.checkItems = function (id) {
@@ -336,41 +342,14 @@ angular.module('boosted').directive('carousel', function () {
         }
     };
 });
-angular.module('boosted').directive('checkoutCart', function () {
-  return {
-    restrict: 'E',
-    templateUrl: 'public/app/directives/checkoutCart/checkoutCart.html',
-    controller: function ($scope, service) {
-      service.getallcartItems().then(function (response) {
-        $scope.items = response.data;
-        console.log('$scope.items', $scope.items);
-        if (!$scope.items.length) {
-          $scope.emptyCart = true;
-          $scope.fullCart = false;
-        } else {
-          $scope.emptyCart = false;
-          $scope.fullCart = true;
+angular.module('boosted').directive('guarantee', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/guarantee/guarantee.html',
+        link: function (scope, elem, attrs) {
+            console.log('hello');
         }
-        $scope.getTotal();
-      });
-
-      service.gettotalPayments().then(function (response) {
-        $scope.paymentAmount = response.data[0].sum;
-      });
-      $scope.getTotal = function () {
-        var total = 0;
-        for (var i = 0; i < $scope.items.length; i++) {
-          total += $scope.items[i].price * $scope.items[i].qty;
-        }
-        $scope.totalPrice = total;
-        $scope.total = total;
-      };
-    },
-    scope: {
-      total: '=',
-      paymentmethod: '='
-    }
-  };
+    };
 });
 angular.module('boosted').directive('footerView', function () {
     return {
@@ -382,15 +361,6 @@ angular.module('boosted').directive('footerView', function () {
             };
         },
         link: function (scope, elem, attrs) {}
-    };
-});
-angular.module('boosted').directive('guarantee', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/guarantee/guarantee.html',
-        link: function (scope, elem, attrs) {
-            console.log('hello');
-        }
     };
 });
 angular.module('boosted').directive('help', function () {
@@ -438,6 +408,42 @@ angular.module('boosted').directive('navBar', function () {
       $('.navDrop').on('click', function () {
         $('.navDropDown').toggleClass("navDropHeight");
       });
+    }
+  };
+});
+angular.module('boosted').directive('checkoutCart', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'public/app/directives/checkoutCart/checkoutCart.html',
+    controller: function ($scope, service) {
+      service.getallcartItems().then(function (response) {
+        $scope.items = response.data;
+        console.log('$scope.items', $scope.items);
+        if (!$scope.items.length) {
+          $scope.emptyCart = true;
+          $scope.fullCart = false;
+        } else {
+          $scope.emptyCart = false;
+          $scope.fullCart = true;
+        }
+        $scope.getTotal();
+      });
+
+      service.gettotalPayments().then(function (response) {
+        $scope.paymentAmount = response.data[0].sum;
+      });
+      $scope.getTotal = function () {
+        var total = 0;
+        for (var i = 0; i < $scope.items.length; i++) {
+          total += $scope.items[i].price * $scope.items[i].qty;
+        }
+        $scope.totalPrice = total;
+        $scope.total = total;
+      };
+    },
+    scope: {
+      total: '=',
+      paymentmethod: '='
     }
   };
 });
@@ -656,11 +662,19 @@ angular.module('boosted').controller('paymentmethod', function ($scope, service,
     }).then(function (payment) {
       console.log('successfully submitted payment for $', payment);
       //all here
-      service.completeOrder().then(function (response) {
-        console.log(response);
-      }).then(function () {
-        $state.go('confirmation');
-      });
+      if ($scope.paymentStatus != 0) {
+        service.completewithPayment().then(function (response) {
+          console.log('completed with payment');
+        }).then(function () {
+          $state.go('confirmation');
+        });
+      } else {
+        service.completeOrder().then(function (response) {
+          console.log('completed without payment');
+        }).then(function () {
+          $state.go('confirmation');
+        });
+      }
     }).catch(function (err) {
       if (err.type && /^Stripe/.test(err.type)) {
         console.log('Stripe error: ', err.message);

@@ -35,11 +35,19 @@ angular.module('boosted')
     .then(function(payment) {
       console.log('successfully submitted payment for $', payment);
       //all here
-      service.completeOrder().then(function(response) {
-          console.log(response);
+      if ($scope.paymentStatus != 0){
+      service.completewithPayment().then(function(response) {
+          console.log('completed with payment');
       }).then(function() {
         $state.go('confirmation')
       });
+    } else {
+      service.completeOrder().then(function(response) {
+          console.log('completed without payment');
+      }).then(function() {
+        $state.go('confirmation')
+      });
+    }
     })
     .catch(function (err) {
        if (err.type && /^Stripe/.test(err.type)) {

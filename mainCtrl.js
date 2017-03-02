@@ -131,6 +131,23 @@ updateQty: function(req, res) {
       res.send(results);
     })
 },
+completeOrderNo: function (req, res, next) {
+  db.order.update([req.user.order_id, new Date(), undefined], function(err, oldOrder) {
+    if (err) {
+      console.log('complete order err: ', err);
+      return res.status(500).send(err);
+    }
+
+    db.order.insertNew([req.user.userid], function(err, order) {
+      if (err) {
+        console.log('complete order create err: ', err);
+        return res.status(500).send(err);
+      }
+      req.user.order_id = order[0].id;
+      res.status(200).send('successfully')
+  })
+})
+},
 completeOrder: function (req, res, next) {
   db.order.update([req.user.order_id, new Date(), undefined], function(err, oldOrder) {
     if (err) {

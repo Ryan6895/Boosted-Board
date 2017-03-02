@@ -156,7 +156,8 @@ app.get('/totalqty', isAuthed, mainCtrl.totalQty)
 app.put('/address/update', mainCtrl.addAddress)
 app.get('/cartItems', mainCtrl.getcartItems)
 app.get('/checkItems', mainCtrl.checkCartItems)
-app.get('/completeOrder', mainCtrl.completeOrder, mainCtrl.completePayments)
+app.get('/completeorder', mainCtrl.completeOrderNo)
+app.get('/completepayment',mainCtrl.completeOrder, mainCtrl.completePayments)
 app.post('/api/logout', function(req, res, next) {
    req.logout();
    return res.send('successfully Logged out');

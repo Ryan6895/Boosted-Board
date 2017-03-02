@@ -16,6 +16,7 @@ angular.module('boosted')
                 }
                 $scope.getTotal();
               })
+              
               service.gettotalPayments().then(function(response) {
                 $scope.paymentAmount = response.data[0].sum;
               });
@@ -29,7 +30,8 @@ angular.module('boosted')
               }
             },
             scope:{
-              total: '='
+              total: '=',
+              paymentmethod: '='
             }
         }
     });

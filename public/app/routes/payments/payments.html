@@ -52,7 +52,7 @@
           type="text"
           name=""
           ng-model='mockPrice'
-          placeholder="  amount"
+          placeholder="amount"
           required>
         </div>
       </section>
@@ -65,7 +65,7 @@
           name=""
           ng-model='name'
           class='form-control textboxStyle '
-          placeholder='  name'
+          placeholder='name'
           required>
         </div>
       </section>
@@ -76,7 +76,7 @@
           class='form-control textboxStyle '
           ng-model="payment.card.number"
           type="text"
-          placeholder="  card"
+          placeholder="card"
           required>
         </div>
       </section>
@@ -90,24 +90,25 @@
           ng-model="payment.card.exp_month"
           type="text"
           name="name"
-          placeholder="  MM">
+          placeholder="MM">
 
           <input
           class='form-control textboxStyle expBoxStyle centerBoxStyle'
           ng-model="payment.card.exp_year"
           type="text"
           name="name"
-          placeholder="  YY">
+          placeholder="YY">
 
           <input
           class='form-control textboxStyle expBoxStyle'
           ng-model="payment.card.cvc"
-          placeholder='  CCV'
+          placeholder='CCV'
           type="text"
           required>
 
       </div>
       </div>
+      <p ng-show='Alert'class="redAlert">Cannot charge value greater than the goal.</p>
       <div class="stripeButtonFooter">
         <button class='btn btn-primary btnGreenColor whiteButton' type='sumbit'>Confirm</button>
       </div>
@@ -123,6 +124,9 @@
   </div>
   <div class="paymentPaid">
     <strong>Amount Paid:</strong> <span class="textColor">{{totalPayments | currency}}</span>
+  </div>
+  <div class="paymentPaid">
+    <strong>Remaing:</strong> <span class="textColor">{{boardValue - totalPayments | currency}}</span>
   </div>
   <div class="progressBar">
     <div ng-style='progress'>

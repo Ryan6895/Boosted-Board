@@ -4,7 +4,11 @@ function getUser(){
   service.getUser().then(function(response) {
     $scope.user = response;
       service.gettotalPayments().then(function(response) {
-        $scope.totalPayments = response.data[0].sum;
+        if (response.data[0].sum == null){
+          $scope.totalPayments = 0;
+        } else {
+          $scope.totalPayments = response.data[0].sum;
+        }
         $scope.progress = {
           "width": 'calc('+(($scope.totalPayments / $scope.boardValue) * 100)+'%'+')',
           "background": "linear-gradient(to right, #f7dfb3 0%,#ef7b15 100%)",
@@ -20,11 +24,7 @@ function getUser(){
 $scope.correctBar = function() {
   getUser();
 }
-
-$scope.addBoard = function() {
-
-}
-
+$scope.totalPayments = 0;
 $scope.boardValue = '1499';
 
 getUser();
@@ -41,6 +41,9 @@ $scope.logout = function () {
   $scope.payment = {};
 
   $scope.charge = function () {
+    if ($scope.mockPrice > ($scope.boardValue - $scope.totalPayments)) {
+      $scope.Alert = true;
+    } else {
     return stripe.card.createToken($scope.payment.card)
     .then(function (response) {
       console.log('token created for card ending in ', response.card.last4);
@@ -69,6 +72,7 @@ $scope.logout = function () {
       $scope.payment.card.cvc = '';
       getUser();
       console.log('successfully submitted payment for $', payment);
+      $scope.Alert = false;
     })
     .catch(function (err) {
        if (err.type && /^Stripe/.test(err.type)) {
@@ -79,7 +83,8 @@ $scope.logout = function () {
          console.log('Other error occurred, possibly with your API', err.message);
          alert(err.message)
        }
-     });
+     })
+   }
  };
  //===END CTRL=======
 });

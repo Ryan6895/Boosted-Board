@@ -14,6 +14,7 @@ angular.module('boosted')
   }
 
 $scope.address = geoService.newAddress;
+console.log($scope.address);
 
   geoService.searchMap($scope.address).then(function(coord) {
       $scope.location = coord;

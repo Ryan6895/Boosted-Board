@@ -6,6 +6,9 @@ angular.module('boosted')
     console.log('order.id', $scope.order_id);
     })
 
+    $scope.paymentStatus = service.newPayment;
+    console.log($scope.paymentStatus);
+
 $scope.addAddress = function (email, firstname, lastname, street, city, country, state, zip, order_id) {
 var strAddress = street + " " + city + " "+ state + " " + zip;
 
@@ -27,4 +30,28 @@ var objAddress = {
 geoService.passAddress(objAddress);
 $state.go('payment');
 }
+
+$scope.borderStyle = {
+  'email': false,
+  'firstname': false,
+  'lastname': false,
+  'company': false,
+  'address': false,
+  'apt': false,
+  'city': false,
+  'country': false,
+  'state': false,
+  'zip': false,
+  'phone': false
+}
+
+$scope.changeBorder = function (input){
+  console.log('hi');
+  for (var key in $scope.borderStyle) {
+    $scope.borderStyle[key] = false;
+  }
+  $scope.borderStyle[input] = true;
+  console.log($scope.borderStyle);
+}
+
 })

@@ -33,5 +33,46 @@ $(document).ready(function(){
     $(".mileageText").fadeIn()
     $(".mileageText").fadeIn()
   }
+  if (winScroll > 2530){
+    $(".breezeContent").addClass("fadeOut")
+  }else {
+    $(".breezeContent").addClass("fadeIn")
+    $(".breezeContent").removeClass("fadeOut")
+  }
+  if (winScroll > 1470){
+    $(".breezeContent").addClass("fadeIn")
+  }else {
+    $(".breezeContent").removeClass("fadeIn")
+    $(".breezeContent").addClass("fadeOut")
+  }
+  if (winScroll > 3395){
+    $(".remoteContent").addClass("fadeOut")
+  }else {
+    $(".remoteContent").addClass("fadeIn")
+    $(".remoteContent").removeClass("fadeOut")
+  }
+  if (winScroll > 2315){
+    $(".remoteContent").addClass("fadeIn")
+  }else {
+    $(".remoteContent").removeClass("fadeIn")
+    $(".remoteContent").addClass("fadeOut")
+  }
+  if (winScroll > 5425){
+    $(".breezetwoContent").addClass("fadeOut")
+  }else {
+    $(".breezetwoContent").addClass("fadeIn")
+    $(".breezetwoContent").removeClass("fadeOut")
+  }
+  if (winScroll > 4265){
+    $(".breezetwoContent").addClass("fadeIn")
+  }else {
+    $(".breezetwoContent").removeClass("fadeIn")
+    $(".breezetwoContent").addClass("fadeOut")
+  }
+  if (winScroll > 550){
+    $(".coverContent").addClass("fadeOut")
+  }else {
+    $(".coverContent").removeClass("fadeOut")
+  }
 })
 });

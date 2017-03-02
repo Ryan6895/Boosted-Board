@@ -4,7 +4,6 @@ body {
   margin: 0px;
   padding: 0px;
 }
-
 .navBar {
     width: 1170px;
     height: 65px;
@@ -51,7 +50,8 @@ body {
   margin-left: 18px;
   border-bottom: white solid 2px;
   margin-top: 5px;
-  transition: .15s
+  transition: .15s;
+  cursor:pointer;
 }
 .navLinks:hover {
   border-color: black;

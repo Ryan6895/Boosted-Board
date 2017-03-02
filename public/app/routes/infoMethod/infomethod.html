@@ -2,55 +2,55 @@
     <div class="leftCheckout">
         <div class="leftContentCheckout">
           <div class="CheckoutBoostedLogo">
-            <img src="" alt="">
-            <span>Cart</span> &gt; <span>Customer information</span> &gt; <span>Payment method</span>
+            <img class='boostedLogo' src="../../img/homePage/image.PNG" alt="">
+            <p class='pageSelection'><a ui-sref="cart"><span class="blue">Cart</span></a> &gt; <a ui-sref="checkout"><span>Customer information</span></a> &gt; <a ui-sref="payment"><span class="blue">Payment method</span></a></p>
           </div>
-            <p>Customer information</p>
-            <div class="customerEmail">
-                <span>Email</span><br>
-                <input ng-model='email' type="text" name="" value="">
+            <p class="title">Customer information</p>
+            <div ng-class='{borderStyle: borderStyle.email}' class="customerEmail">
+                <span class="textboxPlace">Email</span><br>
+                <input ng-focus="changeBorder('email')" class='textboxStyleCheckout' ng-model='email' type="text" name="" value="">
             </div>
-            <p>Shipping address</p>
+            <p class="title">Shipping address</p>
             <div class="">
                 <div class="nameLine">
-                    <div class="customerFirstName">
-                        <span>First name</span><br>
-                        <input type="text" ng-model='firstname' name="" value="">
+                    <div ng-class='{borderStyle: borderStyle.firstname}' class="customerFirstName">
+                        <span class="textboxPlace">First name</span><br>
+                        <input ng-focus="changeBorder('firstname')" class='textboxStyleCheckout' type="text" ng-model='firstname' name="" value="">
                     </div>
-                    <div class="customerLastName">
-                        <span>Last name</span><br>
-                        <input type="text" ng-model='lastname' name="" value="">
+                    <div ng-class='{borderStyle: borderStyle.lastname}' class="customerLastName">
+                        <span class="textboxPlace">Last name</span><br>
+                        <input ng-focus="changeBorder('lastname')" class='textboxStyleCheckout' type="text" ng-model='lastname' name="" value="">
                     </div>
                 </div>
-                <div class="customerCompany">
-                    <input type="text" placeholder='Company (optional)' name="" value="">
+                <div ng-class='{borderStyle: borderStyle.company}' class="customerCompany">
+                    <input ng-focus="changeBorder('company')" class='textboxStyleCheckout textheightFix' type="text" placeholder='Company (optional)' name="" value="">
                 </div>
                 <div class="addressLine">
-                    <div class="customerAddress">
-                        <span>Address</span><br>
-                        <input type="text" ng-model='street' name="" value="">
+                    <div ng-class='{borderStyle: borderStyle.address}' class="customerAddress">
+                        <span class="textboxPlace">Address</span><br>
+                        <input ng-focus="changeBorder('address')" class='textboxStyleCheckout' type="text" ng-model='street' name="" value="">
                     </div>
-                    <div class="customerSuite">
-                        <input type="text" placeholder='Apt, suite, etc. (optional)' name="" value="">
+                    <div ng-class='{borderStyle: borderStyle.apt}' class="customerSuite">
+                        <input ng-focus="changeBorder('apt')" class='textboxStyleCheckout textheightFix' type="text" placeholder='Apt, suite, etc. (optional)' name="" value="">
                     </div>
                 </div>
-                <div class="customerCity">
-                    <span>City</span><br>
-                    <input type="text" ng-model='city' name="" value="">
+                <div ng-class='{borderStyle: borderStyle.city}' class="customerCity">
+                    <span class="textboxPlace">City</span><br>
+                    <input ng-focus="changeBorder('city')" class='textboxStyleCheckout' type="text" ng-model='city' name="" value="">
                 </div>
                 <div class="locationLine">
-                    <div class="customerCountry">
-                        <span>Country</span><br>
-                        <select ng-model='country'>
+                    <div ng-class='{borderStyle: borderStyle.country}'class="customerCountry">
+                        <span class="textboxPlace">Country</span><br>
+                        <select ng-focus="changeBorder('country')" class='selectStyle' ng-model='country'>
 	<option value="USA">United States</option>
 	<option value="CAN">Canada</option>
 	<option value="UK">United Kingdom</option>
 	<option value="AUS">Australia</option>
                         </select>
                     </div>
-                    <div class="customerState">
-                        <span>State</span><br>
-                        <select ng-model='state'>
+                    <div ng-class='{borderStyle: borderStyle.state}' class="customerState">
+                        <span class="textboxPlace">State</span><br>
+                        <select ng-focus="changeBorder('state')" class='selectStyle' ng-model='state'>
 	<option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
 	<option value="AZ">Arizona</option>
@@ -104,20 +104,26 @@
 	<option value="WY">Wyoming</option>
 </select>
                     </div>
-                    <div class="customerZip">
-                        <span>Zip</span><br>
-                        <input ng-model='zip' type="text" name="" value="">
+                    <div ng-class='{borderStyle: borderStyle.zip}' class="customerZip">
+                        <span class="textboxPlace">Zip</span><br>
+                        <input ng-focus="changeBorder('zip')" class='textboxStyleCheckout' ng-model='zip' type="text" name="" value="">
                     </div>
                 </div>
 
-                <div class="customerPhone">
-                    <span>Phone</span><br>
-                    <input type="text" name="" value="">
+                <div ng-class='{borderStyle: borderStyle.phone}' class="customerPhone">
+                    <span class="textboxPlace">Phone</span><br>
+                    <input ng-focus="changeBorder('phone')" class='textboxStyleCheckout' type="text" name="" value="">
                 </div>
-                <a ui-sref="cart">
-                    <p>Return to cart</p>
-                </a>
-                <button type="button" ng-click='addAddress(email, firstname, lastname, street, city, country, state, zip, order_id)' name="button">Continue to payment method</button>
+                <div class="buttonSingleLine">
+                  <div>
+                    <a ui-sref="cart">
+                      <p class="WeirdBlue"> &lt; Return to cart</p>
+                    </a>
+                  </div>
+                  <div>
+                    <button type="button" class='orangeButton extraLength' ng-click='addAddress(email, firstname, lastname, street, city, country, state, zip, order_id)' ui-sref='payment' name="button">Continue to payment method</button>
+                  </div>
+                </div>
                 <div class="extraLinks">
                     <p>Privacy policy</p>
                     <p>Refund policy</p>
@@ -127,7 +133,6 @@
         </div>
     </div>
     <div class="rightCheckout">
-        <checkout-cart></checkout-cart>
+        <checkout-cart total = 'total' paymentmethod = 'paymentStatus'></checkout-cart>
     </div>
 </div>
-<button type="button" ui-sref='confirmation' name="button">test</button>

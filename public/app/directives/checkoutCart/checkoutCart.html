@@ -15,15 +15,27 @@
     </div>
   </div>
   <hr>
-  <input type="text" placeholder='Gift card' name="" value="">
-  <button type="button" name="button">Apply</button>
+  <input type="text" class='giftcard' placeholder='  Gift card' name="" value="">
+  <button type="button" class='giftCardButton' name="button">Apply</button>
   <hr>
-  <div class="">
-    <p>Subtotal {{totalPrice | currency}}</p>
-    <p>payments -{{paymentAmount | currency}}</p>
-    <p>Shipping <span>Free</span></p>
+  <div class="totalsforCart">
+    <div class="flexIt topSpacing">
+      <div class="title">Subtotal</div>
+      <div class="amount">{{totalPrice | currency}}</div>
+    </div>
+    <div class="flexIt">
+      <div class="title">Payments</div>
+      <div class="amount">-{{paymentmethod | currency}}</div>
+    </div>
+    <div class="flexIt bottomSpacing">
+      <div class="title">Shipping</div>
+      <div class="amount">Free</div>
+    </div>
     <hr>
-    <p>Total <span>USD {{totalPrice - paymentAmount | currency}}</span></p>
+    <div class="flexIt">
+      <div class="mainTitle">Total</div>
+      <div class="finalAmount"><span class="usd">USD</span> {{totalPrice - paymentmethod | currency}}</div>
+    </div>
   </div>
 </div>
   </div>

@@ -10,13 +10,16 @@
 }
 .itemsinCart {
   display: flex;
-
 }
-.emptyCart {
-
+.blackfocus {
+  background-color: black;
+  color: white;
 }
-.cartWithItems {
-
+.blackfocus:hover {
+  background-color: #3f3f3f !important;
+}
+.qtyTextBox:focus {
+  outline: none;
 }
 .iteminCart {
   border-bottom: solid #888888 1px;

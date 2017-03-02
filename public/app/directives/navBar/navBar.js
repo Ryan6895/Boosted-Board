@@ -13,12 +13,17 @@ angular.module('boosted')
               $scope.getTotalQty = function (){
               service.getTotalQty().then(function(response) {
                 $scope.totalQty = response.data[0].sum;
-                if ($scope.totalQty == 0){
+                console.log($scope.totalQty);
+                if (!$scope.totalQty){
+                  console.log('inner if');
                   $scope.cartQty = false;
                 }else {
+                  console.log('else if');
                   $scope.cartQty = true;
                 }
-              })
+              }).catch(function(err) {
+                $scope.cartQty = false;
+              });
             }
             $scope.getTotalQty();
               $scope.$on('myCustomEvent', function (event, data) {

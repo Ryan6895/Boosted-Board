@@ -2,14 +2,82 @@
   background-color: #F2F2F2;
   width: 50vw;
   height: 100vh;
+  .itemsinCart {
+  font-family: sans-serif;
+  }
+  .totalsforCart {
+    font-family: sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    .flexIt {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      .title {
+        font-size: 14px;
+        color: #7B7B7B;
+        font-family: 'Raleway', sans-serif;
+      }
+      .mainTitle {
+        font-size: 18px;
+        color: #494949;
+      }
+      .amount {
+        font-size: 15px;
+        color: #494949;
+      }
+      .finalAmount {
+        color: #494949;
+        font-weight: 400;
+        font-size: 26px;
+      }
+      .usd {
+        font-family: 'Raleway', sans-serif;
+        color: grey;
+        font-size: 13px;
+      }
+    }
+    .topSpacing {
+      margin-top: 18px;
+    }
+    .bottomSpacing {
+      margin-bottom: 18px;
+    }
+  }
 }
 .checkoutPic {
   width: 100px;
   height: 70px;
   border-radius: 6px;
+  border: solid 1px #cccccc;
 }
 .checkoutpicture {
   position: relative;
+}
+.giftcard {
+  border: solid #cccccc 1px;
+  border-radius: 6px;
+  width: 75%;
+  height: 30px;
+  font-size: 15px;
+}
+.giftcard:focus {
+  outline: none;
+}
+.giftCardButton:focus {
+  outline: none;
+}
+.giftCardButton {
+  background-color: grey;
+  border-style: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  height: 34px;
+  width: 80px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 15px;
 }
 .qtybadge {
   position: absolute;
@@ -37,4 +105,5 @@
   width: 475px;
   height: auto;
   padding: 50px;
+  padding-top: 140px;
 }

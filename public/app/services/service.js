@@ -1,5 +1,6 @@
 angular.module('boosted')
 .service('service', function($http, stripe) {
+  var self = this;
     this.getItems = function(num) {
         return $http({
           method: 'GET',
@@ -123,5 +124,9 @@ this.logout = function() {
     method: 'POST',
     url: '/api/logout'
   })
+}
+this.newPayment = 0;
+this.usepayment = function (value){
+  self.newPayment = value;
 }
 })

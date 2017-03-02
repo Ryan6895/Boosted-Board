@@ -6,6 +6,14 @@
   justify-content: space-around;
   font-family: sans-serif;
 }
+.redAlert {
+  display: inline;
+  position: absolute;
+  top: 285px;
+  right: 17px;
+  color: red;
+  font-size: 12px;
+}
 .profilePic {
   width: 200px;
   margin-left: 40px;
@@ -20,6 +28,7 @@ height: 500px;
 width: 370px;
 background-color: #F1F1F1;
 box-shadow: 8px 8px 8px #a5a5a5;
+position: relative;
 }
 .paymentName {
   margin-left: 40px;
@@ -111,7 +120,7 @@ box-shadow: 8px 8px 8px #a5a5a5;
   justify-content: flex-end;
 }
 .expBoxStyle {
-  width: 60px !important;
+  width: 59px !important;
 }
 .centerBoxStyle {
   margin-left: 8px;
@@ -125,7 +134,8 @@ box-shadow: 8px 8px 8px #a5a5a5;
   letter-spacing: 1.6px;
   border-radius: 5px;
   box-shadow: 2px 2px #c1c1c1;
-  width: 200px;
+  width: 215px;
+  padding-left: 10px;
 }
 // radio styling
 .codePen {

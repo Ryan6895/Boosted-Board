@@ -79,6 +79,13 @@ passport.deserializeUser(function(obj, done) {
     done(null, obj);
 });
 
+var isAuthed = function(req, res, next) {
+  if (!req.user) {
+    return res.status(401).send();
+  }
+  next();
+}
+
 app.get('/auth/me', function(req, res, next) {
     if (!req.user)
         return res.status(200).send(false);
@@ -145,7 +152,7 @@ app.post('/addemail', mainCtrl.addEmail)
 app.post('/addtoCart', mainCtrl.addtoCart)
 app.get('/cart', mainCtrl.getallcartItems)
 app.delete('/cart', mainCtrl.removeItems)
-app.get('/totalqty', mainCtrl.totalQty)
+app.get('/totalqty', isAuthed, mainCtrl.totalQty)
 app.put('/address/update', mainCtrl.addAddress)
 app.get('/cartItems', mainCtrl.getcartItems)
 app.get('/checkItems', mainCtrl.checkCartItems)

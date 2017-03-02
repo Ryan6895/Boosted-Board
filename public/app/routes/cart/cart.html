@@ -23,7 +23,7 @@
           <p ng-click='removeItem(item.itemid)' class='removeLink'>remove</p>
         </div>
         <p class= 'itemcartPrice' ng-model='price'>{{item.price | currency}}</p>
-        <p><input ng-model='qty' type="number" ng-change='updateItem(item.itemid, qty)' value="{{item.qty}}"></p>
+        <p><input ng-model='qty' type="number" class='qtyTextBox' ng-change='updateItem(item.itemid, qty)' value="{{item.qty}}"></p>
         <p class= 'itemcartPrice'>{{item.price * item.qty | currency}}</p>
       </div>
     </div>
@@ -31,10 +31,11 @@
   </div>
   <div class="cartTotals">
     <p>Subtotal <span class= 'itemcartPrice'>{{totalPrice | currency}}</span></p>
-    <p>payments <span class= 'itemcartPrice'>-{{paymentAmount | currency}}</span></p>
+    <p>Payments <span class= 'itemcartPrice' ng-show='paymentButton'>{{paymentAmount | currency}}</span><span ng-show='!paymentButton' class= 'itemcartPrice'>-{{paymentAmount | currency}}</span> </p>
     <p>Total <span class= 'itemcartPrice'>{{totalPrice - paymentAmount | currency}}</span></p>
     <p>Shipping &amp; taxes calculated at checkout</p>
-    <!-- <button type="button" ng-click='reloadRoute()' class='whiteButton' name="button">UPDATE CART</button> -->
+    <button type="button" class='whiteButton blackfocus' ng-show='paymentButton' ng-click='paymentson()' name="button">USE PAYMENTS</button>
+    <button type="button" class='whiteButton' ng-show='!paymentButton' ng-click='paymentsoff()' name="button">DONT USE PAYMENTS</button>
     <button type="button" ui-sref='checkout' class='orangeButton' id='noButtonMargin' name="button">CHECK OUT</button>
   </div>
 </div>

@@ -8,6 +8,7 @@ angular.module('boosted')
 
   });
 
+  $scope.paymentStatus = service.newPayment;
 
   $scope.payment = {};
 
@@ -18,7 +19,7 @@ angular.module('boosted')
       var payment = angular.copy($scope.payment);
       payment.card = void 0;
       payment.token = response.id;
-      $scope.totalDue = $scope.total - $scope.paymentAmount;
+      $scope.totalDue = $scope.total - $scope.paymentStatus;
       console.log($scope.totalDue);
       return $http({
         method: 'POST',
@@ -37,7 +38,7 @@ angular.module('boosted')
       service.completeOrder().then(function(response) {
           console.log(response);
       }).then(function() {
-        state.go('confirmation')
+        $state.go('confirmation')
       });
     })
     .catch(function (err) {

@@ -31,12 +31,18 @@
   margin-bottom: 20px;
   margin-right: 10px;
 }
+.textboxStyle:focus {
+  outline: none;
+}
 .buttonSectionLink {
   color: #61C1E6;
   font-family: 'Raleway', sans-serif;
   margin-top: 23px;
   margin-bottom: 20px;
   font-size: 13px;
+}
+.btnGreenColor:focus {
+  outline: none;
 }
 .sameLine1 {
   display: flex;
@@ -69,6 +75,9 @@
   background-color: white;
   color: grey;
   border-color: #d8d8d8;
+}
+.selectionButton:focus {
+  outline: none;
 }
 .selectionButton:hover {
   background-color: white;

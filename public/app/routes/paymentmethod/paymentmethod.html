@@ -2,28 +2,27 @@
 <div class="parentPayment">
 
 <div class="leftPaymentdiv">
-  <p>Payment method</p>
-  <p>All transactions are secure and encrypted.</p>
+  <div class="paymentContent">
+  <div class="CheckoutBoostedLogo">
+    <img class='boostedLogo' src="../../img/homePage/image.PNG" alt="">
+    <p class='pageSelection'><a ui-sref="cart"><span class="blue">Cart</span></a> &gt; <a ui-sref="checkout"><span class="blue">Customer information</span></a> &gt; <a ui-sref="payment"><span>Payment method</span></a></p>
+  </div>
+  <p class="title">Payment method</p>
+  <p class="subTitle">All transactions are secure and encrypted.</p>
   <div class="stripe payment">
-    <div class="paymentInfo">
+    <div class="paymentInfoCheckOut">
+      <div class="paymentContentCover">
+        <p>Credit Card</p>
+        <div class="cardPics">
+          <img class='photoSizethree' src="../../img/community/threeCards.png" alt="">
+          <img class='photoSize' src="../../img/community/oneCard.png" alt="">
+        </div>
+      </div>
       <form ng-submit='charge(payment)' class='col-xs-4'>
-          <h2 class="stripeTitle">Make a payment</h2><br>
-          <!-- <section class='form-group'>
-            <div class="stripeInput">
-              <input
-              class='form-control'
-              type="text"
-              name=""
-              ng-model='mockPrice'
-              placeholder="amount"
-              required>
-            </div>
-          </section> -->
           <section class='form-group'>
-            <div class="stripeInput">
-              <label>Card number:</label>
+            <div class="stripeInputCheckout">
               <input
-              class='form-control'
+              class='form-control textInputStyle'
               ng-model="payment.card.number"
               type="text"
               placeholder="card"
@@ -31,57 +30,64 @@
             </div>
           </section>
           <section class='form-group'>
-            <div class="stripeInput">
-              <label>Name on card:</label>
+            <div class="stripeInputCheckout">
               <input
               type="text"
               name="name"
-              class='form-control'
+              class='form-control textInputStyle'
               placeholder='name'
               required>
             </div>
           </section>
-          <section class='form-group'>
-            <div class="stripeInput">
-              <label>Exp. Mo</label>
+          <div class="">
+          <div class="">
+
               <input
-              class='form-control'
+              class='form-control textInputStyle expInputStyle'
               ng-model="payment.card.exp_month"
               type="text"
               name="name"
               placeholder="MM">
-            </div>
-          </section>
-          <section class='form-group'>
-            <div class="stripeInput">
-              <label>Exp. Yr</label>
+
               <input
-              class='form-control'
+              class='form-control textInputStyle expInputStyle centerBoxStyle'
               ng-model="payment.card.exp_year"
               type="text"
               name="name"
               placeholder="YY">
-            </div>
-          </section>
-          <section class='form-group'>
-            <div class="stripeInput">
-              <label>CVC:</label>
+
               <input
-              class='form-control'
+              class='form-control textInputStyle expInputStyle'
               ng-model="payment.card.cvc"
-              placeholder='CVC number'
+              placeholder='CCV'
               type="text"
               required>
+
+          </div>
+          </div>
+          <div class="stripeButtonFooter">
+          <div class="buttonSingleLine">
+            <div>
+              <a ui-sref="cart">
+                <p class="WeirdBlue"> &lt; Return to cart</p>
+              </a>
             </div>
-          </section>
-          <button class='btn btn-primary whiteButton' type='sumbit'>Complete order</button>
+            <div>
+              <button class='btn btn-primary orangeButton extraButtonSpace' type='sumbit' ng-click='charge()'>Complete order</button>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </div>
+  <div class="extraLinks">
+      <p>Privacy policy</p>
+      <p>Refund policy</p>
+      <p>Terms of service</p>
+  </div>
+</div>
 </div>
 <div class="rightPaymentdiv">
-  <checkout-cart total = 'total'></checkout-cart>
-  {{totalDue}}{{total}}{{paymentAmount}}
+  <checkout-cart total = 'total' paymentmethod = 'paymentStatus'></checkout-cart>
 </div>
 </div>
-<button type="button" ui-sref='confirmation' name="button">test</button>

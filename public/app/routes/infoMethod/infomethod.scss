@@ -1,64 +1,141 @@
 $borderColor: #cccccc;
 .parentCheckout {
   display: flex;
+
 }
 .leftCheckout {
   width: 50vw;
+  position: relative;
   border-right: solid 1px #d0cfcf;
+  font-family: 'Raleway', sans-serif;
+  .borderStyle {
+    border: solid 2px #82C7D3 !important;
+    padding: 0px;
+  }
+  .title {
+    font-family: 'Montserrat', sans-serif;
+  }
+  .boostedLogo {
+    width: 185px;
+  }
+  .pageSelection {
+    font-size: 12px;
+    .blue {
+      color: #82C7D3;
+    }
+    span {
+      margin: 10px;
+    }
+  }
+  .buttonSingleLine {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    .WeirdBlue {
+      color: #82C7D3;
+      font-size: 15px;
+    }
+  }
+  .extraLength {
+    width: 250px;
+    margin-right: 0px !important;
+  }
+  .textboxPlace {
+    font-size: 12px;
+    color: #A1A1A1;
+    margin-left: 8px;
+  }
+  .textheightFix {
+    line-height: 34px;
+  }
+  .textboxStyleCheckout {
+    outline: none;
+    border: none;
+    width: 90%;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-left: 8px;
+  }
+  .selectStyle {
+    border: none;
+    background-color: white;
+    width: 95%;
+  }
 }
 .customerEmail {
   border: solid $borderColor 1px;
   border-radius: 4px;
+  padding: 1px;
+  transition: border-color .25s;
 }
 .nameLine {
   display: flex;
-  width: 100%
+  width: 100%;
 }
 .customerFirstName {
   border: solid $borderColor 1px;
   border-radius: 4px;
   width: 50%;
   margin-right: 4px;
+  padding: 1px;
+  transition: border-color .25s;
 }
 .customerLastName {
   border: solid $borderColor 1px;
   border-radius: 4px;
   width: 50%;
   margin-left:4px;
+  padding: 1px;
+  transition: border-color .25s;
 }
 .customerCompany {
   border: solid $borderColor 1px;
   border-radius: 4px;
+  height: 36px;
+  margin-top: 10px;
+  padding: 1px;
+  transition: border-color .25s;
 }
 .customerAddress {
   border: solid $borderColor 1px;
   border-radius: 4px;
   width: 65%;
   margin-right: 4px;
+  padding: 1px;
+  transition: border-color .25s;
 }
 .customerSuite {
   border: solid $borderColor 1px;
   border-radius: 4px;
   width: 35%;
   margin-left: 4px;
+  padding: 1px;
+  transition: border-color .25s;
 }
 .addressLine {
   display: flex;
-  width: 100%
+  width: 100%;
+  margin-top: 10px;
 }
 .customerCity {
   border: solid $borderColor 1px;
   border-radius: 4px;
+  margin-top: 10px;
+  padding: 1px;
+  transition: border-color .25s;
 }
 .locationLine {
   display: flex;
-  width: 100%
+  width: 100%;
+  margin-top: 10px;
 }
 .customerCountry {
   border: solid $borderColor 1px;
   border-radius: 4px;
   width: 40%;
   margin-right: 4px;
+  padding: 1px;
+  transition: border-color .25s;
 }
 .customerState {
   border: solid $borderColor 1px;
@@ -66,25 +143,40 @@ $borderColor: #cccccc;
   width: 40%;
   margin-right: 4px;
   margin-left: 4px;
+  padding: 1px;
+  transition: border-color .25s;
 }
 .customerZip {
   border: solid $borderColor 1px;
   border-radius: 4px;
   width: 30%;
   margin-left: 4px;
+  padding: 1px;
+  transition: border-color .25s;
 }
 .customerPhone {
   border: solid $borderColor 1px;
   border-radius: 4px;
+  margin-top: 10px;
+  padding: 1px;
+  transition: border-color .25s;
 }
 .leftContentCheckout {
   width: 575px;
   height: auto;
   margin: 50px;
   float: right;
+  margin-top: 140px;
 }
 .extraLinks {
-  border-top: solid 1px grey;
+  border-top: solid 1px $borderColor;
   display: flex;
-  width: 100%;
+  width: 575px;
+  position: absolute;
+  bottom: 0px;
+  p{
+    margin-right: 10px;
+    font-size: 12px;
+    color: #82C7D3;
+  }
 }

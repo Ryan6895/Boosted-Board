@@ -1,2 +1,15 @@
-<h3>My Google Maps Demo</h3>
-    <div id="map"></div>
+<nav-bar></nav-bar>
+<div class="centerConfirmContent">
+  <div class="mapSide">
+    <h3 class="mapsTitle">Delivery Location</h3>
+        <div id="map"></div>
+  </div>
+  <div class="contentSider">
+    <p>Thank you for your order {{address.firstname}}!</p>
+    <p>Your Package will be delivered in the next 5-10 days to</p>
+    <p>{{address.street}}, {{address.city}}, {{address.state}}, {{address.zip}}</p>
+    <p>If there are any issues or delays we will reach out to via email. ({{address.email}})</p>
+  </div>
+</div>
+
+<footer-view></footer-view>

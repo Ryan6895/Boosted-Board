@@ -1,11 +1,94 @@
 .parentPayment {
   display: flex;
+  .title {
+    font-family: sans-serif;
+    margin-bottom: 0px;
+  }
+  .subTitle {
+    color: grey;
+    font-family: sans-serif;
+    margin-top: 4px;
+  }
+}
+.textInputStyle {
+  height: 35px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: lighter;
+  letter-spacing: 1.6px;
+  border-radius: 5px;
+  border:solid 1px #cccccc;
+  width: 90%;
+  margin: 14px;
+  padding-left: 10px;
+}
+.textInputStyle:focus {
+  outline: none;
 }
 .leftPaymentdiv {
   width: 50vw;
   height: 100vh;
+  border-right: solid 1px #cccccc;
+  font-family: sans-serif;
+  .boostedLogo {
+    width: 185px;
+  }
+  .pageSelection {
+    font-size: 12px;
+    font-family: 'Raleway', sans-serif;
+    .blue {
+      color: #82C7D3;
+    }
+    span {
+      margin: 10px;
+    }
+
+  }
+}
+.extraButtonSpace {
+  margin-left: 110px;
+}
+.expInputStyle {
+  width: 145px;
 }
 .rightPaymentdiv {
   width: 50vw;
   height: 100vh;
+}
+.paymentContent {
+  width: 575px;
+  float: right;
+  margin-right: 50px;
+  margin-top: 140px;
+}
+.paymentInfoCheckOut {
+  border: solid 1px #cccccc;
+  border-radius: 14px;
+  background-color: #FAFAFA;
+  .buttonSingleLine {
+    display: flex;
+    justify-content: space-between;
+  }
+  .paymentContentCover {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E2E2E2;
+    border-radius: 14px 14px 0px 0px;
+    height: 45px;
+    p {
+      margin: 0px;
+      margin-left: 10px;
+    }
+    .cardPics {
+      display: flex;
+      .photoSizethree {
+        height: 36px;
+      }
+      .photoSize {
+        height: 36px;
+      }
+    }
+
+  }
 }

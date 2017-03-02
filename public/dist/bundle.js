@@ -93,6 +93,47 @@ $(document).ready(function () {
       $(".mileageText").fadeIn();
       $(".mileageText").fadeIn();
     }
+    if (winScroll > 2530) {
+      $(".breezeContent").addClass("fadeOut");
+    } else {
+      $(".breezeContent").addClass("fadeIn");
+      $(".breezeContent").removeClass("fadeOut");
+    }
+    if (winScroll > 1470) {
+      $(".breezeContent").addClass("fadeIn");
+    } else {
+      $(".breezeContent").removeClass("fadeIn");
+      $(".breezeContent").addClass("fadeOut");
+    }
+    if (winScroll > 3395) {
+      $(".remoteContent").addClass("fadeOut");
+    } else {
+      $(".remoteContent").addClass("fadeIn");
+      $(".remoteContent").removeClass("fadeOut");
+    }
+    if (winScroll > 2315) {
+      $(".remoteContent").addClass("fadeIn");
+    } else {
+      $(".remoteContent").removeClass("fadeIn");
+      $(".remoteContent").addClass("fadeOut");
+    }
+    if (winScroll > 5425) {
+      $(".breezetwoContent").addClass("fadeOut");
+    } else {
+      $(".breezetwoContent").addClass("fadeIn");
+      $(".breezetwoContent").removeClass("fadeOut");
+    }
+    if (winScroll > 4265) {
+      $(".breezetwoContent").addClass("fadeIn");
+    } else {
+      $(".breezetwoContent").removeClass("fadeIn");
+      $(".breezetwoContent").addClass("fadeOut");
+    }
+    if (winScroll > 550) {
+      $(".coverContent").addClass("fadeOut");
+    } else {
+      $(".coverContent").removeClass("fadeOut");
+    }
   });
 });
 angular.module('boosted').service('geoService', function ($http, $q) {
@@ -117,6 +158,7 @@ angular.module('boosted').service('geoService', function ($http, $q) {
 //https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyAmGhz4T4vrSA6vMV3p7OPh3iqAmUdv9rk
 //' + address.number + address.street + address.city + address.state + '
 angular.module('boosted').service('service', function ($http, stripe) {
+  var self = this;
   this.getItems = function (num) {
     return $http({
       method: 'GET',
@@ -241,6 +283,10 @@ angular.module('boosted').service('service', function ($http, stripe) {
       url: '/api/logout'
     });
   };
+  this.newPayment = 0;
+  this.usepayment = function (value) {
+    self.newPayment = value;
+  };
 });
 angular.module('boosted').directive('boardCaro', function () {
     return {
@@ -307,6 +353,7 @@ angular.module('boosted').directive('checkoutCart', function () {
         }
         $scope.getTotal();
       });
+
       service.gettotalPayments().then(function (response) {
         $scope.paymentAmount = response.data[0].sum;
       });
@@ -320,7 +367,8 @@ angular.module('boosted').directive('checkoutCart', function () {
       };
     },
     scope: {
-      total: '='
+      total: '=',
+      paymentmethod: '='
     }
   };
 });
@@ -336,13 +384,6 @@ angular.module('boosted').directive('footerView', function () {
         link: function (scope, elem, attrs) {}
     };
 });
-angular.module('boosted').directive('help', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/help/help.html',
-        link: function (scope, elem, attrs) {}
-    };
-});
 angular.module('boosted').directive('guarantee', function () {
     return {
         restrict: 'E',
@@ -350,6 +391,13 @@ angular.module('boosted').directive('guarantee', function () {
         link: function (scope, elem, attrs) {
             console.log('hello');
         }
+    };
+});
+angular.module('boosted').directive('help', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/help/help.html',
+        link: function (scope, elem, attrs) {}
     };
 });
 angular.module('boosted').directive('navBar', function () {
@@ -366,11 +414,16 @@ angular.module('boosted').directive('navBar', function () {
         $scope.getTotalQty = function () {
           service.getTotalQty().then(function (response) {
             $scope.totalQty = response.data[0].sum;
-            if ($scope.totalQty == 0) {
+            console.log($scope.totalQty);
+            if (!$scope.totalQty) {
+              console.log('inner if');
               $scope.cartQty = false;
             } else {
+              console.log('else if');
               $scope.cartQty = true;
             }
+          }).catch(function (err) {
+            $scope.cartQty = false;
           });
         };
         $scope.getTotalQty();
@@ -395,6 +448,7 @@ angular.module('boosted').controller('blogitem', function ($scope, service, $sta
 });
 angular.module('boosted').controller('boardCtrl', function ($scope, service, $state) {});
 angular.module('boosted').controller('cartCtrl', function ($scope, service, $state) {
+
   $scope.updateCart = function () {
     service.getallcartItems().then(function (response) {
       $scope.items = response.data;
@@ -407,10 +461,26 @@ angular.module('boosted').controller('cartCtrl', function ($scope, service, $sta
       }
       $scope.getTotal();
     });
+  };
+  $scope.usePayment = function (value) {
+    service.usepayment(value);
+  };
+
+  $scope.paymentsoff = function () {
+    $scope.paymentAmount = 0;
+    $scope.paymentButton = true;
+    $scope.usePayment($scope.paymentAmount);
+  };
+  $scope.paymentsoff();
+
+  $scope.paymentson = function () {
     service.gettotalPayments().then(function (response) {
       $scope.paymentAmount = response.data[0].sum;
+      $scope.paymentButton = false;
+      $scope.usePayment($scope.paymentAmount);
     });
   };
+
   $scope.updateCart();
   $scope.removeItem = function (id) {
     //console.log(id);
@@ -457,6 +527,7 @@ angular.module('boosted').controller('confirmation', function ($scope, geoServic
   };
 
   $scope.address = geoService.newAddress;
+  console.log($scope.address);
 
   geoService.searchMap($scope.address).then(function (coord) {
     $scope.location = coord;
@@ -479,6 +550,9 @@ angular.module('boosted').controller('infomethod', function ($scope, service, $s
     console.log('order.id', $scope.order_id);
   });
 
+  $scope.paymentStatus = service.newPayment;
+  console.log($scope.paymentStatus);
+
   $scope.addAddress = function (email, firstname, lastname, street, city, country, state, zip, order_id) {
     var strAddress = street + " " + city + " " + state + " " + zip;
 
@@ -498,6 +572,29 @@ angular.module('boosted').controller('infomethod', function ($scope, service, $s
     };
     geoService.passAddress(objAddress);
     $state.go('payment');
+  };
+
+  $scope.borderStyle = {
+    'email': false,
+    'firstname': false,
+    'lastname': false,
+    'company': false,
+    'address': false,
+    'apt': false,
+    'city': false,
+    'country': false,
+    'state': false,
+    'zip': false,
+    'phone': false
+  };
+
+  $scope.changeBorder = function (input) {
+    console.log('hi');
+    for (var key in $scope.borderStyle) {
+      $scope.borderStyle[key] = false;
+    }
+    $scope.borderStyle[input] = true;
+    console.log($scope.borderStyle);
   };
 });
 angular.module('boosted').controller('itemCtrl', function ($scope, service, $stateParams, $state) {
@@ -526,84 +623,6 @@ angular.module('boosted').controller('itemCtrl', function ($scope, service, $sta
     });
   };
 });
-angular.module('boosted').controller('payments', function ($scope, service, $state, $timeout, stripe, $http) {
-  function getUser() {
-    service.getUser().then(function (response) {
-      $scope.user = response;
-      service.gettotalPayments().then(function (response) {
-        $scope.totalPayments = response.data[0].sum;
-        $scope.progress = {
-          "width": 'calc(' + $scope.totalPayments / $scope.boardValue * 100 + '%' + ')',
-          "background": "linear-gradient(to right, #f7dfb3 0%,#ef7b15 100%)",
-          "height": "40px",
-          "transition": ".25s",
-          "border-radius": "8px"
-
-        };
-      });
-    });
-  }
-
-  $scope.correctBar = function () {
-    getUser();
-  };
-
-  $scope.addBoard = function () {};
-
-  $scope.boardValue = '1499';
-
-  getUser();
-  $scope.date = new Date();
-  $scope.active = 'True';
-  $scope.logout = function () {
-    service.logout().then(function (response) {
-      console.log('successfully Logged Out');
-      $state.go('home');
-    });
-  };
-
-  //==========STRIPE==================
-  $scope.payment = {};
-
-  $scope.charge = function () {
-    return stripe.card.createToken($scope.payment.card).then(function (response) {
-      console.log('token created for card ending in ', response.card.last4);
-      var payment = angular.copy($scope.payment);
-      payment.card = void 0;
-      payment.token = response.id;
-
-      return $http({
-        method: 'POST',
-        url: '/api/payment',
-        data: {
-          amount: $scope.mockPrice,
-          payment: payment,
-          date: $scope.date,
-          user: $scope.user,
-          active: $scope.active
-        }
-      });
-    }).then(function (payment) {
-      $scope.mockPrice = '';
-      $scope.name = '';
-      $scope.payment.card.number = '';
-      $scope.payment.card.exp_month = '';
-      $scope.payment.card.exp_year = '';
-      $scope.payment.card.cvc = '';
-      getUser();
-      console.log('successfully submitted payment for $', payment);
-    }).catch(function (err) {
-      if (err.type && /^Stripe/.test(err.type)) {
-        console.log('Stripe error: ', err.message);
-        alert(err.message);
-      } else {
-        console.log('Other error occurred, possibly with your API', err.message);
-        alert(err.message);
-      }
-    });
-  };
-  //===END CTRL=======
-});
 angular.module('boosted').controller('paymentmethod', function ($scope, service, $http, $state, stripe) {
 
   $scope.total = 0;
@@ -612,6 +631,8 @@ angular.module('boosted').controller('paymentmethod', function ($scope, service,
     $scope.paymentAmount = response.data[0].sum;
   });
 
+  $scope.paymentStatus = service.newPayment;
+
   $scope.payment = {};
 
   $scope.charge = function () {
@@ -620,7 +641,7 @@ angular.module('boosted').controller('paymentmethod', function ($scope, service,
       var payment = angular.copy($scope.payment);
       payment.card = void 0;
       payment.token = response.id;
-      $scope.totalDue = $scope.total - $scope.paymentAmount;
+      $scope.totalDue = $scope.total - $scope.paymentStatus;
       console.log($scope.totalDue);
       return $http({
         method: 'POST',
@@ -638,7 +659,7 @@ angular.module('boosted').controller('paymentmethod', function ($scope, service,
       service.completeOrder().then(function (response) {
         console.log(response);
       }).then(function () {
-        state.go('confirmation');
+        $state.go('confirmation');
       });
     }).catch(function (err) {
       if (err.type && /^Stripe/.test(err.type)) {
@@ -649,6 +670,91 @@ angular.module('boosted').controller('paymentmethod', function ($scope, service,
         alert(err.message);
       }
     });
+  };
+  //===END CTRL=======
+});
+angular.module('boosted').controller('payments', function ($scope, service, $state, $timeout, stripe, $http) {
+  function getUser() {
+    service.getUser().then(function (response) {
+      $scope.user = response;
+      service.gettotalPayments().then(function (response) {
+        if (response.data[0].sum == null) {
+          $scope.totalPayments = 0;
+        } else {
+          $scope.totalPayments = response.data[0].sum;
+        }
+        $scope.progress = {
+          "width": 'calc(' + $scope.totalPayments / $scope.boardValue * 100 + '%' + ')',
+          "background": "linear-gradient(to right, #f7dfb3 0%,#ef7b15 100%)",
+          "height": "40px",
+          "transition": ".25s",
+          "border-radius": "8px"
+
+        };
+      });
+    });
+  }
+
+  $scope.correctBar = function () {
+    getUser();
+  };
+  $scope.totalPayments = 0;
+  $scope.boardValue = '1499';
+
+  getUser();
+  $scope.date = new Date();
+  $scope.active = 'True';
+  $scope.logout = function () {
+    service.logout().then(function (response) {
+      console.log('successfully Logged Out');
+      $state.go('home');
+    });
+  };
+
+  //==========STRIPE==================
+  $scope.payment = {};
+
+  $scope.charge = function () {
+    if ($scope.mockPrice > $scope.boardValue - $scope.totalPayments) {
+      $scope.Alert = true;
+    } else {
+      return stripe.card.createToken($scope.payment.card).then(function (response) {
+        console.log('token created for card ending in ', response.card.last4);
+        var payment = angular.copy($scope.payment);
+        payment.card = void 0;
+        payment.token = response.id;
+
+        return $http({
+          method: 'POST',
+          url: '/api/payment',
+          data: {
+            amount: $scope.mockPrice,
+            payment: payment,
+            date: $scope.date,
+            user: $scope.user,
+            active: $scope.active
+          }
+        });
+      }).then(function (payment) {
+        $scope.mockPrice = '';
+        $scope.name = '';
+        $scope.payment.card.number = '';
+        $scope.payment.card.exp_month = '';
+        $scope.payment.card.exp_year = '';
+        $scope.payment.card.cvc = '';
+        getUser();
+        console.log('successfully submitted payment for $', payment);
+        $scope.Alert = false;
+      }).catch(function (err) {
+        if (err.type && /^Stripe/.test(err.type)) {
+          console.log('Stripe error: ', err.message);
+          alert(err.message);
+        } else {
+          console.log('Other error occurred, possibly with your API', err.message);
+          alert(err.message);
+        }
+      });
+    }
   };
   //===END CTRL=======
 });
@@ -673,6 +779,7 @@ angular.module('boosted').controller('reserve', function ($scope, service, $stat
     service.addtoCart($scope.itemId).then(function (response) {
       console.log(response);
     });
+    $state.go('cart');
   };
   service.getUser().then(function (response) {
     if (!response) {

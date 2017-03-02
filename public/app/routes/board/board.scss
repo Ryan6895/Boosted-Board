@@ -3,6 +3,9 @@ $orange: #FC6E4B;
 .photo {
     width: 100%;
 }
+.photo:focus {
+  outline: none;
+}
 
 .boardCover {
     background: url('../../img/theBoard/alleyRide.JPG') no-repeat center;
@@ -17,10 +20,15 @@ $orange: #FC6E4B;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
 }
-
+.breezeContent {
+  transition: .25s;
+  margin-top: 20px;
+}
 .coverContent {
     color: white;
     margin-right: 30%;
+    transition: .25s;
+    margin-bottom: 50px;
 }
 
 .boardTitle {
@@ -240,10 +248,15 @@ $orange: #FC6E4B;
   font-family: 'Montserrat', sans-serif;
 }
 .remoteContent {
-  margin-left: 650px;
+  margin-left: 50%;
 margin-right: 275px;
 padding-top: 75px;
 color: white;
+transition: .25s;
+}
+.breezetwoContent {
+  transition: .25s;
+  margin-top: 20px;
 }
 .titleSize {
   font-size: 35px;

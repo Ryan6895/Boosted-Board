@@ -1,5 +1,6 @@
 angular.module('boosted')
 .controller('cartCtrl', function($scope,service, $state) {
+
   $scope.updateCart = function(){
   service.getallcartItems().then(function(response){
     $scope.items = response.data;
@@ -12,10 +13,26 @@ angular.module('boosted')
     }
     $scope.getTotal();
   })
-  service.gettotalPayments().then(function(response) {
-    $scope.paymentAmount = response.data[0].sum;
-  });
 }
+$scope.usePayment = function(value){
+  service.usepayment(value);
+}
+
+$scope.paymentsoff = function (){
+  $scope.paymentAmount = 0;
+  $scope.paymentButton = true;
+  $scope.usePayment($scope.paymentAmount);
+}
+$scope.paymentsoff();
+
+$scope.paymentson = function () {
+  service.gettotalPayments().then(function(response) {
+  $scope.paymentAmount = response.data[0].sum;
+  $scope.paymentButton = false;
+  $scope.usePayment($scope.paymentAmount);
+})
+}
+
 $scope.updateCart();
   $scope.removeItem = function(id) {
     //console.log(id);

@@ -20,6 +20,7 @@ angular.module('boosted')
     service.addtoCart($scope.itemId).then(function(response) {
       console.log(response);
     })
+    $state.go('cart');
   }
   service.getUser().then(function(response) {
     if (!response){

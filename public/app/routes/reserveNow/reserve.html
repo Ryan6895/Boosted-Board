@@ -22,7 +22,7 @@
 <div class="borderTopSection" id='heightFix'>
   <a href="/auth"><button type="button" class='orangeButton blackBtn' ng-show='!account' name="button">Log In</button></a>
   <button type="button" class='orangeButton blackBtn' ui-sref='payments'ng-show='account' name="button">Make a Payment</button></a>
-  <button type="button" class='orangeButton' ng-click='addBoard()' name="button">Add to Cart</button>
+  <button type="button" class='orangeButton' ng-click='addBoard()' name="button" ng-show='account'>Add to Cart</button>
 </div>
 <div class="threerReserveIcons">
   <div class="innerContainer">

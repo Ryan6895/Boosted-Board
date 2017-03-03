@@ -10,7 +10,7 @@
   </div>
     <div class="blogBody">
       <span ui-sref='blogitem({blogid: blog.blogid})'><p class="blogTitle">{{blog.title}}</p></span>
-      <p class="blogDescription">{{blog.description}}</p>
+      <p class="blogDescription" ng-bind-html='blog.description | to_trusted'></p>
     </div>
 </div>
 <div class="blogfloat">

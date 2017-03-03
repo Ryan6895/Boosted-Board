@@ -92,3 +92,39 @@
 
   }
 }
+@media (max-width: 992px) {
+.parentPayment {
+  flex-direction: column;
+}
+.leftContentCheckout {
+  margin-top: 20px;
+}
+.leftPaymentdiv {
+  width: auto;
+  height: auto;
+}
+.paymentContent {
+  float: none;
+  width: auto;
+  margin-right: 0px;
+  margin: 20px;
+}
+.rightPaymentdiv {
+  width: auto;
+  height: auto;
+}
+.extraLinks {
+  position: relative;
+  margin-top: 20px;
+}
+.cartCheckoutContentContainer {
+  width: auto;
+}
+.cartCheckoutContainer {
+  width: auto;
+  height: auto;
+}
+.extraButtonSpace {
+  margin-left: 10px;
+}
+}

@@ -51,7 +51,7 @@ $borderColor: #cccccc;
   .textboxStyleCheckout {
     outline: none;
     border: none;
-    width: 90%;
+    width: 80%;
     font-size: 14px;
     border-radius: 5px;
     margin-left: 8px;
@@ -179,4 +179,33 @@ $borderColor: #cccccc;
     font-size: 12px;
     color: #82C7D3;
   }
+}
+@media (max-width: 992px) {
+.parentCheckout {
+  flex-direction: column;
+}
+.leftCheckout {
+  width: auto;
+}
+.cartCheckoutContentContainer {
+  width: auto;
+}
+.cartCheckoutContainer {
+  width: auto;
+  height: auto;
+  padding-bottom: 40px;
+}
+.itemname {
+  margin: 4px;
+}
+.leftContentCheckout {
+  width: auto;
+  float: none;
+}
+.extraLength {
+  width: 155px !important;
+}
+.extraLinks {
+  width: auto;
+}
 }

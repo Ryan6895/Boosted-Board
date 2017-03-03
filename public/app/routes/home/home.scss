@@ -393,10 +393,6 @@ li {
         text-align: left;
     }
 
-    .orangeButton {
-        display: none;
-    }
-
     .homeOrangeMap {
         top: 865px;
     }
@@ -556,5 +552,8 @@ li {
     .photoHeight {
       min-width: 300px;
       //min-height: 300px;
+    }
+    .whiteButtonColor {
+      margin-top: 10px;
     }
 }

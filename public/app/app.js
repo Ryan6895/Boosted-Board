@@ -72,3 +72,8 @@ angular.module('boosted', ['ui.router', 'angular-stripe'])
     templateUrl: 'public/app/routes/confirmation/confirmation.html'
   })
 })
+.filter('to_trusted', ['$sce', function($sce){
+    return function(text) {
+        return $sce.trustAsHtml(text);
+    };
+}]);

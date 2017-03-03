@@ -859,6 +859,18 @@ body {
   color: #5B5B5B;
   margin-top: 25px; }
 
+@media (max-width: 992px) {
+  .cartContainer {
+    zoom: .8; }
+  .qtyTextBox {
+    width: 8px; }
+  .itemcartPrice {
+    margin-left: 0px; }
+  .itemname {
+    width: 150px; }
+  .blackfocus {
+    margin-right: 0px !important; } }
+
 .blogContainer {
   display: flex;
   width: 60%;
@@ -954,6 +966,17 @@ body {
 .mapsTitle {
   font-family: 'Raleway', sans-serif;
   font-size: 18px; }
+
+@media (max-width: 992px) {
+  #map {
+    height: 300px;
+    width: 100%; }
+  .centerConfirmContent {
+    flex-direction: column;
+    width: 85%; }
+  .contentSider {
+    margin-top: auto;
+    margin-left: auto; } }
 
 .homeCover {
   background: url("../../img/homePage/coverPhoto.JPG") no-repeat center;
@@ -1293,8 +1316,6 @@ li {
     font-size: 20px;
     width: 94%;
     text-align: left; }
-  .orangeButton {
-    display: none; }
   .homeOrangeMap {
     top: 865px; }
   .homeGrayMap {
@@ -1393,7 +1414,9 @@ li {
   .homeDurable {
     overflow-x: hidden; }
   .photoHeight {
-    min-width: 300px; } }
+    min-width: 300px; }
+  .whiteButtonColor {
+    margin-top: 10px; } }
 
 .parentCheckout {
   display: flex; }
@@ -1435,7 +1458,7 @@ li {
   .leftCheckout .textboxStyleCheckout {
     outline: none;
     border: none;
-    width: 90%;
+    width: 80%;
     font-size: 14px;
     border-radius: 5px;
     margin-left: 8px; }
@@ -1560,6 +1583,27 @@ li {
     margin-right: 10px;
     font-size: 12px;
     color: #82C7D3; }
+
+@media (max-width: 992px) {
+  .parentCheckout {
+    flex-direction: column; }
+  .leftCheckout {
+    width: auto; }
+  .cartCheckoutContentContainer {
+    width: auto; }
+  .cartCheckoutContainer {
+    width: auto;
+    height: auto;
+    padding-bottom: 40px; }
+  .itemname {
+    margin: 4px; }
+  .leftContentCheckout {
+    width: auto;
+    float: none; }
+  .extraLength {
+    width: 155px !important; }
+  .extraLinks {
+    width: auto; } }
 
 #itemContainer {
   display: flex;
@@ -1687,6 +1731,33 @@ li {
         height: 36px; }
       .paymentInfoCheckOut .paymentContentCover .cardPics .photoSize {
         height: 36px; }
+
+@media (max-width: 992px) {
+  .parentPayment {
+    flex-direction: column; }
+  .leftContentCheckout {
+    margin-top: 20px; }
+  .leftPaymentdiv {
+    width: auto;
+    height: auto; }
+  .paymentContent {
+    float: none;
+    width: auto;
+    margin-right: 0px;
+    margin: 20px; }
+  .rightPaymentdiv {
+    width: auto;
+    height: auto; }
+  .extraLinks {
+    position: relative;
+    margin-top: 20px; }
+  .cartCheckoutContentContainer {
+    width: auto; }
+  .cartCheckoutContainer {
+    width: auto;
+    height: auto; }
+  .extraButtonSpace {
+    margin-left: 10px; } }
 
 .paymentTopHalf {
   margin: auto;
@@ -2186,6 +2257,53 @@ li {
           color: #4D4D4D;
           font-size: 16px;
           letter-spacing: 1.15px; }
+
+@media (max-width: 992px) {
+  .reserveCoverTitle {
+    line-height: normal; }
+  .borderTopSection {
+    height: auto;
+    margin-bottom: 15px; }
+  .buttonSelectedonReserve {
+    margin-bottom: 10px; }
+  .rightReserveOptions {
+    margin-right: 20px; }
+  .blackBtn {
+    margin-bottom: 10px; }
+  .threerReserveIcons {
+    margin-top: 40px; }
+  .compareCoverContent {
+    zoom: .75;
+    flex-direction: column;
+    align-items: center; }
+  .compareCoverPosition {
+    width: 90%; }
+  .shippingandInfo .content {
+    width: 90%; }
+    .shippingandInfo .content .thirdSection .flexSection {
+      flex-direction: column; }
+      .shippingandInfo .content .thirdSection .flexSection .contentContainer {
+        width: 90%; }
+      .shippingandInfo .content .thirdSection .flexSection .left {
+        width: 90%; }
+      .shippingandInfo .content .thirdSection .flexSection .right {
+        margin-left: 0px; }
+  .boardStanding {
+    display: none; }
+  .featureContainer {
+    margin: 10px; }
+  .compareBatteries .contentSize .content .desc {
+    width: 90%; }
+  .flexedDesc {
+    width: 80px; }
+  .rangeWeightSameLine {
+    flex-direction: column; }
+  .DualContainer {
+    margin-left: 0px; }
+  .DualPlusContainer {
+    margin-right: 0px; }
+  .removeBatteryImg {
+    width: 90vw; } }
 
 #test {
   background-color: #EFEFEF; }

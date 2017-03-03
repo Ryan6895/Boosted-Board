@@ -57,7 +57,11 @@ angular.module('boosted', ['ui.router', 'angular-stripe']).config(function ($sta
     controller: 'confirmation',
     templateUrl: 'public/app/routes/confirmation/confirmation.html'
   });
-});
+}).filter('to_trusted', ['$sce', function ($sce) {
+  return function (text) {
+    return $sce.trustAsHtml(text);
+  };
+}]);
 $(document).ready(function () {
   $(window).scroll(function () {
     let winScroll = $(this).scrollTop();
@@ -346,18 +350,6 @@ angular.module('boosted').directive('carousel', function () {
         }
     };
 });
-angular.module('boosted').directive('footerView', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/footer/footer.html',
-        controller: function ($scope, service) {
-            $scope.addEmail = function (email) {
-                service.addemail(email);
-            };
-        },
-        link: function (scope, elem, attrs) {}
-    };
-});
 angular.module('boosted').directive('checkoutCart', function () {
   return {
     restrict: 'E',
@@ -393,6 +385,18 @@ angular.module('boosted').directive('checkoutCart', function () {
       paymentmethod: '='
     }
   };
+});
+angular.module('boosted').directive('footerView', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/footer/footer.html',
+        controller: function ($scope, service) {
+            $scope.addEmail = function (email) {
+                service.addemail(email);
+            };
+        },
+        link: function (scope, elem, attrs) {}
+    };
 });
 angular.module('boosted').directive('guarantee', function () {
     return {

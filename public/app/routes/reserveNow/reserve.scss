@@ -310,3 +310,81 @@
     }
   }
 }
+@media (max-width: 992px) {
+  .reserveCoverTitle {
+    line-height: normal;
+  }
+  .borderTopSection {
+    height: auto;
+    margin-bottom: 15px;
+  }
+  .buttonSelectedonReserve {
+    margin-bottom: 10px;
+  }
+  .rightReserveOptions {
+    margin-right: 20px;
+  }
+  .blackBtn {
+    margin-bottom: 10px;
+  }
+  .threerReserveIcons {
+    margin-top: 40px;
+  }
+  .compareCoverContent {
+    zoom: .75;
+    flex-direction: column;
+    align-items: center;
+  }
+  .compareCoverPosition {
+    width: 90%;
+  }
+  .shippingandInfo {
+    .content {
+      width: 90%;
+      .thirdSection {
+        .flexSection {
+          flex-direction: column;
+          .contentContainer {
+            width: 90%;
+          }
+          .left {
+            width: 90%;
+          }
+          .right {
+            margin-left: 0px;
+          }
+        }
+      }
+    }
+  }
+  .boardStanding {
+    display: none;
+  }
+  .featureContainer {
+    margin: 10px;
+  }
+  .compareBatteries {
+    .contentSize {
+      .content {
+        .desc {
+          width: 90%;
+        }
+      }
+    }
+  }
+  .flexedDesc {
+    width: 80px;
+  }
+  .rangeWeightSameLine {
+    flex-direction: column;
+  }
+  .DualContainer {
+    margin-left: 0px;
+  }
+  .DualPlusContainer {
+    margin-right: 0px;
+  }
+  .removeBatteryImg {
+    width: 90vw;
+  }
+}

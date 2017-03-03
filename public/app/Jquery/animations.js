@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $(window).scroll(function() {
   let winScroll = $(this).scrollTop();
-  console.log(winScroll);
+  //console.log(winScroll);
   if (winScroll > 530){
     $(".homeCoverInfo").addClass("fadeOut")
   }else {

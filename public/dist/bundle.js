@@ -65,7 +65,7 @@ angular.module('boosted', ['ui.router', 'angular-stripe']).config(function ($sta
 $(document).ready(function () {
   $(window).scroll(function () {
     let winScroll = $(this).scrollTop();
-    console.log(winScroll);
+    //console.log(winScroll);
     if (winScroll > 530) {
       $(".homeCoverInfo").addClass("fadeOut");
     } else {
@@ -302,42 +302,6 @@ angular.module('boosted').service('service', function ($http, stripe) {
     self.newPayment = value;
   };
 });
-angular.module('boosted').directive('checkoutCart', function () {
-  return {
-    restrict: 'E',
-    templateUrl: 'public/app/directives/checkoutCart/checkoutCart.html',
-    controller: function ($scope, service) {
-      service.getallcartItems().then(function (response) {
-        $scope.items = response.data;
-        console.log('$scope.items', $scope.items);
-        if (!$scope.items.length) {
-          $scope.emptyCart = true;
-          $scope.fullCart = false;
-        } else {
-          $scope.emptyCart = false;
-          $scope.fullCart = true;
-        }
-        $scope.getTotal();
-      });
-
-      service.gettotalPayments().then(function (response) {
-        $scope.paymentAmount = response.data[0].sum;
-      });
-      $scope.getTotal = function () {
-        var total = 0;
-        for (var i = 0; i < $scope.items.length; i++) {
-          total += $scope.items[i].price * $scope.items[i].qty;
-        }
-        $scope.totalPrice = total;
-        $scope.total = total;
-      };
-    },
-    scope: {
-      total: '=',
-      paymentmethod: '='
-    }
-  };
-});
 angular.module('boosted').directive('boardCaro', function () {
     return {
         restrict: 'E',
@@ -397,6 +361,42 @@ angular.module('boosted').directive('footerView', function () {
         },
         link: function (scope, elem, attrs) {}
     };
+});
+angular.module('boosted').directive('checkoutCart', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'public/app/directives/checkoutCart/checkoutCart.html',
+    controller: function ($scope, service) {
+      service.getallcartItems().then(function (response) {
+        $scope.items = response.data;
+        console.log('$scope.items', $scope.items);
+        if (!$scope.items.length) {
+          $scope.emptyCart = true;
+          $scope.fullCart = false;
+        } else {
+          $scope.emptyCart = false;
+          $scope.fullCart = true;
+        }
+        $scope.getTotal();
+      });
+
+      service.gettotalPayments().then(function (response) {
+        $scope.paymentAmount = response.data[0].sum;
+      });
+      $scope.getTotal = function () {
+        var total = 0;
+        for (var i = 0; i < $scope.items.length; i++) {
+          total += $scope.items[i].price * $scope.items[i].qty;
+        }
+        $scope.totalPrice = total;
+        $scope.total = total;
+      };
+    },
+    scope: {
+      total: '=',
+      paymentmethod: '='
+    }
+  };
 });
 angular.module('boosted').directive('guarantee', function () {
     return {

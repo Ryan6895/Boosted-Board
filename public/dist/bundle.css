@@ -1,3 +1,87 @@
+.footerContainer {
+  clear: both; }
+
+.footerTitle {
+  font-weight: bold;
+  color: #545454;
+  margin-bottom: 8px;
+  font-family: 'Montserrat', sans-serif; }
+
+.blackButton {
+  background-color: black;
+  color: white;
+  width: auto;
+  margin-left: 20px; }
+
+.blackButton:focus {
+  outline: none; }
+
+.newsletter {
+  background-color: #F6F6F6;
+  border-radius: 4px;
+  height: 42px;
+  width: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 18px; }
+
+.newsletter:focus {
+  outline: none; }
+
+.footerIcon {
+  width: 40px;
+  margin-right: 18px;
+  margin-left: 18px; }
+
+.spacingfooter {
+  margin-bottom: 8px;
+  margin-left: 20px; }
+
+.inputInfoFooter {
+  display: flex;
+  flex-direction: column;
+  height: 130px; }
+
+#subscribeButton {
+  padding: 0px;
+  margin: 0px;
+  margin-top: 14px;
+  width: auto;
+  margin-left: 20px;
+  margin-right: 20px; }
+
+.footerlinks {
+  color: grey;
+  font-weight: 100;
+  font-family: sans-serif;
+  font-size: 14px;
+  margin-top: 15px; }
+
+a {
+  text-decoration: none; }
+
+.footerlinks:hover {
+  color: black; }
+
+.footerSocial {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 65px; }
+
+@media (min-width: 1200px) {
+  .footerContainer {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-around; }
+  .footerSocial {
+    float: right;
+    margin-bottom: 30px;
+    margin-right: 100px; }
+  .inputInfoFooter {
+    width: 465px; } }
+
 .cartCheckoutContainer {
   background-color: #F2F2F2;
   width: 50vw;
@@ -96,90 +180,6 @@
   height: auto;
   padding: 50px;
   padding-top: 140px; }
-
-.footerContainer {
-  clear: both; }
-
-.footerTitle {
-  font-weight: bold;
-  color: #545454;
-  margin-bottom: 8px;
-  font-family: 'Montserrat', sans-serif; }
-
-.blackButton {
-  background-color: black;
-  color: white;
-  width: auto;
-  margin-left: 20px; }
-
-.blackButton:focus {
-  outline: none; }
-
-.newsletter {
-  background-color: #F6F6F6;
-  border-radius: 4px;
-  height: 42px;
-  width: auto;
-  margin-left: 20px;
-  margin-right: 20px;
-  font-size: 18px; }
-
-.newsletter:focus {
-  outline: none; }
-
-.footerIcon {
-  width: 40px;
-  margin-right: 18px;
-  margin-left: 18px; }
-
-.spacingfooter {
-  margin-bottom: 8px;
-  margin-left: 20px; }
-
-.inputInfoFooter {
-  display: flex;
-  flex-direction: column;
-  height: 130px; }
-
-#subscribeButton {
-  padding: 0px;
-  margin: 0px;
-  margin-top: 14px;
-  width: auto;
-  margin-left: 20px;
-  margin-right: 20px; }
-
-.footerlinks {
-  color: grey;
-  font-weight: 100;
-  font-family: sans-serif;
-  font-size: 14px;
-  margin-top: 15px; }
-
-a {
-  text-decoration: none; }
-
-.footerlinks:hover {
-  color: black; }
-
-.footerSocial {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 65px; }
-
-@media (min-width: 1200px) {
-  .footerContainer {
-    padding-top: 40px;
-    display: flex;
-    justify-content: space-around; }
-  .footerSocial {
-    float: right;
-    margin-bottom: 30px;
-    margin-right: 100px; }
-  .inputInfoFooter {
-    width: 465px; } }
 
 .guaranteeContainer {
   height: 540px;

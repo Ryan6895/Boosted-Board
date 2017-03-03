@@ -129,7 +129,7 @@ $(document).ready(function () {
       $(".breezetwoContent").addClass("fadeOut");
     } else {
       $(".breezetwoContent").addClass("fadeIn");
-      //$(".breezetwoContent").removeClass("fadeOut")
+      $(".breezetwoContent").removeClass("fadeOut");
     }
     if (winScroll > 4265) {
       $(".breezetwoContent").addClass("fadeIn");
@@ -398,13 +398,6 @@ angular.module('boosted').directive('footerView', function () {
         link: function (scope, elem, attrs) {}
     };
 });
-angular.module('boosted').directive('help', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/help/help.html',
-        link: function (scope, elem, attrs) {}
-    };
-});
 angular.module('boosted').directive('guarantee', function () {
     return {
         restrict: 'E',
@@ -412,6 +405,13 @@ angular.module('boosted').directive('guarantee', function () {
         link: function (scope, elem, attrs) {
             console.log('hello');
         }
+    };
+});
+angular.module('boosted').directive('help', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/help/help.html',
+        link: function (scope, elem, attrs) {}
     };
 });
 angular.module('boosted').directive('navBar', function () {

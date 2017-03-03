@@ -65,7 +65,7 @@ $(document).ready(function(){
     $(".breezetwoContent").addClass("fadeOut")
   }else {
     $(".breezetwoContent").addClass("fadeIn")
-    //$(".breezetwoContent").removeClass("fadeOut")
+    $(".breezetwoContent").removeClass("fadeOut")
   }
   if (winScroll > 4265){
     $(".breezetwoContent").addClass("fadeIn")

@@ -467,6 +467,71 @@ body {
   .navDropDown {
     display: block; } }
 
+.cartContainer {
+  width: 69%;
+  margin: auto;
+  font-family: 'Montserrat', sans-serif; }
+
+.cartTitles {
+  display: flex;
+  justify-content: space-around;
+  color: #5B5B5B; }
+
+.itemsinCart {
+  display: flex; }
+
+.blackfocus {
+  background-color: black;
+  color: white; }
+
+.blackfocus:hover {
+  background-color: #3f3f3f !important; }
+
+.qtyTextBox:focus {
+  outline: none; }
+
+.iteminCart {
+  border-bottom: solid #888888 1px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%; }
+
+.itemname {
+  width: 200px;
+  color: #5B5B5B; }
+
+.itemcartPrice {
+  margin-left: 40px;
+  font-size: 20px;
+  color: #565353; }
+
+.cartTotals {
+  text-align: right;
+  margin-right: 7%; }
+
+#noButtonMargin {
+  margin-right: 0px !important; }
+
+.removeLink {
+  font-size: 13px;
+  color: #2e72b1; }
+
+.shoppingTitle {
+  color: #5B5B5B;
+  margin-top: 25px; }
+
+@media (max-width: 992px) {
+  .cartContainer {
+    zoom: .8; }
+  .qtyTextBox {
+    width: 8px; }
+  .itemcartPrice {
+    margin-left: 0px; }
+  .itemname {
+    width: 150px; }
+  .blackfocus {
+    margin-right: 0px !important; } }
+
 .photo {
   width: 100%; }
 
@@ -806,71 +871,6 @@ body {
     font-size: 12px; }
   .beltDesc {
     font-size: 12px; } }
-
-.cartContainer {
-  width: 69%;
-  margin: auto;
-  font-family: 'Montserrat', sans-serif; }
-
-.cartTitles {
-  display: flex;
-  justify-content: space-around;
-  color: #5B5B5B; }
-
-.itemsinCart {
-  display: flex; }
-
-.blackfocus {
-  background-color: black;
-  color: white; }
-
-.blackfocus:hover {
-  background-color: #3f3f3f !important; }
-
-.qtyTextBox:focus {
-  outline: none; }
-
-.iteminCart {
-  border-bottom: solid #888888 1px;
-  display: flex;
-  justify-content: space-around;
-  width: 100%; }
-
-.itemname {
-  width: 200px;
-  color: #5B5B5B; }
-
-.itemcartPrice {
-  margin-left: 40px;
-  font-size: 20px;
-  color: #565353; }
-
-.cartTotals {
-  text-align: right;
-  margin-right: 7%; }
-
-#noButtonMargin {
-  margin-right: 0px !important; }
-
-.removeLink {
-  font-size: 13px;
-  color: #2e72b1; }
-
-.shoppingTitle {
-  color: #5B5B5B;
-  margin-top: 25px; }
-
-@media (max-width: 992px) {
-  .cartContainer {
-    zoom: .8; }
-  .qtyTextBox {
-    width: 8px; }
-  .itemcartPrice {
-    margin-left: 0px; }
-  .itemname {
-    width: 150px; }
-  .blackfocus {
-    margin-right: 0px !important; } }
 
 .blogContainer {
   display: flex;
@@ -1396,6 +1396,11 @@ li {
       margin-right: 0%; } }
 
 @media (max-width: 768px) {
+  .homeSplitContent {
+    font-size: 10px; }
+  .bugfixer {
+    margin-top: 0px;
+    margin-bottom: 0px; }
   .homeOrangeMap {
     font-size: 17px; }
   .homeBoardInfo {

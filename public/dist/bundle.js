@@ -460,7 +460,6 @@ angular.module('boosted').controller('blogitem', function ($scope, service, $sta
     $scope.blog = blog.data;
   });
 });
-angular.module('boosted').controller('boardCtrl', function ($scope, service, $state) {});
 angular.module('boosted').controller('cartCtrl', function ($scope, service, $state) {
 
   $scope.updateCart = function () {
@@ -520,6 +519,7 @@ angular.module('boosted').controller('cartCtrl', function ($scope, service, $sta
     });
   };
 });
+angular.module('boosted').controller('boardCtrl', function ($scope, service, $state) {});
 angular.module('boosted').controller('communityCtrl', function ($scope, service, $state, $http) {
   service.getblogs().then(function (response) {
     $scope.blogs = response.data;

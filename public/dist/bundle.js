@@ -90,7 +90,7 @@ $(document).ready(function () {
         $(".homeInfoPhoto").removeClass("fadeOut");
       } else {
         $(".homeInfoPhoto").removeClass("fadeIn");
-        $(".homeInfoPhoto").addClass("fadeOut");
+        //$(".homeInfoPhoto").addClass("fadeOut")
       }
     }
     if (winScroll > 310) {
@@ -129,13 +129,13 @@ $(document).ready(function () {
       $(".breezetwoContent").addClass("fadeOut");
     } else {
       $(".breezetwoContent").addClass("fadeIn");
-      $(".breezetwoContent").removeClass("fadeOut");
+      //$(".breezetwoContent").removeClass("fadeOut")
     }
     if (winScroll > 4265) {
       $(".breezetwoContent").addClass("fadeIn");
     } else {
       $(".breezetwoContent").removeClass("fadeIn");
-      $(".breezetwoContent").addClass("fadeOut");
+      //$(".breezetwoContent").addClass("fadeOut")
     }
     if (winScroll > 550) {
       $(".coverContent").addClass("fadeOut");

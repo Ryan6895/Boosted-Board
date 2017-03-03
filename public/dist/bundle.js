@@ -350,18 +350,6 @@ angular.module('boosted').directive('carousel', function () {
         }
     };
 });
-angular.module('boosted').directive('footerView', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/footer/footer.html',
-        controller: function ($scope, service) {
-            $scope.addEmail = function (email) {
-                service.addemail(email);
-            };
-        },
-        link: function (scope, elem, attrs) {}
-    };
-});
 angular.module('boosted').directive('checkoutCart', function () {
   return {
     restrict: 'E',
@@ -398,6 +386,25 @@ angular.module('boosted').directive('checkoutCart', function () {
     }
   };
 });
+angular.module('boosted').directive('footerView', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/footer/footer.html',
+        controller: function ($scope, service) {
+            $scope.addEmail = function (email) {
+                service.addemail(email);
+            };
+        },
+        link: function (scope, elem, attrs) {}
+    };
+});
+angular.module('boosted').directive('help', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/help/help.html',
+        link: function (scope, elem, attrs) {}
+    };
+});
 angular.module('boosted').directive('guarantee', function () {
     return {
         restrict: 'E',
@@ -407,12 +414,10 @@ angular.module('boosted').directive('guarantee', function () {
         }
     };
 });
-angular.module('boosted').directive('help', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/help/help.html',
-        link: function (scope, elem, attrs) {}
-    };
+angular.module('boosted').controller('blogitem', function ($scope, service, $stateParams) {
+  service.getOneBlog(parseInt($stateParams.blogid)).then(function (blog) {
+    $scope.blog = blog.data;
+  });
 });
 angular.module('boosted').directive('navBar', function () {
   return {
@@ -455,11 +460,7 @@ angular.module('boosted').directive('navBar', function () {
     }
   };
 });
-angular.module('boosted').controller('blogitem', function ($scope, service, $stateParams) {
-  service.getOneBlog(parseInt($stateParams.blogid)).then(function (blog) {
-    $scope.blog = blog.data;
-  });
-});
+angular.module('boosted').controller('boardCtrl', function ($scope, service, $state) {});
 angular.module('boosted').controller('cartCtrl', function ($scope, service, $state) {
 
   $scope.updateCart = function () {
@@ -519,7 +520,6 @@ angular.module('boosted').controller('cartCtrl', function ($scope, service, $sta
     });
   };
 });
-angular.module('boosted').controller('boardCtrl', function ($scope, service, $state) {});
 angular.module('boosted').controller('communityCtrl', function ($scope, service, $state, $http) {
   service.getblogs().then(function (response) {
     $scope.blogs = response.data;

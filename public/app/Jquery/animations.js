@@ -35,20 +35,20 @@ $(document).ready(function(){
     $(".mileageText").fadeIn()
     $(".mileageText").fadeIn()
   }
-  if ($(window).width() > 1000) {
-  if (winScroll > 2530){
-    $(".breezeContent").addClass("fadeOut")
-  }else {
-    $(".breezeContent").addClass("fadeIn")
-    $(".breezeContent").removeClass("fadeOut")
-  }
-  if (winScroll > 1470){
-    $(".breezeContent").addClass("fadeIn")
-  }else {
-    $(".breezeContent").removeClass("fadeIn")
-    $(".breezeContent").addClass("fadeOut")
-  }
-}
+//   if ($(window).width() > 1000) {
+//   if (winScroll > 2530){
+//     $(".breezeContent").addClass("fadeOut")
+//   }else {
+     $(".breezeContent").addClass("fadeIn")
+//     $(".breezeContent").removeClass("fadeOut")
+//   }
+//   if (winScroll > 1470){
+//     $(".breezeContent").addClass("fadeIn")
+//   }else {
+//     $(".breezeContent").removeClass("fadeIn")
+//     $(".breezeContent").addClass("fadeOut")
+//   }
+// }
   if (winScroll > 3395){
     $(".remoteContent").addClass("fadeOut")
   }else {

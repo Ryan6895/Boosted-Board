@@ -780,6 +780,20 @@ angular.module('boosted').controller('payments', function ($scope, service, $sta
   };
   //===END CTRL=======
 });
+angular.module('boosted').controller('storeCtrl', function ($scope, service, $state, $http, $location, $anchorScroll) {
+  service.getItems(2).then(function (response) {
+    $scope.Items2 = response.data;
+    console.log($scope.Items2);
+  });
+  service.getItems(1).then(function (results) {
+    $scope.Items1 = results.data;
+    console.log($scope.Items1);
+  });
+  $scope.gotoAnchor = function (param) {
+    $location.hash(param);
+    $anchorScroll();
+  };
+});
 angular.module('boosted').controller('reserve', function ($scope, service, $state, $timeout) {
   $scope.specs = 5;
   $scope.batteries = 1;
@@ -810,18 +824,4 @@ angular.module('boosted').controller('reserve', function ($scope, service, $stat
       $scope.account = true;
     }
   });
-});
-angular.module('boosted').controller('storeCtrl', function ($scope, service, $state, $http, $location, $anchorScroll) {
-  service.getItems(2).then(function (response) {
-    $scope.Items2 = response.data;
-    console.log($scope.Items2);
-  });
-  service.getItems(1).then(function (results) {
-    $scope.Items1 = results.data;
-    console.log($scope.Items1);
-  });
-  $scope.gotoAnchor = function (param) {
-    $location.hash(param);
-    $anchorScroll();
-  };
 });

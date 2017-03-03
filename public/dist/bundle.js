@@ -104,7 +104,7 @@ $(document).ready(function () {
     //     $(".breezeContent").addClass("fadeOut")
     //   }else {
     $(".breezeContent").addClass("fadeIn");
-    //     $(".breezeContent").removeClass("fadeOut")
+    $(".breezeContent").removeClass("fadeOut");
     //   }
     //   if (winScroll > 1470){
     //     $(".breezeContent").addClass("fadeIn")
@@ -302,6 +302,42 @@ angular.module('boosted').service('service', function ($http, stripe) {
     self.newPayment = value;
   };
 });
+angular.module('boosted').directive('checkoutCart', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'public/app/directives/checkoutCart/checkoutCart.html',
+    controller: function ($scope, service) {
+      service.getallcartItems().then(function (response) {
+        $scope.items = response.data;
+        console.log('$scope.items', $scope.items);
+        if (!$scope.items.length) {
+          $scope.emptyCart = true;
+          $scope.fullCart = false;
+        } else {
+          $scope.emptyCart = false;
+          $scope.fullCart = true;
+        }
+        $scope.getTotal();
+      });
+
+      service.gettotalPayments().then(function (response) {
+        $scope.paymentAmount = response.data[0].sum;
+      });
+      $scope.getTotal = function () {
+        var total = 0;
+        for (var i = 0; i < $scope.items.length; i++) {
+          total += $scope.items[i].price * $scope.items[i].qty;
+        }
+        $scope.totalPrice = total;
+        $scope.total = total;
+      };
+    },
+    scope: {
+      total: '=',
+      paymentmethod: '='
+    }
+  };
+});
 angular.module('boosted').directive('boardCaro', function () {
     return {
         restrict: 'E',
@@ -350,42 +386,6 @@ angular.module('boosted').directive('carousel', function () {
         }
     };
 });
-angular.module('boosted').directive('checkoutCart', function () {
-  return {
-    restrict: 'E',
-    templateUrl: 'public/app/directives/checkoutCart/checkoutCart.html',
-    controller: function ($scope, service) {
-      service.getallcartItems().then(function (response) {
-        $scope.items = response.data;
-        console.log('$scope.items', $scope.items);
-        if (!$scope.items.length) {
-          $scope.emptyCart = true;
-          $scope.fullCart = false;
-        } else {
-          $scope.emptyCart = false;
-          $scope.fullCart = true;
-        }
-        $scope.getTotal();
-      });
-
-      service.gettotalPayments().then(function (response) {
-        $scope.paymentAmount = response.data[0].sum;
-      });
-      $scope.getTotal = function () {
-        var total = 0;
-        for (var i = 0; i < $scope.items.length; i++) {
-          total += $scope.items[i].price * $scope.items[i].qty;
-        }
-        $scope.totalPrice = total;
-        $scope.total = total;
-      };
-    },
-    scope: {
-      total: '=',
-      paymentmethod: '='
-    }
-  };
-});
 angular.module('boosted').directive('footerView', function () {
     return {
         restrict: 'E',
@@ -398,6 +398,13 @@ angular.module('boosted').directive('footerView', function () {
         link: function (scope, elem, attrs) {}
     };
 });
+angular.module('boosted').directive('help', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/help/help.html',
+        link: function (scope, elem, attrs) {}
+    };
+});
 angular.module('boosted').directive('guarantee', function () {
     return {
         restrict: 'E',
@@ -405,13 +412,6 @@ angular.module('boosted').directive('guarantee', function () {
         link: function (scope, elem, attrs) {
             console.log('hello');
         }
-    };
-});
-angular.module('boosted').directive('help', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/help/help.html',
-        link: function (scope, elem, attrs) {}
     };
 });
 angular.module('boosted').directive('navBar', function () {
@@ -780,20 +780,6 @@ angular.module('boosted').controller('payments', function ($scope, service, $sta
   };
   //===END CTRL=======
 });
-angular.module('boosted').controller('storeCtrl', function ($scope, service, $state, $http, $location, $anchorScroll) {
-  service.getItems(2).then(function (response) {
-    $scope.Items2 = response.data;
-    console.log($scope.Items2);
-  });
-  service.getItems(1).then(function (results) {
-    $scope.Items1 = results.data;
-    console.log($scope.Items1);
-  });
-  $scope.gotoAnchor = function (param) {
-    $location.hash(param);
-    $anchorScroll();
-  };
-});
 angular.module('boosted').controller('reserve', function ($scope, service, $state, $timeout) {
   $scope.specs = 5;
   $scope.batteries = 1;
@@ -824,4 +810,18 @@ angular.module('boosted').controller('reserve', function ($scope, service, $stat
       $scope.account = true;
     }
   });
+});
+angular.module('boosted').controller('storeCtrl', function ($scope, service, $state, $http, $location, $anchorScroll) {
+  service.getItems(2).then(function (response) {
+    $scope.Items2 = response.data;
+    console.log($scope.Items2);
+  });
+  service.getItems(1).then(function (results) {
+    $scope.Items1 = results.data;
+    console.log($scope.Items1);
+  });
+  $scope.gotoAnchor = function (param) {
+    $location.hash(param);
+    $anchorScroll();
+  };
 });

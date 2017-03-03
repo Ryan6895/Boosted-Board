@@ -181,6 +181,32 @@ a {
   .inputInfoFooter {
     width: 465px; } }
 
+.helpContainer {
+  background: url("../../img/theBoard/team.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 900px; }
+
+#blackButton {
+  background-color: black;
+  color: white; }
+
+#blackButton:hover {
+  background-color: grey; }
+
+.helpContent {
+  width: 400px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin: auto;
+  padding-top: 100px; }
+
+@media (max-width: 405px) {
+  .helpContent {
+    width: 100%;
+    margin: 0px; } }
+
 .guaranteeContainer {
   height: 540px;
   background: url(../../img/homePage/blueMap.JPG) no-repeat center center fixed;
@@ -248,32 +274,6 @@ a {
 .hrlines {
   border-left: solid #E3E3E3 1px;
   margin: 18px; }
-
-.helpContainer {
-  background: url("../../img/theBoard/team.JPG") no-repeat center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  height: 900px; }
-
-#blackButton {
-  background-color: black;
-  color: white; }
-
-#blackButton:hover {
-  background-color: grey; }
-
-.helpContent {
-  width: 400px;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  margin: auto;
-  padding-top: 100px; }
-
-@media (max-width: 405px) {
-  .helpContent {
-    width: 100%;
-    margin: 0px; } }
 
 body {
   margin: 0px;
@@ -1987,131 +1987,6 @@ li {
   .paymentInfo {
     zoom: .9; } }
 
-#test {
-  background-color: #EFEFEF; }
-
-.storeCoverPhoto {
-  background: url("../../img/store/holdingBoard.JPG") no-repeat center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  height: 400px; }
-
-.coverPhotoContainer {
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  margin-left: 325px;
-  padding-top: 80px; }
-
-.storeTitle {
-  font-size: 34px; }
-
-.storeDesc {
-  letter-spacing: 1.4px;
-  width: 600px; }
-
-.genContain {
-  display: flex;
-  margin: auto;
-  margin-top: 40px;
-  justify-content: space-around;
-  width: 80%; }
-
-.darken {
-  position: relative;
-  color: white; }
-
-.genContainer2 {
-  width: 550px;
-  height: 300px;
-  background: url("../../img/store/boardandRemote.JPG") no-repeat center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  border-radius: 6px;
-  color: white;
-  transition: .25s;
-  margin-right: 5px; }
-
-.genContainer2:hover {
-  filter: brightness(40%); }
-
-.genContainer1 {
-  width: 550px;
-  height: 300px;
-  background: url("../../img/store/image.JPG") no-repeat center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  border-radius: 4px;
-  color: white;
-  transition: .25s;
-  margin-left: 5px; }
-
-.genContainer1:hover {
-  filter: brightness(40%); }
-
-.genContent {
-  font-family: 'Montserrat', sans-serif;
-  position: absolute;
-  transform: translate(50%, -50%);
-  top: 50%;
-  right: 50%;
-  text-align: center; }
-
-.storeminiTitle {
-  font-size: 22px; }
-
-.linespacing {
-  margin: 10px; }
-
-.shopSize {
-  font-size: 15px; }
-
-.GenStuff {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  width: 80%;
-  margin: auto;
-  text-align: center;
-  font-family: 'Montserrat', sans-serif; }
-
-.individualItems {
-  margin: 20px; }
-
-.samesizePhoto {
-  background-color: white;
-  width: 370px;
-  border-radius: 6px;
-  transition: .25s; }
-
-.samesizePhoto:hover {
-  filter: brightness(40%); }
-
-.itemPhotos {
-  height: 245px;
-  border-radius: 6px; }
-
-.GenCategories {
-  padding-top: 60px;
-  padding-left: 20px;
-  width: 80%;
-  margin: auto;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 35px; }
-
-@media (max-width: 992px) {
-  .genContain {
-    flex-direction: column; }
-  .coverPhotoContainer {
-    margin-left: 20px; }
-  .storeDesc {
-    width: 100%; }
-  .genContainer2 {
-    margin-top: 25px;
-    width: auto; } }
-
 .reserveCover {
   display: flex;
   background-color: #EFEFEF;
@@ -2431,3 +2306,128 @@ li {
     margin-right: 0px; }
   .removeBatteryImg {
     width: 90vw; } }
+
+#test {
+  background-color: #EFEFEF; }
+
+.storeCoverPhoto {
+  background: url("../../img/store/holdingBoard.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 400px; }
+
+.coverPhotoContainer {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 325px;
+  padding-top: 80px; }
+
+.storeTitle {
+  font-size: 34px; }
+
+.storeDesc {
+  letter-spacing: 1.4px;
+  width: 600px; }
+
+.genContain {
+  display: flex;
+  margin: auto;
+  margin-top: 40px;
+  justify-content: space-around;
+  width: 80%; }
+
+.darken {
+  position: relative;
+  color: white; }
+
+.genContainer2 {
+  width: 550px;
+  height: 300px;
+  background: url("../../img/store/boardandRemote.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  border-radius: 6px;
+  color: white;
+  transition: .25s;
+  margin-right: 5px; }
+
+.genContainer2:hover {
+  filter: brightness(40%); }
+
+.genContainer1 {
+  width: 550px;
+  height: 300px;
+  background: url("../../img/store/image.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  border-radius: 4px;
+  color: white;
+  transition: .25s;
+  margin-left: 5px; }
+
+.genContainer1:hover {
+  filter: brightness(40%); }
+
+.genContent {
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  transform: translate(50%, -50%);
+  top: 50%;
+  right: 50%;
+  text-align: center; }
+
+.storeminiTitle {
+  font-size: 22px; }
+
+.linespacing {
+  margin: 10px; }
+
+.shopSize {
+  font-size: 15px; }
+
+.GenStuff {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif; }
+
+.individualItems {
+  margin: 20px; }
+
+.samesizePhoto {
+  background-color: white;
+  width: 370px;
+  border-radius: 6px;
+  transition: .25s; }
+
+.samesizePhoto:hover {
+  filter: brightness(40%); }
+
+.itemPhotos {
+  height: 245px;
+  border-radius: 6px; }
+
+.GenCategories {
+  padding-top: 60px;
+  padding-left: 20px;
+  width: 80%;
+  margin: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px; }
+
+@media (max-width: 992px) {
+  .genContain {
+    flex-direction: column; }
+  .coverPhotoContainer {
+    margin-left: 20px; }
+  .storeDesc {
+    width: 100%; }
+  .genContainer2 {
+    margin-top: 25px;
+    width: auto; } }

@@ -40,7 +40,7 @@ $(document).ready(function(){
 //     $(".breezeContent").addClass("fadeOut")
 //   }else {
      $(".breezeContent").addClass("fadeIn")
-//     $(".breezeContent").removeClass("fadeOut")
+     $(".breezeContent").removeClass("fadeOut")
 //   }
 //   if (winScroll > 1470){
 //     $(".breezeContent").addClass("fadeIn")

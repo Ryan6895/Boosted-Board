@@ -302,6 +302,42 @@ angular.module('boosted').service('service', function ($http, stripe) {
     self.newPayment = value;
   };
 });
+angular.module('boosted').directive('checkoutCart', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'public/app/directives/checkoutCart/checkoutCart.html',
+    controller: function ($scope, service) {
+      service.getallcartItems().then(function (response) {
+        $scope.items = response.data;
+        console.log('$scope.items', $scope.items);
+        if (!$scope.items.length) {
+          $scope.emptyCart = true;
+          $scope.fullCart = false;
+        } else {
+          $scope.emptyCart = false;
+          $scope.fullCart = true;
+        }
+        $scope.getTotal();
+      });
+
+      service.gettotalPayments().then(function (response) {
+        $scope.paymentAmount = response.data[0].sum;
+      });
+      $scope.getTotal = function () {
+        var total = 0;
+        for (var i = 0; i < $scope.items.length; i++) {
+          total += $scope.items[i].price * $scope.items[i].qty;
+        }
+        $scope.totalPrice = total;
+        $scope.total = total;
+      };
+    },
+    scope: {
+      total: '=',
+      paymentmethod: '='
+    }
+  };
+});
 angular.module('boosted').directive('boardCaro', function () {
     return {
         restrict: 'E',
@@ -349,42 +385,6 @@ angular.module('boosted').directive('carousel', function () {
             });
         }
     };
-});
-angular.module('boosted').directive('checkoutCart', function () {
-  return {
-    restrict: 'E',
-    templateUrl: 'public/app/directives/checkoutCart/checkoutCart.html',
-    controller: function ($scope, service) {
-      service.getallcartItems().then(function (response) {
-        $scope.items = response.data;
-        console.log('$scope.items', $scope.items);
-        if (!$scope.items.length) {
-          $scope.emptyCart = true;
-          $scope.fullCart = false;
-        } else {
-          $scope.emptyCart = false;
-          $scope.fullCart = true;
-        }
-        $scope.getTotal();
-      });
-
-      service.gettotalPayments().then(function (response) {
-        $scope.paymentAmount = response.data[0].sum;
-      });
-      $scope.getTotal = function () {
-        var total = 0;
-        for (var i = 0; i < $scope.items.length; i++) {
-          total += $scope.items[i].price * $scope.items[i].qty;
-        }
-        $scope.totalPrice = total;
-        $scope.total = total;
-      };
-    },
-    scope: {
-      total: '=',
-      paymentmethod: '='
-    }
-  };
 });
 angular.module('boosted').directive('footerView', function () {
     return {
@@ -637,6 +637,64 @@ angular.module('boosted').controller('itemCtrl', function ($scope, service, $sta
     });
   };
 });
+angular.module('boosted').controller('paymentmethod', function ($scope, service, $http, $state, stripe) {
+
+  $scope.total = 0;
+
+  service.gettotalPayments().then(function (response) {
+    $scope.paymentAmount = response.data[0].sum;
+  });
+
+  $scope.paymentStatus = service.newPayment;
+
+  $scope.payment = {};
+
+  $scope.charge = function () {
+    return stripe.card.createToken($scope.payment.card).then(function (response) {
+      console.log('token created for card ending in ', response.card.last4);
+      var payment = angular.copy($scope.payment);
+      payment.card = void 0;
+      payment.token = response.id;
+      $scope.totalDue = $scope.total - $scope.paymentStatus;
+      console.log($scope.totalDue);
+      return $http({
+        method: 'POST',
+        url: '/api/payment',
+        data: {
+          amount: $scope.totalDue,
+          payment: payment,
+          date: $scope.date,
+          active: $scope.active
+        }
+      });
+    }).then(function (payment) {
+      console.log('successfully submitted payment for $', payment);
+      //all here
+      if ($scope.paymentStatus != 0) {
+        service.completewithPayment().then(function (response) {
+          console.log('completed with payment');
+        }).then(function () {
+          $state.go('confirmation');
+        });
+      } else {
+        service.completeOrder().then(function (response) {
+          console.log('completed without payment');
+        }).then(function () {
+          $state.go('confirmation');
+        });
+      }
+    }).catch(function (err) {
+      if (err.type && /^Stripe/.test(err.type)) {
+        console.log('Stripe error: ', err.message);
+        alert(err.message);
+      } else {
+        console.log('Other error occurred, possibly with your API', err.message);
+        alert(err.message);
+      }
+    });
+  };
+  //===END CTRL=======
+});
 angular.module('boosted').controller('payments', function ($scope, service, $state, $timeout, stripe, $http) {
   function getUser() {
     service.getUser().then(function (response) {
@@ -719,64 +777,6 @@ angular.module('boosted').controller('payments', function ($scope, service, $sta
         }
       });
     }
-  };
-  //===END CTRL=======
-});
-angular.module('boosted').controller('paymentmethod', function ($scope, service, $http, $state, stripe) {
-
-  $scope.total = 0;
-
-  service.gettotalPayments().then(function (response) {
-    $scope.paymentAmount = response.data[0].sum;
-  });
-
-  $scope.paymentStatus = service.newPayment;
-
-  $scope.payment = {};
-
-  $scope.charge = function () {
-    return stripe.card.createToken($scope.payment.card).then(function (response) {
-      console.log('token created for card ending in ', response.card.last4);
-      var payment = angular.copy($scope.payment);
-      payment.card = void 0;
-      payment.token = response.id;
-      $scope.totalDue = $scope.total - $scope.paymentStatus;
-      console.log($scope.totalDue);
-      return $http({
-        method: 'POST',
-        url: '/api/payment',
-        data: {
-          amount: $scope.totalDue,
-          payment: payment,
-          date: $scope.date,
-          active: $scope.active
-        }
-      });
-    }).then(function (payment) {
-      console.log('successfully submitted payment for $', payment);
-      //all here
-      if ($scope.paymentStatus != 0) {
-        service.completewithPayment().then(function (response) {
-          console.log('completed with payment');
-        }).then(function () {
-          $state.go('confirmation');
-        });
-      } else {
-        service.completeOrder().then(function (response) {
-          console.log('completed without payment');
-        }).then(function () {
-          $state.go('confirmation');
-        });
-      }
-    }).catch(function (err) {
-      if (err.type && /^Stripe/.test(err.type)) {
-        console.log('Stripe error: ', err.message);
-        alert(err.message);
-      } else {
-        console.log('Other error occurred, possibly with your API', err.message);
-        alert(err.message);
-      }
-    });
   };
   //===END CTRL=======
 });

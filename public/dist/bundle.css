@@ -97,6 +97,15 @@
   padding: 50px;
   padding-top: 140px; }
 
+@media (max-width: 992px) {
+  .cartCheckoutContentContainer {
+    margin: 20px;
+    width: 100%;
+    padding: 20px; }
+  .cartCheckoutContainer {
+    width: auto;
+    height: auto; } }
+
 .footerContainer {
   clear: both; }
 
@@ -870,7 +879,9 @@ body {
   .itemname {
     width: 150px; }
   .blackfocus {
-    margin-right: 0px !important; } }
+    margin-right: 0px !important; }
+  .itemcartPrice {
+    font-size: 14px; } }
 
 .blogContainer {
   display: flex;
@@ -1658,6 +1669,113 @@ li {
   .itemTitle {
     line-height: normal; } }
 
+.parentPayment {
+  display: flex; }
+  .parentPayment .title {
+    font-family: sans-serif;
+    margin-bottom: 0px; }
+  .parentPayment .subTitle {
+    color: grey;
+    font-family: sans-serif;
+    margin-top: 4px; }
+
+.textInputStyle {
+  height: 35px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: lighter;
+  letter-spacing: 1.6px;
+  border-radius: 5px;
+  border: solid 1px #cccccc;
+  width: 90%;
+  margin: 14px;
+  padding-left: 10px; }
+
+.textInputStyle:focus {
+  outline: none; }
+
+.leftPaymentdiv {
+  width: 50vw;
+  height: 100vh;
+  border-right: solid 1px #cccccc;
+  font-family: sans-serif; }
+  .leftPaymentdiv .boostedLogo {
+    width: 185px; }
+  .leftPaymentdiv .pageSelection {
+    font-size: 12px;
+    font-family: 'Raleway', sans-serif; }
+    .leftPaymentdiv .pageSelection .blue {
+      color: #82C7D3; }
+    .leftPaymentdiv .pageSelection span {
+      margin: 10px; }
+
+.extraButtonSpace {
+  margin-left: 110px; }
+
+.expInputStyle {
+  width: 145px; }
+
+.rightPaymentdiv {
+  width: 50vw;
+  height: 100vh; }
+
+.paymentContent {
+  width: 575px;
+  float: right;
+  margin-right: 50px;
+  margin-top: 140px; }
+
+.paymentInfoCheckOut {
+  border: solid 1px #cccccc;
+  border-radius: 14px;
+  background-color: #FAFAFA; }
+  .paymentInfoCheckOut .buttonSingleLine {
+    display: flex;
+    justify-content: space-between; }
+  .paymentInfoCheckOut .paymentContentCover {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E2E2E2;
+    border-radius: 14px 14px 0px 0px;
+    height: 45px; }
+    .paymentInfoCheckOut .paymentContentCover p {
+      margin: 0px;
+      margin-left: 10px; }
+    .paymentInfoCheckOut .paymentContentCover .cardPics {
+      display: flex; }
+      .paymentInfoCheckOut .paymentContentCover .cardPics .photoSizethree {
+        height: 36px; }
+      .paymentInfoCheckOut .paymentContentCover .cardPics .photoSize {
+        height: 36px; }
+
+@media (max-width: 992px) {
+  .parentPayment {
+    flex-direction: column; }
+  .leftContentCheckout {
+    margin-top: 20px; }
+  .leftPaymentdiv {
+    width: auto;
+    height: auto; }
+  .paymentContent {
+    float: none;
+    width: auto;
+    margin-right: 0px;
+    margin: 20px; }
+  .rightPaymentdiv {
+    width: auto;
+    height: auto; }
+  .extraLinks {
+    position: relative;
+    margin-top: 20px; }
+  .cartCheckoutContentContainer {
+    width: auto; }
+  .cartCheckoutContainer {
+    width: auto;
+    height: auto; }
+  .extraButtonSpace {
+    margin-left: 10px; } }
+
 .paymentTopHalf {
   margin: auto;
   margin-top: 50px;
@@ -1883,113 +2001,6 @@ li {
     margin-top: 20px; }
   .paymentInfo {
     zoom: .9; } }
-
-.parentPayment {
-  display: flex; }
-  .parentPayment .title {
-    font-family: sans-serif;
-    margin-bottom: 0px; }
-  .parentPayment .subTitle {
-    color: grey;
-    font-family: sans-serif;
-    margin-top: 4px; }
-
-.textInputStyle {
-  height: 35px;
-  border-style: none;
-  font-size: 20px;
-  font-weight: lighter;
-  letter-spacing: 1.6px;
-  border-radius: 5px;
-  border: solid 1px #cccccc;
-  width: 90%;
-  margin: 14px;
-  padding-left: 10px; }
-
-.textInputStyle:focus {
-  outline: none; }
-
-.leftPaymentdiv {
-  width: 50vw;
-  height: 100vh;
-  border-right: solid 1px #cccccc;
-  font-family: sans-serif; }
-  .leftPaymentdiv .boostedLogo {
-    width: 185px; }
-  .leftPaymentdiv .pageSelection {
-    font-size: 12px;
-    font-family: 'Raleway', sans-serif; }
-    .leftPaymentdiv .pageSelection .blue {
-      color: #82C7D3; }
-    .leftPaymentdiv .pageSelection span {
-      margin: 10px; }
-
-.extraButtonSpace {
-  margin-left: 110px; }
-
-.expInputStyle {
-  width: 145px; }
-
-.rightPaymentdiv {
-  width: 50vw;
-  height: 100vh; }
-
-.paymentContent {
-  width: 575px;
-  float: right;
-  margin-right: 50px;
-  margin-top: 140px; }
-
-.paymentInfoCheckOut {
-  border: solid 1px #cccccc;
-  border-radius: 14px;
-  background-color: #FAFAFA; }
-  .paymentInfoCheckOut .buttonSingleLine {
-    display: flex;
-    justify-content: space-between; }
-  .paymentInfoCheckOut .paymentContentCover {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #E2E2E2;
-    border-radius: 14px 14px 0px 0px;
-    height: 45px; }
-    .paymentInfoCheckOut .paymentContentCover p {
-      margin: 0px;
-      margin-left: 10px; }
-    .paymentInfoCheckOut .paymentContentCover .cardPics {
-      display: flex; }
-      .paymentInfoCheckOut .paymentContentCover .cardPics .photoSizethree {
-        height: 36px; }
-      .paymentInfoCheckOut .paymentContentCover .cardPics .photoSize {
-        height: 36px; }
-
-@media (max-width: 992px) {
-  .parentPayment {
-    flex-direction: column; }
-  .leftContentCheckout {
-    margin-top: 20px; }
-  .leftPaymentdiv {
-    width: auto;
-    height: auto; }
-  .paymentContent {
-    float: none;
-    width: auto;
-    margin-right: 0px;
-    margin: 20px; }
-  .rightPaymentdiv {
-    width: auto;
-    height: auto; }
-  .extraLinks {
-    position: relative;
-    margin-top: 20px; }
-  .cartCheckoutContentContainer {
-    width: auto; }
-  .cartCheckoutContainer {
-    width: auto;
-    height: auto; }
-  .extraButtonSpace {
-    margin-left: 10px; } }
 
 .reserveCover {
   display: flex;

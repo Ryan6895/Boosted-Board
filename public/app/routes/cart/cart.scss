@@ -1,5 +1,5 @@
 .cartContainer {
-  width: 69%;
+  width: 85%;
   margin: auto;
   font-family: 'Montserrat', sans-serif;
 }
@@ -56,13 +56,14 @@
   zoom: .8;
 }
 .qtyTextBox {
-  width: 8px;
+  width: 30px;
 }
 .itemcartPrice {
   margin-left: 0px;
 }
 .itemname {
   width: 150px;
+  margin: 12px !important;
 }
 .blackfocus {
   margin-right: 0px !important;

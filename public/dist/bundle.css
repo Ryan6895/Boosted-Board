@@ -190,6 +190,32 @@ a {
   .inputInfoFooter {
     width: 465px; } }
 
+.helpContainer {
+  background: url("../../img/theBoard/team.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 900px; }
+
+#blackButton {
+  background-color: black;
+  color: white; }
+
+#blackButton:hover {
+  background-color: grey; }
+
+.helpContent {
+  width: 400px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin: auto;
+  padding-top: 100px; }
+
+@media (max-width: 405px) {
+  .helpContent {
+    width: 100%;
+    margin: 0px; } }
+
 .guaranteeContainer {
   height: 540px;
   background: url(../../img/homePage/blueMap.JPG) no-repeat center center fixed;
@@ -257,32 +283,6 @@ a {
 .hrlines {
   border-left: solid #E3E3E3 1px;
   margin: 18px; }
-
-.helpContainer {
-  background: url("../../img/theBoard/team.JPG") no-repeat center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  height: 900px; }
-
-#blackButton {
-  background-color: black;
-  color: white; }
-
-#blackButton:hover {
-  background-color: grey; }
-
-.helpContent {
-  width: 400px;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  margin: auto;
-  padding-top: 100px; }
-
-@media (max-width: 405px) {
-  .helpContent {
-    width: 100%;
-    margin: 0px; } }
 
 body {
   margin: 0px;
@@ -817,7 +817,7 @@ body {
     font-size: 12px; } }
 
 .cartContainer {
-  width: 69%;
+  width: 85%;
   margin: auto;
   font-family: 'Montserrat', sans-serif; }
 
@@ -873,11 +873,12 @@ body {
   .cartContainer {
     zoom: .8; }
   .qtyTextBox {
-    width: 8px; }
+    width: 30px; }
   .itemcartPrice {
     margin-left: 0px; }
   .itemname {
-    width: 150px; }
+    width: 150px;
+    margin: 12px !important; }
   .blackfocus {
     margin-right: 0px !important; }
   .itemcartPrice {
@@ -957,38 +958,6 @@ body {
   .bloginfo {
     margin: 6px;
     zoom: .85px; } }
-
-#map {
-  height: 300px;
-  width: 500px;
-  border-radius: 6px;
-  box-shadow: 5px 5px 5px #dadada; }
-
-.centerConfirmContent {
-  display: flex;
-  justify-content: space-between;
-  width: 70%;
-  margin: auto; }
-
-.contentSider {
-  margin-top: 55px;
-  font-family: 'Raleway', sans-serif;
-  margin-left: 30px; }
-
-.mapsTitle {
-  font-family: 'Raleway', sans-serif;
-  font-size: 18px; }
-
-@media (max-width: 992px) {
-  #map {
-    height: 300px;
-    width: 100%; }
-  .centerConfirmContent {
-    flex-direction: column;
-    width: 85%; }
-  .contentSider {
-    margin-top: auto;
-    margin-left: auto; } }
 
 .homeCover {
   background: url("../../img/homePage/coverPhoto.JPG") no-repeat center;
@@ -1435,6 +1404,38 @@ li {
   .whiteButtonColor {
     margin-top: 10px; } }
 
+#map {
+  height: 300px;
+  width: 500px;
+  border-radius: 6px;
+  box-shadow: 5px 5px 5px #dadada; }
+
+.centerConfirmContent {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: auto; }
+
+.contentSider {
+  margin-top: 55px;
+  font-family: 'Raleway', sans-serif;
+  margin-left: 30px; }
+
+.mapsTitle {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px; }
+
+@media (max-width: 992px) {
+  #map {
+    height: 300px;
+    width: 100%; }
+  .centerConfirmContent {
+    flex-direction: column;
+    width: 85%; }
+  .contentSider {
+    margin-top: auto;
+    margin-left: auto; } }
+
 .parentCheckout {
   display: flex; }
 
@@ -1471,7 +1472,7 @@ li {
     color: #A1A1A1;
     margin-left: 8px; }
   .leftCheckout .textheightFix {
-    line-height: 34px; }
+    line-height: 32px; }
   .leftCheckout .textboxStyleCheckout {
     outline: none;
     border: none;
@@ -1998,7 +1999,7 @@ li {
   .userInfo {
     height: 600px; }
   .progressInfo {
-    margin-top: 20px; }
+    margin-top: 40px; }
   .paymentInfo {
     zoom: .9; } }
 

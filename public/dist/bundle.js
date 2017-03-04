@@ -302,42 +302,6 @@ angular.module('boosted').service('service', function ($http, stripe) {
     self.newPayment = value;
   };
 });
-angular.module('boosted').directive('checkoutCart', function () {
-  return {
-    restrict: 'E',
-    templateUrl: 'public/app/directives/checkoutCart/checkoutCart.html',
-    controller: function ($scope, service) {
-      service.getallcartItems().then(function (response) {
-        $scope.items = response.data;
-        console.log('$scope.items', $scope.items);
-        if (!$scope.items.length) {
-          $scope.emptyCart = true;
-          $scope.fullCart = false;
-        } else {
-          $scope.emptyCart = false;
-          $scope.fullCart = true;
-        }
-        $scope.getTotal();
-      });
-
-      service.gettotalPayments().then(function (response) {
-        $scope.paymentAmount = response.data[0].sum;
-      });
-      $scope.getTotal = function () {
-        var total = 0;
-        for (var i = 0; i < $scope.items.length; i++) {
-          total += $scope.items[i].price * $scope.items[i].qty;
-        }
-        $scope.totalPrice = total;
-        $scope.total = total;
-      };
-    },
-    scope: {
-      total: '=',
-      paymentmethod: '='
-    }
-  };
-});
 angular.module('boosted').directive('boardCaro', function () {
     return {
         restrict: 'E',
@@ -386,6 +350,42 @@ angular.module('boosted').directive('carousel', function () {
         }
     };
 });
+angular.module('boosted').directive('checkoutCart', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'public/app/directives/checkoutCart/checkoutCart.html',
+    controller: function ($scope, service) {
+      service.getallcartItems().then(function (response) {
+        $scope.items = response.data;
+        console.log('$scope.items', $scope.items);
+        if (!$scope.items.length) {
+          $scope.emptyCart = true;
+          $scope.fullCart = false;
+        } else {
+          $scope.emptyCart = false;
+          $scope.fullCart = true;
+        }
+        $scope.getTotal();
+      });
+
+      service.gettotalPayments().then(function (response) {
+        $scope.paymentAmount = response.data[0].sum;
+      });
+      $scope.getTotal = function () {
+        var total = 0;
+        for (var i = 0; i < $scope.items.length; i++) {
+          total += $scope.items[i].price * $scope.items[i].qty;
+        }
+        $scope.totalPrice = total;
+        $scope.total = total;
+      };
+    },
+    scope: {
+      total: '=',
+      paymentmethod: '='
+    }
+  };
+});
 angular.module('boosted').directive('footerView', function () {
     return {
         restrict: 'E',
@@ -398,6 +398,13 @@ angular.module('boosted').directive('footerView', function () {
         link: function (scope, elem, attrs) {}
     };
 });
+angular.module('boosted').directive('help', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/help/help.html',
+        link: function (scope, elem, attrs) {}
+    };
+});
 angular.module('boosted').directive('guarantee', function () {
     return {
         restrict: 'E',
@@ -405,13 +412,6 @@ angular.module('boosted').directive('guarantee', function () {
         link: function (scope, elem, attrs) {
             console.log('hello');
         }
-    };
-});
-angular.module('boosted').directive('help', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/help/help.html',
-        link: function (scope, elem, attrs) {}
     };
 });
 angular.module('boosted').directive('navBar', function () {
@@ -526,6 +526,12 @@ angular.module('boosted').controller('communityCtrl', function ($scope, service,
     console.log($scope.blogs[0].blogid);
   });
 });
+angular.module('boosted').controller('homeCtrl', function ($scope, service, $state, $timeout) {
+  $scope.fadeIn = false;
+  $timeout(function () {
+    $scope.fadeIn = true;
+  }, 200);
+});
 angular.module('boosted').controller('confirmation', function ($scope, geoService, service, $state, $http) {
 
   $scope.getMap = function initMap(lat, lng) {
@@ -550,12 +556,6 @@ angular.module('boosted').controller('confirmation', function ($scope, geoServic
     $scope.lng = $scope.location.results[0].geometry.location.lng;
     $scope.getMap($scope.lat, $scope.lng);
   });
-});
-angular.module('boosted').controller('homeCtrl', function ($scope, service, $state, $timeout) {
-  $scope.fadeIn = false;
-  $timeout(function () {
-    $scope.fadeIn = true;
-  }, 200);
 });
 angular.module('boosted').controller('infomethod', function ($scope, service, $state, geoService, $http) {
 

@@ -1,5 +1,9 @@
 angular.module('boosted')
 .controller('cartCtrl', function($scope,service, $state) {
+  $scope.updateInitial = function() {
+    $state.reload();
+  }
+$scope.updateInitial();
 
   $scope.updateCart = function(){
   service.getallcartItems().then(function(response){

@@ -59,4 +59,3 @@ $scope.updateCart();
     });
   }
 });
-$scope.updateItem();

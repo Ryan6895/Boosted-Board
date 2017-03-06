@@ -18,9 +18,9 @@ angular.module('boosted')
       $scope.itemId = 15;
     }
     service.addtoCart($scope.itemId).then(function(response) {
-      console.log(response);
+      $state.go('cart');
     })
-    $state.go('cart');
+
   }
   service.getUser().then(function(response) {
     if (!response){

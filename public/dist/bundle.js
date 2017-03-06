@@ -398,13 +398,6 @@ angular.module('boosted').directive('footerView', function () {
         link: function (scope, elem, attrs) {}
     };
 });
-angular.module('boosted').directive('help', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/help/help.html',
-        link: function (scope, elem, attrs) {}
-    };
-});
 angular.module('boosted').directive('guarantee', function () {
     return {
         restrict: 'E',
@@ -412,6 +405,13 @@ angular.module('boosted').directive('guarantee', function () {
         link: function (scope, elem, attrs) {
             console.log('hello');
         }
+    };
+});
+angular.module('boosted').directive('help', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/help/help.html',
+        link: function (scope, elem, attrs) {}
     };
 });
 angular.module('boosted').directive('navBar', function () {
@@ -611,6 +611,34 @@ angular.module('boosted').controller('infomethod', function ($scope, service, $s
     console.log($scope.borderStyle);
   };
 });
+angular.module('boosted').controller('itemCtrl', function ($scope, service, $stateParams, $state) {
+  service.getOneItem($stateParams.id).then(function (item) {
+    $scope.item = item.data;
+  });
+
+  service.getUser().then(function (response) {
+    if (!response) {
+      $scope.loggedin = false;
+    } else {
+      $scope.loggedin = true;
+    }
+  });
+
+  $scope.addItem = function () {
+    service.checkItems($stateParams.id).then(function (response) {
+      console.log('getcartItems', response);
+      if (!response.data.length) {
+        service.addtoCart($stateParams.id).then(function (response) {
+          $state.go('cart');
+        });
+      } else {
+        service.changeQuantity($stateParams.id).then(function (response) {
+          $state.go('cart');
+        });
+      }
+    });
+  };
+});
 angular.module('boosted').controller('paymentmethod', function ($scope, service, $http, $state, stripe) {
 
   $scope.total = 0;
@@ -754,34 +782,6 @@ angular.module('boosted').controller('payments', function ($scope, service, $sta
   };
   //===END CTRL=======
 });
-angular.module('boosted').controller('itemCtrl', function ($scope, service, $stateParams, $state) {
-  service.getOneItem($stateParams.id).then(function (item) {
-    $scope.item = item.data;
-  });
-
-  service.getUser().then(function (response) {
-    if (!response) {
-      $scope.loggedin = false;
-    } else {
-      $scope.loggedin = true;
-    }
-  });
-
-  $scope.addItem = function () {
-    service.checkItems($stateParams.id).then(function (response) {
-      console.log('getcartItems', response);
-      if (!response.data.length) {
-        service.addtoCart($stateParams.id).then(function (response) {
-          $state.go('cart');
-        });
-      } else {
-        service.changeQuantity($stateParams.id).then(function (response) {
-          $state.go('cart');
-        });
-      }
-    });
-  };
-});
 angular.module('boosted').controller('reserve', function ($scope, service, $state, $timeout) {
   $scope.specs = 5;
   $scope.batteries = 1;
@@ -801,9 +801,8 @@ angular.module('boosted').controller('reserve', function ($scope, service, $stat
       $scope.itemId = 15;
     }
     service.addtoCart($scope.itemId).then(function (response) {
-      console.log(response);
+      $state.go('cart');
     });
-    $state.go('cart');
   };
   service.getUser().then(function (response) {
     if (!response) {

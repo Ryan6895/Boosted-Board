@@ -190,32 +190,6 @@ a {
   .inputInfoFooter {
     width: 465px; } }
 
-.helpContainer {
-  background: url("../../img/theBoard/team.JPG") no-repeat center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  height: 900px; }
-
-#blackButton {
-  background-color: black;
-  color: white; }
-
-#blackButton:hover {
-  background-color: grey; }
-
-.helpContent {
-  width: 400px;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  margin: auto;
-  padding-top: 100px; }
-
-@media (max-width: 405px) {
-  .helpContent {
-    width: 100%;
-    margin: 0px; } }
-
 .guaranteeContainer {
   height: 540px;
   background: url(../../img/homePage/blueMap.JPG) no-repeat center center fixed;
@@ -283,6 +257,32 @@ a {
 .hrlines {
   border-left: solid #E3E3E3 1px;
   margin: 18px; }
+
+.helpContainer {
+  background: url("../../img/theBoard/team.JPG") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 900px; }
+
+#blackButton {
+  background-color: black;
+  color: white; }
+
+#blackButton:hover {
+  background-color: grey; }
+
+.helpContent {
+  width: 400px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin: auto;
+  padding-top: 100px; }
+
+@media (max-width: 405px) {
+  .helpContent {
+    width: 100%;
+    margin: 0px; } }
 
 body {
   margin: 0px;
@@ -1623,6 +1623,53 @@ li {
   .extraLinks {
     width: auto; } }
 
+#itemContainer {
+  display: flex;
+  margin: auto;
+  width: 80%;
+  padding-top: 200px;
+  padding-bottom: 200px; }
+
+.itemInfoContainer {
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 80px;
+  width: 40%; }
+
+.samesizePic {
+  background-color: white;
+  width: 460px;
+  border-radius: 6px;
+  transition: .25s; }
+
+.itemPic {
+  height: 345px;
+  border-radius: 6px; }
+
+.noMargin {
+  margin-left: 0px; }
+
+.itemTitle {
+  font-size: 34px;
+  font-family: 'Francois One', sans-serif;
+  letter-spacing: 1.4px; }
+
+.itemPrice {
+  font-size: 20px;
+  font-family: 'Francois One', sans-serif;
+  letter-spacing: 1.4px; }
+
+@media (max-width: 992px) {
+  #itemContainer {
+    flex-direction: column; }
+  .itemPic {
+    width: 90%;
+    height: auto; }
+  .itemInfoContainer {
+    width: 90%;
+    margin-left: 0px; }
+  .itemTitle {
+    line-height: normal; } }
+
 .parentPayment {
   display: flex; }
   .parentPayment .title {
@@ -1955,53 +2002,6 @@ li {
     margin-top: 40px; }
   .paymentInfo {
     zoom: .9; } }
-
-#itemContainer {
-  display: flex;
-  margin: auto;
-  width: 80%;
-  padding-top: 200px;
-  padding-bottom: 200px; }
-
-.itemInfoContainer {
-  font-family: 'Montserrat', sans-serif;
-  margin-left: 80px;
-  width: 40%; }
-
-.samesizePic {
-  background-color: white;
-  width: 460px;
-  border-radius: 6px;
-  transition: .25s; }
-
-.itemPic {
-  height: 345px;
-  border-radius: 6px; }
-
-.noMargin {
-  margin-left: 0px; }
-
-.itemTitle {
-  font-size: 34px;
-  font-family: 'Francois One', sans-serif;
-  letter-spacing: 1.4px; }
-
-.itemPrice {
-  font-size: 20px;
-  font-family: 'Francois One', sans-serif;
-  letter-spacing: 1.4px; }
-
-@media (max-width: 992px) {
-  #itemContainer {
-    flex-direction: column; }
-  .itemPic {
-    width: 90%;
-    height: auto; }
-  .itemInfoContainer {
-    width: 90%;
-    margin-left: 0px; }
-  .itemTitle {
-    line-height: normal; } }
 
 .reserveCover {
   display: flex;

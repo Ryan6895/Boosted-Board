@@ -17,11 +17,13 @@ angular.module('boosted')
           service.checkItems($stateParams.id).then(function(response) {
             console.log('getcartItems',response);
             if(!response.data.length){
-              service.addtoCart($stateParams.id);
+              service.addtoCart($stateParams.id).then(function(response) {
               $state.go('cart');
+              })
             } else {
-              service.changeQuantity($stateParams.id);
+              service.changeQuantity($stateParams.id).then(function(response) {
               $state.go('cart');
+              })
             }
           });
 

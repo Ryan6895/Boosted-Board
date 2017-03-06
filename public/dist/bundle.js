@@ -398,13 +398,6 @@ angular.module('boosted').directive('footerView', function () {
         link: function (scope, elem, attrs) {}
     };
 });
-angular.module('boosted').directive('help', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'public/app/directives/help/help.html',
-        link: function (scope, elem, attrs) {}
-    };
-});
 angular.module('boosted').directive('guarantee', function () {
     return {
         restrict: 'E',
@@ -412,6 +405,13 @@ angular.module('boosted').directive('guarantee', function () {
         link: function (scope, elem, attrs) {
             console.log('hello');
         }
+    };
+});
+angular.module('boosted').directive('help', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'public/app/directives/help/help.html',
+        link: function (scope, elem, attrs) {}
     };
 });
 angular.module('boosted').directive('navBar', function () {
@@ -520,17 +520,12 @@ angular.module('boosted').controller('cartCtrl', function ($scope, service, $sta
     });
   };
 });
+$scope.updateItem();
 angular.module('boosted').controller('communityCtrl', function ($scope, service, $state, $http) {
   service.getblogs().then(function (response) {
     $scope.blogs = response.data;
     console.log($scope.blogs[0].blogid);
   });
-});
-angular.module('boosted').controller('homeCtrl', function ($scope, service, $state, $timeout) {
-  $scope.fadeIn = false;
-  $timeout(function () {
-    $scope.fadeIn = true;
-  }, 200);
 });
 angular.module('boosted').controller('confirmation', function ($scope, geoService, service, $state, $http) {
 
@@ -556,6 +551,12 @@ angular.module('boosted').controller('confirmation', function ($scope, geoServic
     $scope.lng = $scope.location.results[0].geometry.location.lng;
     $scope.getMap($scope.lat, $scope.lng);
   });
+});
+angular.module('boosted').controller('homeCtrl', function ($scope, service, $state, $timeout) {
+  $scope.fadeIn = false;
+  $timeout(function () {
+    $scope.fadeIn = true;
+  }, 200);
 });
 angular.module('boosted').controller('infomethod', function ($scope, service, $state, geoService, $http) {
 
@@ -628,11 +629,13 @@ angular.module('boosted').controller('itemCtrl', function ($scope, service, $sta
     service.checkItems($stateParams.id).then(function (response) {
       console.log('getcartItems', response);
       if (!response.data.length) {
-        service.addtoCart($stateParams.id);
-        $state.go('cart');
+        service.addtoCart($stateParams.id).then(function (response) {
+          $state.go('cart');
+        });
       } else {
-        service.changeQuantity($stateParams.id);
-        $state.go('cart');
+        service.changeQuantity($stateParams.id).then(function (response) {
+          $state.go('cart');
+        });
       }
     });
   };
